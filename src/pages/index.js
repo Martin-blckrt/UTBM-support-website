@@ -1,4 +1,6 @@
 import * as React from "react"
+import Header from "../components/header"
+import {Link} from "gatsby"
 
 // styles
 const pageStyles = {
@@ -20,7 +22,6 @@ const paragraphStyles = {
 const codeStyles = {
   color: "#8A6534",
   padding: 4,
-  backgroundColor: "#FFF4DB",
   fontSize: "1.25rem",
   borderRadius: 4,
 }
@@ -130,6 +131,11 @@ const IndexPage = () => {
   return (
     <main style={pageStyles}>
       <title>Home Page</title>
+
+      <Header text={'this is a header :) '}/>
+      <Link to="/about/">about</Link> <br/>
+      <Link to="/contact/">contact</Link>
+
       <h1 style={headingStyles}>
         Congratulations
         <br />
