@@ -3,12 +3,15 @@ module.exports = {
     title: "UTBM support",
   },
   plugins: [
-    "gatsby-plugin-sass",
-    "gatsby-plugin-sitemap",
     {
-      resolve: "gatsby-plugin-manifest",
+      resolve: `gatsby-plugin-emotion`,
       options: {
-        icon: "src/images/icon.png",
+        // Accepts the following options, all of which are defined by `@emotion/babel-plugin` plugin.
+        // The values for each key in this example are the defaults the plugin uses.
+        sourceMap: true,
+        autoLabel: "dev-only",
+        labelFormat: `[local]`,
+        cssPropOptimization: true,
       },
     },
   ],
