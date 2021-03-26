@@ -9,11 +9,6 @@ export default function About() {
                    description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                    "Aliquet congue curabitur morbi odio eget ut fringilla sit varius. Pharetra justo at eu massa libero, " +
                    "amet ac."}/>
-            <Cards key={1}
-                   title={"This is the title"}
-                   description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
-                   "Aliquet congue curabitur morbi odio eget ut fringilla sit varius. Pharetra justo at eu massa libero, " +
-                   "amet ac."}/>
         </div>
     )
 }
