@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "UTBM support",
+    title: "UTBM FAQ"
   },
   plugins: [
     {
