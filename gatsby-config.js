@@ -21,8 +21,5 @@ module.exports = {
         cssPropOptimization: true,
       },
     },
-
-    `gatsby-plugin-nodejs`
-
   ],
 };
