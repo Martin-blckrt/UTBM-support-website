@@ -1,7 +1,7 @@
 import * as React from "react";
 
 
-export default function Categorie(){
+export default function searchResults(){
     return (
         <div>
 

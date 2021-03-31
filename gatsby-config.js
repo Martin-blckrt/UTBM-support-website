@@ -4,6 +4,13 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-emotion`,
       options: {
         // Accepts the following options, all of which are defined by `@emotion/babel-plugin` plugin.
@@ -14,5 +21,8 @@ module.exports = {
         cssPropOptimization: true,
       },
     },
+
+    `gatsby-plugin-nodejs`
+
   ],
 };
