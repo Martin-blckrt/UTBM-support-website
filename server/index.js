@@ -5,7 +5,6 @@ const app = express();
 
 gatsby.prepare({ app }, () => {
     // Here you can define your routes
-
 });
 
 const port = process.env.PORT || 1337;
