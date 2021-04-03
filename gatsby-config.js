@@ -1,7 +1,14 @@
 module.exports = {
+
   siteMetadata: {
     title: "UTBM FAQ"
   },
+
+  proxy: {
+    prefix: "/data",
+    url: "http://localhost:1337",
+  },
+
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
@@ -21,5 +28,6 @@ module.exports = {
         cssPropOptimization: true,
       },
     },
+    `gatsby-plugin-nodejs`,
   ],
 };
