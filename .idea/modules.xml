@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/utbm-support.iml" filepath="$PROJECT_DIR$/.idea/utbm-support.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../utbm-support-server/.idea/utbm-support-server.iml" filepath="$PROJECT_DIR$/../utbm-support-server/.idea/utbm-support-server.iml" />
     </modules>
   </component>
 </project>
