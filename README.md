@@ -4,20 +4,8 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby minimal starter
+  UTBM support website git repo.
 </h1>
 
-## 🚀 Quick start
 
 
-1.  **Start developing.**
-
-    start up the website with the following command :
-
-    ```shell
-    npm run develop
-    ```
-
-3.  **Open the code and start customizing!**
-
-    Your site is now running at http://localhost:8000!
