@@ -1,10 +1,29 @@
 const express = require("express");
 const gatsby = require("gatsby-plugin-nodejs");
+let dbconnection = require('./connectDB');
+
 
 const app = express();
 
 gatsby.prepare({ app }, () => {
-    // Here you can define your routes
+
+    app.get('/articleData', ((req, res) => {
+
+        const query = 'SELECT * FROM T_article'
+        dbconnection.query(query,  (error, results) => {
+            if (error) {
+                console.log('Warning : Cannot connect to the MySQL server. Error Code: ' + error.code);
+                return;
+            }
+
+            //peut etre interessant d'envoyer notre reponse en mode JSON. Mais à voir si on peut pas trouver un moyen
+            //d'utiliser Graphql pour recuperer les données de la base de données.
+
+            res.json(results);
+
+        });
+    })
+    )
 });
 
 const port = process.env.PORT || 1337;

@@ -1,7 +1,7 @@
 import * as React from "react"
 import Header from "../components/header";
 import "../styles/global.css"
-import "../scripts/requestDB"
+import requestDB from '../scripts/requestDB'
 
 export default function Article({data}){
         return(
@@ -9,7 +9,7 @@ export default function Article({data}){
                 <Header/>
                 <div id="articleContent">
                     <p>hello</p>
-                    <button id="requestButton">Request data from server</button>
+                    <button onClick={requestDB} id="requestButton">Request data from server</button>
                 </div>
                 <div id="category">
 
@@ -18,4 +18,5 @@ export default function Article({data}){
         )
 
 }
+
 
