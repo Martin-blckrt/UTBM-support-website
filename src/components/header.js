@@ -7,9 +7,7 @@ import ConnectButton from "./connectButton";
 const headingBackground = css`
   background-color: white;
   box-shadow: 0 0 20px rgba(0,0,0,.25);
-  width: 100vw;
-  height: 100px;
-  padding-right: 200px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
