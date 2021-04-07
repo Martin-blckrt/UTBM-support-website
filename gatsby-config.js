@@ -11,9 +11,6 @@ module.exports = {
 
     plugins: [
         {
-            resolve: `gatsby-source-graphql`,
-        },
-        {
             resolve: `gatsby-source-filesystem`,
             options: {
                 name: `src`,

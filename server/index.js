@@ -8,6 +8,7 @@ const app = express();
 gatsby.prepare({ app }, () => {
 
     app.get('/api/v1/articles', ((req, res) => {
+        //TODO. Check : https://stackoverflow.com/questions/15601703/difference-between-app-use-and-app-get-in-express-js
 
         const query = 'SELECT * FROM T_article'
 
@@ -20,7 +21,6 @@ gatsby.prepare({ app }, () => {
             //peut etre interessant d'envoyer notre reponse en mode JSON. Mais à voir si on peut pas trouver un moyen
             //d'utiliser Graphql pour recuperer les données de la base de données.
 
-            res.json(results);
 
         });
     })
