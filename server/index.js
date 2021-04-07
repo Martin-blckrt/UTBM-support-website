@@ -7,10 +7,11 @@ const app = express();
 
 gatsby.prepare({ app }, () => {
 
-    app.get('/articleData', ((req, res) => {
+    app.get('/api/v1/articles', ((req, res) => {
 
         const query = 'SELECT * FROM T_article'
-        dbconnection.query(query,  (error, results) => {
+
+    dbconnection.query(query, (error, results) => {
             if (error) {
                 console.log('Warning : Cannot connect to the MySQL server. Error Code: ' + error.code);
                 return;

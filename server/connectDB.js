@@ -6,22 +6,6 @@ const dbConnectionInfo = {
     password: "C@rs6791",
     database: "utbmSupport"
 };
-/*
-//For mysql single connection
-let dbconnection = mysql.createConnection(
-    dbConnectionInfo
-);
-
-dbconnection.connect(function (err) {
-    if (!err) {
-        console.log("Database is connected ... nn");
-    } else {
-        console.log("Error connecting database ... nn");
-    }
-});
-*/
-
-
 
 //create mysql connection pool
 let dbconnection = mysql.createPool(
