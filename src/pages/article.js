@@ -7,14 +7,17 @@ import axios from "axios";
 export default function Article() {
 
 
-    const res = axios.get("/api/articles");
-    console.log("res = ", res);
+    function getarticle(){
+        const res = axios.get("/api/article");
+        console.log("res = ", res);
+    }
+
 
     return (
         <Layout>
             <div id="articleContent">
                 <p>hello</p>
-
+                <button onClick={getarticle}>click</button>
             </div>
         </Layout>
     )

@@ -1,12 +1,10 @@
 import React, {Component} from "react";
-import Article from "../pages/article";
-import ArticleService from '../services/ArticleService'
+import ArticleService from '../services/articleService'
 
 export default class ListArticleComponent extends Component {
     constructor(props) {
         super(props);
         //https://www.javaguides.net/2020/08/reactjs-axios-get-post-put-and-delete-example-tutorial.html
-        //TODO. finir en se basant la dessus et en mettant les infos qu'il faut au bon endroit.
 
         this.state = {
                 articles: []

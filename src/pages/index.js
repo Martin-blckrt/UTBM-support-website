@@ -10,7 +10,6 @@ const IndexPage = () => {
       <title>Home Page</title>
         <Layout>
           <Link to="/about/">about</Link> <br/>
-          <Link to="/contact/">contact</Link> <br/>
           <Link to="/article/">article</Link>
         </Layout>
 
