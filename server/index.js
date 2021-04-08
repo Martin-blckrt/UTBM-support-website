@@ -5,26 +5,32 @@ let dbconnection = require('./connectDB');
 
 const app = express();
 
-gatsby.prepare({ app }, () => {
 
-    app.get('/api/v1/articles', ((req, res) => {
+const query = 'SELECT * FROM T_article'
+
+const getArticle = () => new Promise((resolve) => {
+    dbconnection.query(query, (err, results_db) => {
+
+        if (err) console.error("error db =", err);
+
+        console.log("results = ", results_db);
+        resolve(results_db);
+
+    });
+});
+
+
+gatsby.prepare({app}, () => {
+
+    app.get('/api/articles', async (req, res) => {
         //TODO. Check : https://stackoverflow.com/questions/15601703/difference-between-app-use-and-app-get-in-express-js
 
-        const query = 'SELECT * FROM T_article'
+        await getArticle()
+            .then(results_db => res.send(results_db))
+            .catch(err => console.error(err));
 
-    dbconnection.query(query, (error, results) => {
-            if (error) {
-                console.log('Warning : Cannot connect to the MySQL server. Error Code: ' + error.code);
-                return;
-            }
-
-            //peut etre interessant d'envoyer notre reponse en mode JSON. Mais à voir si on peut pas trouver un moyen
-            //d'utiliser Graphql pour recuperer les données de la base de données.
-
-
-        });
     })
-    )
+
 });
 
 const port = process.env.PORT || 1337;
