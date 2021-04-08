@@ -7,9 +7,21 @@ import axios from "axios";
 export default function Article() {
 
 
-    function getarticle(){
+    function getArticle() {
         const res = axios.get("/api/article");
         console.log("res = ", res);
+    }
+
+    function writeData(){
+
+        axios.post("/api/article", {title: "Mon article"})
+            .then(response => {console.log('Success: ', response)})
+            .catch(error => {console.log('Error: ', error)
+
+        })
+        ;
+
+
     }
 
 
@@ -17,7 +29,8 @@ export default function Article() {
         <Layout>
             <div id="articleContent">
                 <p>hello</p>
-                <button onClick={getarticle}>click</button>
+                <button onClick={getArticle}>get</button>
+                <button onClick={writeData}>post</button>
             </div>
         </Layout>
     )

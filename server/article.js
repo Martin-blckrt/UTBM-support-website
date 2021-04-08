@@ -14,6 +14,16 @@ const getDataDB = (query) => new Promise((resolve) => {
     });
 });
 
+function insertDataDB(data){
+
+    let query = `SELECT * FROM T_article`;
+    dbconnection.query(query, (err, results_db) => {
+
+        if (err) console.error("error db =", err);
+
+    });
+}
+
 router.get('/', async (req, res) => {
 
     const query = 'SELECT * FROM T_article'
@@ -24,5 +34,13 @@ router.get('/', async (req, res) => {
 
 });
 
+router.post('/', async (req, res) => {
+    let response = {
+        title:req.body.title
+    };
+    console.log(response);
+    res.end("I go the data!");
+    insertDataDB();
+});
 
 module.exports = router

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const ARTICLE_API_BASE_URL = "http://localhost:8000/api/v1/articles";
+const ARTICLE_API_BASE_URL = "http://localhost:8000/api/articles";
 
 class ArticleService {
 
