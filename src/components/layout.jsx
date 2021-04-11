@@ -1,9 +1,9 @@
 import React from "react"
 import Header from "./header"
 
-const Layout = ({ children }) => (
+const Layout = ({children}) => (
     <>
-        <Header/>
+        <Header headerOpacity={1} boxShadowOpacity={.25}/>
         {children}
     </>
 )

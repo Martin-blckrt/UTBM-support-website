@@ -1,4 +1,4 @@
-import "../styles/global.css"
+import "../styles/index.css"
 import Layout from "../components/layout";
 import React from "react";
 import axios from "axios";

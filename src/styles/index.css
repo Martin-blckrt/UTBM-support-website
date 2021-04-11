@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+
+/*-----------------  GLOBAL TWEAK --------------------*/
+body{
+    margin: 0;
+    background-image: url("../assets/background.png");
+    background-position: center;
+    background-repeat: repeat;
+}
+*{
+    color: #303030;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 550;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*-----------------  TWEAK index.js --------------------*/
+
+h1, h2{
+    text-align: center;
+    padding: 30px;
+}
+h1{
+    font-weight: bolder;
+    font-size: xx-large;
+}
+h2 strong{
+    font-weight: bolder;
+}
+#categories-list-container{
+    background: #e4efff;
+    width: 700px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    border-radius: 30px;
+    padding: 30px;
+}

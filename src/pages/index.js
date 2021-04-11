@@ -1,20 +1,26 @@
 import * as React from "react"
 import {Link} from "gatsby"
-import "../styles/global.css"
-import Layout from "../components/layout";
+import "../styles/index.css"
+import Header from "../components/header";
+import BrowseCategoriesTable from "../components/browseCategoriesTable";
 
 // markup
 const IndexPage = () => {
-  return (
-    <main>
-      <title>Home Page</title>
-        <Layout>
-          <Link to="/about/">about</Link> <br/>
-          <Link to="/article/">article</Link>
-        </Layout>
+    return (
+        <main>
+            <title>Home Page</title>
+            <Header headerOpacity={0} boxShadowOpacity={0}/>
+            <h1>Rechercher un tutoriel</h1>
 
-    </main>
-  )
+            <h2><strong>Parcourir</strong> les catégories</h2>
+
+            <div id={'categories-list-container'}>
+                <BrowseCategoriesTable/>
+            </div>
+            <Link to="/article/">article</Link>
+
+        </main>
+    )
 }
 
 export default IndexPage

@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
         title:req.body.title
     };
     console.log(response);
-    res.end("I go the data!");
+    res.end("I've got the data!");
     insertDataDB();
 });
 
