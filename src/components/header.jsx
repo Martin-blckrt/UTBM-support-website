@@ -7,7 +7,7 @@ import ConnectButton from "./connectButton";
 const headingBackground = function (headerOpacity,boxShadowOpacity) {
     return css`
       box-shadow: 0 0 20px rgba(0, 0, 0, ${boxShadowOpacity} );
-      padding: 50px 30px;
+      padding: 30px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
