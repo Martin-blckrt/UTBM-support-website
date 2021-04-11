@@ -30,10 +30,11 @@ h2 strong{
 }
 #categories-list-container{
     background: #e4efff;
-    width: 700px;
+    width: 800px;
+    padding: 40px 20px;
     display: flex;
     justify-content: center;
     margin: auto;
     border-radius: 30px;
-    padding: 30px;
+
 }
