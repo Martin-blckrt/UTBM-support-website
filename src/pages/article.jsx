@@ -1,7 +1,7 @@
 import "../styles/index.css"
-import Layout from "../components/layout";
 import React from "react";
 import axios from "axios";
+import Header from "../components/header";
 
 
 export default function Article() {
@@ -21,18 +21,16 @@ export default function Article() {
         })
         ;
 
-
     }
 
-
     return (
-        <Layout>
+
             <div id="articleContent">
+                <Header headerOpacity={1} boxShadowOpacity={.25}/>
                 <p>hello</p>
                 <button onClick={getArticle}>get</button>
                 <button onClick={writeData}>post</button>
             </div>
-        </Layout>
     )
 
 

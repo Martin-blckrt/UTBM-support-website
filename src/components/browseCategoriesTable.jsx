@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import '../styles/browseCategoriesTable.css'
 import axios from "axios";
+import {Link} from "gatsby";
 
 export default function BrowseCategoriesTable() {
 
@@ -21,13 +22,14 @@ export default function BrowseCategoriesTable() {
         </div>)
     } else {
 
-
         let listArticle = [];
         data.map((dataElement, index) => listArticle[index] = dataElement.titles.split(','));
         return (
             data.map((dataElement,index) => (
                 <ul>
-                    <h3>{dataElement.name}</h3>
+                    <Link to="/categorie/" categorie = {dataElement.name}>
+                        <h3>{dataElement.name}</h3>
+                    </Link>
                     {listArticle[index].map(article => (
                         <li>{article}</li>
                     ))}
