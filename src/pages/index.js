@@ -3,9 +3,12 @@ import {Link} from "gatsby"
 import "../styles/index.css"
 import Header from "../components/header";
 import BrowseCategoriesTable from "../components/browseCategoriesTable";
+import axios from "axios";
+
 
 // markup
 const IndexPage = () => {
+
     return (
         <main>
             <title>Home Page</title>

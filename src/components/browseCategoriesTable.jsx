@@ -1,57 +1,39 @@
-import * as React from "react";
+import React, {useState, useEffect} from "react";
 import '../styles/browseCategoriesTable.css'
+import axios from "axios";
 
-export default function BrowseCategoriesTable(){
-    return(
-        <table>
-            <tr>
-                <td>
-                    <ul>
-                        <h3>Général</h3>
-                        <li>L’UTBM</li>
-                        <li>Les calendriers</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <h3>Général</h3>
-                        <li>L’UTBM</li>
-                        <li>Les calendriers</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <h3>Général</h3>
-                        <li>L’UTBM</li>
-                        <li>Les calendriers</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <ul>
-                        <h3>Général</h3>
-                        <li>L’UTBM</li>
-                        <li>Les calendriers</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <h3>Général</h3>
-                        <li>L’UTBM</li>
-                        <li>Les calendriers</li>
-                    </ul>
-                </td>
-                <td>
-                    <ul>
-                        <h3>Général</h3>
-                        <li>L’UTBM</li>
-                        <li>Les calendriers</li>
-                    </ul>
-                </td>
-            </tr>
+export default function BrowseCategoriesTable() {
 
-        </table>
-    )
+    const [data, setData] = useState(null);
 
+    const fetchData = async () => {
+        const id = '*';
+        const newData = await axios.get("/api/categories", {params: {id: id}})
+        setData(newData.data);
+    };
+
+    useEffect(() => {
+        fetchData();
+    });
+
+    // think of Axios Progress Bar if we waant to animate dataloading
+
+    if (!data) {
+        return (<div>
+            <p>Loading data</p>
+        </div>)
+    } else {
+        return (
+
+            data.map(categorie =>
+                <ul>
+                    <h3>{categorie.name}</h3>
+                    <li>Hello</li>
+                    <li>Hello</li>
+                    <li>Hello</li>
+                </ul>
+            )
+
+        )
+    }
 }
