@@ -1,5 +1,4 @@
 let express = require('express');
-const insertDataDB = require('../../database/insertDB')
 let router = express.Router();
 const DBmanager = require('../../database/db-manager')
 
