@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
-
 /*-----------------  GLOBAL TWEAK --------------------*/
 body{
     margin: 0;
@@ -37,7 +36,6 @@ h2 strong{
     flex-wrap: wrap;
     margin: auto;
     border-radius: 30px;
-
 }
 
 #categories-list-container ul{

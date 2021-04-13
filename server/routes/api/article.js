@@ -7,7 +7,6 @@ let db_manager = new DBmanager();
 
 router.get('/', async (req, res) => {
 
-
     const query = 'SELECT * FROM T_article'
 
     await db_manager.getDataDB(query)

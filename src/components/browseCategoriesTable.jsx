@@ -6,16 +6,13 @@ export default function BrowseCategoriesTable() {
 
     const [data, setData] = useState(null);
 
-    const fetchData = async () => {
-        const id = '*';
-        const newData = await axios.get("/api/categories", {params: {id: id}})
-        setData(newData.data);
-    };
-
     useEffect(() => {
-        fetchData();
+        const fetchData = async (id) => {
+            const data = await axios.get("/api/categories", {params: {id: id}})
+            setData(data.data);
+        };
+        fetchData('home')
     });
-
     // think of Axios Progress Bar if we waant to animate dataloading
 
     if (!data) {
@@ -23,14 +20,13 @@ export default function BrowseCategoriesTable() {
             <p>Loading data</p>
         </div>)
     } else {
+
         return (
 
             data.map(categorie =>
                 <ul>
                     <h3>{categorie.name}</h3>
-                    <li>Hello</li>
-                    <li>Hello</li>
-                    <li>Hello</li>
+                    <li>{categorie.titles}</li>
                 </ul>
             )
 
