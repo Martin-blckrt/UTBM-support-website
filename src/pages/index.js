@@ -5,7 +5,6 @@ import Header from "../components/header";
 import BrowseCategoriesTable from "../components/browseCategoriesTable";
 
 
-// markup
 const IndexPage = () => {
 
     return (

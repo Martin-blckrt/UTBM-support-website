@@ -12,7 +12,7 @@ export default function BrowseCategoriesTable() {
             setData(data.data);
         };
         fetchData('home')
-    });
+    }, []);
     // think of Axios Progress Bar if we waant to animate dataloading
 
     if (!data) {
@@ -21,15 +21,18 @@ export default function BrowseCategoriesTable() {
         </div>)
     } else {
 
+
+        let listArticle = [];
+        data.map((dataElement, index) => listArticle[index] = dataElement.titles.split(','));
         return (
-
-            data.map(categorie =>
+            data.map((dataElement,index) => (
                 <ul>
-                    <h3>{categorie.name}</h3>
-                    <li>{categorie.titles}</li>
+                    <h3>{dataElement.name}</h3>
+                    {listArticle[index].map(article => (
+                        <li>{article}</li>
+                    ))}
                 </ul>
-            )
-
+            ))
         )
     }
 }
