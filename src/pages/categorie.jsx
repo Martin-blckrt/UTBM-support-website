@@ -6,12 +6,16 @@ export default function Categorie(props) {
 
     let [data, setData] = useState(null);
 
-    useEffect((uri, params) => {
-        data = fetchData("/api/categories", {id : props.location.state.id})
-        setData(data.data);
+    useEffect(() => {
+        const fetch = async () => {
+            const data = fetchData("api/categories", {id : props.location.state.id});
+            setData(data);
+        }
+        fetch();
+
     }, []);
 
-
+    console.log(data)
     if (!data) {
         return (<div>
             <Header headerOpacity={1} boxShadowOpacity={.25}/>
