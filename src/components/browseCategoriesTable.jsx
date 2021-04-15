@@ -27,7 +27,7 @@ export default function BrowseCategoriesTable() {
         return (
             data.map((dataElement,index) => (
                 <ul>
-                    <Link to="/categorie/" categorie = {dataElement.name}>
+                    <Link to = "/categorie/" state={{id:dataElement.id}}>
                         <h3>{dataElement.name}</h3>
                     </Link>
                     {listArticle[index].map(article => (
