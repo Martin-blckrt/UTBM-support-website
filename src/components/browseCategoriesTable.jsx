@@ -8,13 +8,12 @@ export default function BrowseCategoriesTable() {
     const [data, setData] = useState(null);
 
     useEffect(() => {
-        const fetchData = async (id) => {
-            const data = await axios.get("/api/categories", {params: {id: id}})
+        const fetchData = async (url, parameters) => {
+            const data = await axios.get(url, {params:parameters})
             setData(data.data);
         };
-        fetchData('home')
+        fetchData( "/api/categories",{id: 'home'})
     }, []);
-    // think of Axios Progress Bar if we waant to animate dataloading
 
     if (!data) {
         return (<div>

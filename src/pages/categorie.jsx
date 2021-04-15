@@ -1,18 +1,17 @@
 import React, {useEffect, useState} from "react";
 import Header from "../components/header";
-import {fetchData} from "../dbinteraction";
+import axios from "axios";
 
 export default function Categorie(props) {
 
     let [data, setData] = useState(null);
 
     useEffect(() => {
-        const fetch = async () => {
-            const data = fetchData("api/categories", {id : props.location.state.id});
-            setData(data);
-        }
-        fetch();
-
+        const fetchData = async (url, parameters) => {
+            const data = await axios.get(url, {params:parameters})
+            setData(data.data);
+        };
+        fetchData( "/api/categories",{id: props.location.state.id})
     }, []);
 
     console.log(data)
