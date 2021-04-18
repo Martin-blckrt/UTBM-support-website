@@ -11,7 +11,7 @@ gatsby.prepare({app}, () => {
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json())
 
-    app.use('/api/article', article);
+    app.use('/api/articles', article);
     app.use('/api/categories', categories);
 
 });

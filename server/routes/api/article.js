@@ -4,10 +4,9 @@ const DBmanager = require('../../database/db-manager')
 
 let db_manager = new DBmanager();
 
-
 router.get('/', async (req, res) => {
 
-    const query = 'SELECT * FROM T_article'
+    const query = `SELECT * FROM T_article WHERE idCategorie = ${req.query.idCategorie}`;
 
     await db_manager.getDataDB(query)
         .then(results_db => res.send(results_db))

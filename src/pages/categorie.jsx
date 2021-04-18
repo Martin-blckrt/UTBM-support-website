@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import Header from "../components/header";
 import axios from "axios";
+import ArticlesFromCategorie from "../components/articlesFromCategorie";
 
 export default function Categorie(props) {
 
@@ -14,7 +15,6 @@ export default function Categorie(props) {
         fetchData( "/api/categories",{id: props.location.state.id})
     }, []);
 
-    console.log(data)
     if (!data) {
         return (<div>
             <Header headerOpacity={1} boxShadowOpacity={.25}/>
@@ -25,7 +25,7 @@ export default function Categorie(props) {
             <div id="categorie">
                 <Header headerOpacity={1} boxShadowOpacity={.25}/>
                 <p>{data[0].name}</p>
-                <listArticles idCategorie = {props.location.state.id}/>
+                <ArticlesFromCategorie idCategorie={props.location.state.id}/>
             </div>
         )
     }

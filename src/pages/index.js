@@ -18,7 +18,6 @@ const IndexPage = () => {
             <div id={'categories-list-container'}>
                 <BrowseCategoriesTable/>
             </div>
-            <Link to="/article/">article</Link>
 
         </main>
     )
