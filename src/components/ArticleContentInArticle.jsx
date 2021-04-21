@@ -3,7 +3,7 @@ import axios from "axios";
 import {css} from "@emotion/react";
 
 export default function ArticleContentInArticle(props) {
-    console.log('article state = ', props.articleState)
+
     let [articleInfos, setArticleInfos] = useState(null);
 
     useEffect(() => {

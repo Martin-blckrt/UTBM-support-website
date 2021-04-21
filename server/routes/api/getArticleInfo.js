@@ -5,7 +5,7 @@ const DBmanager = require('../../database/db-manager')
 const db_manager = new DBmanager();
 
 router.get('/', async (req, res) => {
-    console.log(req.query)
+    console.log('getarticle info request : ', req.query);
     let query = `SELECT a.articleTitle,
                         group_concat(distinct d.subtitle order by d.id)   as subtitle,
                         group_concat(distinct d.subsection order by d.id) as subsection,

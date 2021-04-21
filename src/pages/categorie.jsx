@@ -26,7 +26,7 @@ export default function Categorie(props) {
             </div>
         )
     } else {
-        console.log('data in categorie jsx = ', data)
+
         console.log(props.location.state.id)
         return (
             <div id="categorie">
