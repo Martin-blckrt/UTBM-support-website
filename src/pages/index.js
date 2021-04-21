@@ -1,11 +1,14 @@
 import * as React from "react"
-import {Link} from "gatsby"
 import "../styles/index.css"
 import Header from "../components/header";
 import BrowseCategoriesTable from "../components/browseCategoriesTable";
 
 
 const IndexPage = () => {
+
+    /*
+    * This view is listing all categories and their 3 first articles present in the database.
+    */
 
     return (
         <main>

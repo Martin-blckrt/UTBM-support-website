@@ -4,7 +4,9 @@ import axios from "axios";
 import {Link} from "gatsby";
 
 export default function BrowseCategoriesTable() {
-
+    /*
+    * This component is shown in the index.js file and allow to list the principal categories and their articles.
+    */
     const [data, setData] = useState(null);
 
     useEffect(() => {
@@ -26,7 +28,7 @@ export default function BrowseCategoriesTable() {
         return (
             data.map((dataElement,index) => (
                 <ul>
-                    <Link to = "/categorie/" state={{id:dataElement.id}}>
+                    <Link to = '/categorie/' state={{id:dataElement.id}}>
                         <h3>{dataElement.name}</h3>
                     </Link>
                     {listArticle[index].map(article => (

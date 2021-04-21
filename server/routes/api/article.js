@@ -8,10 +8,10 @@ router.get('/', async (req, res) => {
 
     let query;
     if (req.query.id === 'article'){
-        query = `SELECT titre FROM T_article WHERE id = ${req.query.idArticle}`;
+        query = `SELECT articleTitle FROM T_article WHERE id = ${req.query.idArticle}`;
     }
     else {
-        query = `SELECT * FROM T_article WHERE idCategorie = ${req.query.idCategorie}`;
+        query = `SELECT articleTitle, tldr FROM T_article WHERE idCategory = ${req.query.idCategory}`;
     }
 
 

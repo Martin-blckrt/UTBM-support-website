@@ -13,7 +13,7 @@ export default function ShowArticlesinCategorie(props) {
             const data = await axios.get(url, {params: parameters})
             setData(data.data);
         };
-        fetchData("/api/articles", {idCategorie: props.idCategorie})
+        fetchData("/api/articles", {idCategory: props.idCategory})
     }, []);
 
     if (!data) {
@@ -21,13 +21,14 @@ export default function ShowArticlesinCategorie(props) {
             <p>Loading data</p>
         </div>)
     } else {
+        console.log(data)
         return (
             <div css={articlesContainerStyle} id="articlesContainer">
                 {
                     data.map((article, index) => (
                         <Link to = "/article/" state={{id:article.id}}>
                             <div css={articleStyle} id={'article' + index}>
-                                <h2>{article.titre}</h2>
+                                <h2>{article.title}</h2>
                                 <p>{article.tldr}</p>
 
                             </div>
