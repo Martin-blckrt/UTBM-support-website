@@ -1,7 +1,8 @@
 const express = require("express");
 const gatsby = require("gatsby-plugin-nodejs");
-const article = require('./routes/api/article');
-const categorie = require('./routes/api/categories')
+const getArticlesOfCategory = require('./routes/api/getArticlesOfCategory');
+const getCategories = require('./routes/api/getCategories')
+const getArticleInfo = require('./routes/api/getArticleInfo')
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -11,9 +12,9 @@ gatsby.prepare({app}, () => {
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json())
 
-    app.use('/api/articles', article);
-    app.use('/api/categories', categorie);
-
+    app.use('/api/getArticlesOfCategory', getArticlesOfCategory);
+    app.use('/api/getCategories', getCategories);
+    app.use('/api/getArticleInfo', getArticleInfo)
 });
 
 

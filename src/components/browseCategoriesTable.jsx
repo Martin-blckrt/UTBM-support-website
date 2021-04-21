@@ -14,7 +14,7 @@ export default function BrowseCategoriesTable() {
             const data = await axios.get(url, {params:parameters})
             setData(data.data);
         };
-        fetchData( "/api/categories",{id: 'home'})
+        fetchData( "/api/getCategories",{id: 'home'})
     }, []);
 
     if (!data) {

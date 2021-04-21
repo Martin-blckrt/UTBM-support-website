@@ -14,7 +14,8 @@ export default function Categorie(props) {
             const data = await axios.get(url, {params: parameters})
             setData(data.data);
         };
-        fetchData("/api/categories", {id: props.location.state.id});
+
+        fetchData("/api/getCategories", {id: props.location.state.id})
     }, []);
 
     if (!data) {
@@ -25,11 +26,13 @@ export default function Categorie(props) {
             </div>
         )
     } else {
+        console.log('data in categorie jsx = ', data)
+        console.log(props.location.state.id)
         return (
             <div id="categorie">
                 <Header headerOpacity={1} boxShadowOpacity={.25}/>
                 <p>{data[0].name}</p>
-                <ShowArticlesinCategorie idCategory={props.location.state.id}/>
+                <ShowArticlesinCategorie idCategory = {props.location.state.id}/>
             </div>
         )
     }

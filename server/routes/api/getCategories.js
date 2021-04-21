@@ -6,7 +6,7 @@ const db_manager = new DBmanager();
 
 router.get('/*', async (req, res) => {
     let query;
-
+    console.log('get categorie request = ', req.query)
     if (req.query.id === 'home') {
         query = `SELECT c.id, c.name, GROUP_CONCAT(a.articleTitle) as titles
                  FROM T_category c

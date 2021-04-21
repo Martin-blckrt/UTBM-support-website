@@ -6,33 +6,35 @@ import {Link} from "gatsby";
 
 export default function ShowArticlesinCategorie(props) {
 
-    const [data, setData] = useState(null);
+    const [articlesList, setArticlesList] = useState(null);
 
     useEffect(() => {
         const fetchData = async (url, parameters) => {
-            const data = await axios.get(url, {params: parameters})
-            setData(data.data);
+            const articlesList = await axios.get(url, {params: parameters})
+            setArticlesList(articlesList.data);
         };
-        fetchData("/api/articles", {idCategory: props.idCategory})
+        fetchData("/api/getArticlesOfCategory", {idCategory: props.idCategory})
     }, []);
-
-    if (!data) {
-        return (<div>
-            <p>Loading data</p>
-        </div>)
+    if (!articlesList) {
+        return (
+            <div>
+                <p>Loading Articles</p>
+            </div>
+        )
     } else {
-        console.log(data)
+
         return (
             <div css={articlesContainerStyle} id="articlesContainer">
                 {
-                    data.map((article, index) => (
-                        <Link to = "/article/" state={{id:article.id}}>
-                            <div css={articleStyle} id={'article' + index}>
-                                <h2>{article.title}</h2>
-                                <p>{article.tldr}</p>
+                    articlesList.map((article, index) => (
+                            <Link to={`/article/`} state={{id: article.id}}>
 
-                            </div>
-                        </Link>
+                                <div css={articleStyle} id={'article' + index}>
+                                    <h2>{article.articleTitle}</h2>
+                                    <p>{article.tldr}</p>
+                                </div>
+
+                            </Link>
                         )
                     )
                 }
@@ -42,6 +44,7 @@ export default function ShowArticlesinCategorie(props) {
     }
 }
 
+/*Style*/
 
 const articleStyle = css`
   box-shadow: 0 0 50px rgba(63, 139, 255, .20);
@@ -57,5 +60,5 @@ const articlesContainerStyle = css`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  
+
 `;
