@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import {css} from "@emotion/react";
+import {Link} from "gatsby";
 
 
-export default function ArticlesFromCategorie(props) {
+export default function ShowArticlesinCategorie(props) {
 
     const [data, setData] = useState(null);
 
@@ -24,10 +25,13 @@ export default function ArticlesFromCategorie(props) {
             <div css={articlesContainerStyle} id="articlesContainer">
                 {
                     data.map((article, index) => (
+                        <Link to = "/article/" state={{id:article.id}}>
                             <div css={articleStyle} id={'article' + index}>
                                 <h2>{article.titre}</h2>
                                 <p>{article.tldr}</p>
+
                             </div>
+                        </Link>
                         )
                     )
                 }

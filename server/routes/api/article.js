@@ -2,11 +2,18 @@ let express = require('express');
 let router = express.Router();
 const DBmanager = require('../../database/db-manager')
 
-let db_manager = new DBmanager();
+const db_manager = new DBmanager();
 
 router.get('/', async (req, res) => {
 
-    const query = `SELECT * FROM T_article WHERE idCategorie = ${req.query.idCategorie}`;
+    let query;
+    if (req.query.id === 'article'){
+        query = `SELECT titre FROM T_article WHERE id = ${req.query.idArticle}`;
+    }
+    else {
+        query = `SELECT * FROM T_article WHERE idCategorie = ${req.query.idCategorie}`;
+    }
+
 
     await db_manager.getDataDB(query)
         .then(results_db => res.send(results_db))

@@ -1,12 +1,13 @@
 import "../styles/index.css"
-import React from "react";
-import axios from "axios";
+import React, {useEffect, useState} from "react";
 import Header from "../components/header";
+import axios from "axios";
+import ShowArticleinArticle from "../components/showArticleinArticle";
 
 
-export default function Article() {
+export default function Article(props) {
 
-
+    /*
     function getArticle() {
         const res = axios.get("/api/article");
         console.log("res = ", res);
@@ -20,19 +21,31 @@ export default function Article() {
 
         })
         ;
-
     }
+    */
+    let [data, setData] = useState(null);
 
-    return (
+    useEffect(() => {
+        const fetchData = async (url, parameters) => {
+            const data = await axios.get(url, {params:parameters})
+            setData(data.data);
+        };
+        fetchData( "/api/articles",{idArticle: props.location.state.id, id: 'article'})
+    }, []);
 
-            <div id="articleContent">
+    if (!data) {
+        return (<div>
+            <Header headerOpacity={1} boxShadowOpacity={.25}/>
+            <p>Loading data</p>
+        </div>)
+    } else {
+        return (
+            <div id="article">
                 <Header headerOpacity={1} boxShadowOpacity={.25}/>
-                <p>hello</p>
-                <button onClick={getArticle}>get</button>
-                <button onClick={writeData}>post</button>
+                <p>{data[0].title}</p>
+                <ShowArticleinArticle idArticle={props.location.state.id}/>
             </div>
-    )
-
-
+        )
+    }
 }
 

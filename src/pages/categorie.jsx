@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import Header from "../components/header";
 import axios from "axios";
-import ArticlesFromCategorie from "../components/articlesFromCategorie";
+import ShowArticlesinCategorie from "../components/showArticlesinCategorie";
 
 export default function Categorie(props) {
 
@@ -25,7 +25,7 @@ export default function Categorie(props) {
             <div id="categorie">
                 <Header headerOpacity={1} boxShadowOpacity={.25}/>
                 <p>{data[0].name}</p>
-                <ArticlesFromCategorie idCategorie={props.location.state.id}/>
+                <ShowArticlesinCategorie idCategorie={props.location.state.id}/>
             </div>
         )
     }
