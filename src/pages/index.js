@@ -1,7 +1,7 @@
 import * as React from "react"
 import "../styles/index.css"
 import Header from "../components/header";
-import BrowseCategoriesTable from "../components/browseCategoriesTable";
+import BrowseCategoryTable from "../components/browseCategoryTable";
 
 
 const IndexPage = () => {
@@ -18,8 +18,8 @@ const IndexPage = () => {
 
             <h2><strong>Parcourir</strong> les catégories</h2>
 
-            <div id={'categories-list-container'}>
-                <BrowseCategoriesTable/>
+            <div id={'category-list-container'}>
+                <BrowseCategoryTable/>
             </div>
 
         </main>

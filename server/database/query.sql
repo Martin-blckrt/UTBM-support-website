@@ -4,7 +4,7 @@ INNER JOIN T_articles_description ad ON a.id=ad.idArticle
 INNER JOIN T_articles_personnes ap ON a.id=ap.idArticle
 INNER JOIN T_personnes p ON p.id=ap.idPersonne
 INNER JOIN T_description d ON d.id = ad.idDescription
-INNER JOIN T_categorie c ON a.idCategorie=c.id
+INNER JOIN T_category c ON a.idCategory=c.id
 WHERE a.id=1;
 
 

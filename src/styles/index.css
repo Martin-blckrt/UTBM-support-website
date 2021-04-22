@@ -27,7 +27,7 @@ h1{
 h2 strong{
     font-weight: bolder;
 }
-#categories-list-container{
+#category-list-container{
     background: #e4efff;
     width: 800px;
     padding: 40px 20px;
@@ -38,7 +38,7 @@ h2 strong{
     border-radius: 30px;
 }
 
-#categories-list-container ul{
+#category-list-container ul{
     margin: 10px 40px;
     padding: 0;
 }

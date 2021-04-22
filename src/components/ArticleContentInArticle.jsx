@@ -22,26 +22,45 @@ export default function ArticleContentInArticle(props) {
             </div>
         )
     } else {
-        console.log('data of this article = ', articleInfos)
-        return (
-            <div css={articlesArticlesStyle} id="articlesArticle">
-                {
+        let listSubsection = [];
+        let listSubtitle = [];
+        articleInfos.map((dataElement, index) => {
+            listSubtitle[index] = dataElement.subtitle.split(',')
+            listSubsection[index] = dataElement.subsection.split(',')
+            // ATTENTION CA BUG ICI OU PAS SELON DANS QUELLE CATEGORIE L'ARTICLE EST
+            console.log(listSubtitle)
+        });
 
-                    <div css={articleStyle} id={'titre' + articleInfos[0].articleTitle}>
-                        <h2>{articleInfos[0].articleTitle}</h2>
-                    </div>
-                }
-            </div>
+        return (
+            articleInfos.map((dataElement, i) => (
+                <div css={articlesArticlesStyle} id="articlesArticle">
+                    {
+                        <div css={articleStyle} id={'titre' + articleInfos[0].id}>
+                            <h1>{articleInfos[0].articleTitle}</h1>
+                            <p>Cet article concerne : {articleInfos[0].type}.</p>
+
+                            {listSubtitle[i].map((subtitle, index) => (
+                                <div>
+                                <h2>{subtitle}</h2>
+                                <p>{listSubsection[i][index]}</p>
+                                </div>
+                            ))}
+                        </div>
+                    }
+                </div>
+                )
+            )
         )
     }
 }
+
 const articleStyle = css`
   box-shadow: 0 0 50px rgba(63, 139, 255, .20);
   padding: 15px;
   text-align: center;
   background-color: white;
   border-radius: 20px;
-  height: 200px;
+  height: 800px;
   margin: 20px;
 `;
 

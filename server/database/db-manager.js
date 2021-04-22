@@ -31,7 +31,7 @@ class DBManager {
 
     insertDataDB(query) {
 
-        //let query = `INSERT INTO utbmSupport.T_categorie VALUES ('insertDB')`;
+        //let query = `INSERT INTO utbmSupport.T_category VALUES ('insertDB')`;
 
         this.dbconnection.query(query, (err) => {
 

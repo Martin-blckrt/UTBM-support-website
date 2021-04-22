@@ -4,7 +4,7 @@ import {css} from "@emotion/react";
 import {Link} from "gatsby";
 
 
-export default function ShowArticlesinCategorie(props) {
+export default function ShowArticlesinCategory(props) {
 
     const [articlesList, setArticlesList] = useState(null);
 

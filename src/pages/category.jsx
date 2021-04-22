@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import Header from "../components/header";
 import axios from "axios";
-import ShowArticlesinCategorie from "../components/showArticlesinCategorie";
+import ShowArticlesinCategory from "../components/showArticlesinCategory";
 
-export default function Categorie(props) {
+export default function Category(props) {
     /*
     * This view is listing all articles from a categorie.
     */
@@ -15,7 +15,7 @@ export default function Categorie(props) {
             setData(data.data);
         };
 
-        fetchData("/api/getCategories", {id: props.location.state.id})
+        fetchData("/api/getCategory", {id: props.location.state.id})
     }, []);
 
     if (!data) {
@@ -29,10 +29,10 @@ export default function Categorie(props) {
 
         console.log(props.location.state.id)
         return (
-            <div id="categorie">
+            <div id="category">
                 <Header headerOpacity={1} boxShadowOpacity={.25}/>
                 <p>{data[0].name}</p>
-                <ShowArticlesinCategorie idCategory = {props.location.state.id}/>
+                <ShowArticlesinCategory idCategory = {props.location.state.id}/>
             </div>
         )
     }

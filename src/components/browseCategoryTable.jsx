@@ -1,20 +1,19 @@
 import React, {useState, useEffect} from "react";
-import '../styles/browseCategoriesTable.css'
+import '../styles/browseCategoryTable.css'
 import axios from "axios";
 import {Link} from "gatsby";
 
-export default function BrowseCategoriesTable() {
+export default function BrowseCategoryTable() {
     /*
     * This component is shown in the index.js file and allow to list the principal categories and their articles.
     */
     const [data, setData] = useState(null);
-
     useEffect(() => {
         const fetchData = async (url, parameters) => {
             const data = await axios.get(url, {params:parameters})
             setData(data.data);
         };
-        fetchData( "/api/getCategories",{id: 'home'})
+        fetchData( "/api/getCategory",{id: 'home'})
     }, []);
 
     if (!data) {
@@ -28,7 +27,7 @@ export default function BrowseCategoriesTable() {
         return (
             data.map((dataElement,index) => (
                 <ul>
-                    <Link to = '/categorie/' state={{id:dataElement.id}}>
+                    <Link to = '/category/' state={{id:dataElement.id}}>
                         <h3>{dataElement.name}</h3>
                     </Link>
                     {listArticle[index].map(article => (
