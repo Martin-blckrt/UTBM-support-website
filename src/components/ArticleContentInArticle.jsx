@@ -24,12 +24,11 @@ export default function ArticleContentInArticle(props) {
     } else {
         let listSubsection = [];
         let listSubtitle = [];
-        articleInfos.map((dataElement, index) => {
-            listSubtitle[index] = dataElement.subtitle.split(',')
+        articleInfos.map((dataElement, index) => (
+            listSubtitle[index] = dataElement.subtitle.split(','),
             listSubsection[index] = dataElement.subsection.split(',')
-            // ATTENTION CA BUG ICI OU PAS SELON DANS QUELLE CATEGORIE L'ARTICLE EST
-            console.log(listSubtitle)
-        });
+            // TODO. ATTENTION CA BUG ICI POUR MON ARTICLE DANS LA CATEGORIE 6, MAIS PAS POUR LES DEUX DANS LA 3
+    ));
 
         return (
             articleInfos.map((dataElement, i) => (
@@ -66,6 +65,8 @@ const articleStyle = css`
 
 const articlesArticlesStyle = css`
   display: flex;
+  float: left;
+  width: 50%;
   justify-content: space-around;
   flex-wrap: wrap;
 `;
