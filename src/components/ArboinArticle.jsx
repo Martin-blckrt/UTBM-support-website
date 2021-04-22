@@ -24,11 +24,6 @@ export default function ArboInArticle(props) {
         fetchArticleData("/api/getArticlesOfCategory", {idArticle: props.articleState.id, id: 'arbo'})
     }, [props.articleState]);
 
-    console.log("arboCategoryInfos, ", arboCategoryInfos)
-    console.log("arboArticleInfos, ", arboArticleInfos)
-
-
-    // TODO. jsp pk mais check les log il fait chaque requete deux fois a la premiere y a que arbocategoryinfos qui est rempli l'autre est null puis a la deuxieme c'est bon c'est pour ca que dans mon if j'ai mis l'autre
     if (!arboArticleInfos) {
         return (
             <div>
@@ -36,13 +31,20 @@ export default function ArboInArticle(props) {
             </div>
         )
     } else {
+        let categoryIndex;
+        arboArticleInfos.map((article) => (
+            categoryIndex = article.idCategory
+        ))
         return (
             <div css={articlesArboStyle} id="categoryArbo">
+                <h1>Catégories</h1>
                 {arboCategoryInfos.map((category, i) => (
                     <div id = "categories">
                         <h3>{category.name}</h3>
                     </div>
+                    // TODO faudrait faire un truc genre if i == categoryIndex then le bout de code en dessous
                 ))}
+                <h2>Articles de la même catégorie</h2>
                 {arboArticleInfos.map((article) => (
                     <div id={'article' + article.articleTitle}>
                         <h4>{article.articleTitle}</h4>
