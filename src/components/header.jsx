@@ -2,7 +2,7 @@ import React from "react"
 import {Link} from "gatsby"
 import {css} from "@emotion/react";
 import logo from '../assets/UTBM.jpg';
-import ConnectButton from "./connectButton";
+import ConnectButton from "./rectangleButton";
 
 const headingBackground = function (headerOpacity,boxShadowOpacity) {
     return css`

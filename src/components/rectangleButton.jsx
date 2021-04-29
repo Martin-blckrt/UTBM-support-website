@@ -2,7 +2,7 @@ import React from "react"
 import {css} from "@emotion/react";
 import {Link} from "gatsby";
 
-const connectButton = css`
+const rectangleButton = css`
   background-color: #3F8BFF;
   border : 0;
   padding: 10px;
@@ -18,7 +18,7 @@ const connectButton = css`
 export default function ConnectButton(){
     return(
         <div>
-                <button css={connectButton}>
+                <button css={rectangleButton}>
                     <Link to={`/restricted/admin/`}>
                         Connexion
                     </Link>
