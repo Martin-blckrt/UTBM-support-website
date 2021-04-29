@@ -41,13 +41,14 @@ export default function ArboInArticle(props) {
                 {arboCategoryInfos.map((category, i) => (
                     <div id = "categories">
                         <h3>{category.name}</h3>
-                    </div>
-                    // TODO faudrait faire un truc genre if i == categoryIndex then le bout de code en dessous
-                ))}
-                <h2>Articles de la même catégorie</h2>
-                {arboArticleInfos.map((article) => (
-                    <div id={'article' + article.articleTitle}>
-                        <h4>{article.articleTitle}</h4>
+                        {
+                            i === categoryIndex-1 &&
+                            arboArticleInfos.map((article) => (
+                            <div id={'article' + article.articleTitle}>
+                            <h4>{article.articleTitle}</h4>
+                            </div>
+                            ))
+                        }
                     </div>
                 ))}
             </div>
