@@ -26,8 +26,6 @@ export default function Category(props) {
             </div>
         )
     } else {
-
-        console.log("category, props.location.state.id, ", props.location.state.id)
         return (
             <div id="category">
                 <Header headerOpacity={1} boxShadowOpacity={.25}/>

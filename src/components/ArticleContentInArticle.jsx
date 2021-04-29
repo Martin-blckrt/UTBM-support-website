@@ -13,6 +13,7 @@ export default function ArticleContentInArticle(props) {
         };
 
         fetchData("/api/getArticleInfo", {idArticle: props.articleState.id})
+        console.log("res : ",articleInfos)
     }, [props.articleState]);
 
     if (!articleInfos) {
@@ -24,10 +25,11 @@ export default function ArticleContentInArticle(props) {
     } else {
         let listSubsection = [];
         let listSubtitle = [];
+        console.log("article infos, ", articleInfos)
         articleInfos.map((dataElement, index) => (
             listSubtitle[index] = dataElement.subtitle.split(','),
             listSubsection[index] = dataElement.subsection.split(',')
-            // TODO. ATTENTION CA BUG ICI POUR MON ARTICLE DANS LA CATEGORIE 6, MAIS PAS POUR LES DEUX DANS LA 3
+            // TODO. ATTENTION CA BUG ICI POUR MON ARTICLE DANS LA CATEGORIE 6 (l'array articleInfos est null), MAIS PAS POUR LES DEUX DANS LA 3
     ));
 
         return (
