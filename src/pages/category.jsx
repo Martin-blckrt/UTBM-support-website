@@ -21,6 +21,7 @@ export default function Category(props) {
     if (!data) {
         return (
             <div>
+                <title>Catégorie - Chargement</title>
                 <Header headerOpacity={1} boxShadowOpacity={.25}/>
                 <p>Loading data</p>
             </div>
@@ -28,6 +29,7 @@ export default function Category(props) {
     } else {
         return (
             <div id="category">
+                <title>Catégorie</title>
                 <Header headerOpacity={1} boxShadowOpacity={.25}/>
                 <p>{data[0].name}</p>
                 <ShowArticlesinCategory idCategory = {props.location.state.id}/>

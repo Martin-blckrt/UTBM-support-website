@@ -1,5 +1,6 @@
 import React from "react"
 import {css} from "@emotion/react";
+import {Link} from "gatsby";
 
 const connectButton = css`
   background-color: #3F8BFF;
@@ -18,7 +19,9 @@ export default function ConnectButton(){
     return(
         <div>
                 <button css={connectButton}>
-                    Connexion
+                    <Link to={`/restricted/admin/`}>
+                        Connexion
+                    </Link>
                 </button>
         </div>
     )
