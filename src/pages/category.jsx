@@ -15,7 +15,7 @@ export default function Category(props) {
             setData(data.data);
         };
 
-        fetchData("/api/getCategory", {id: props.location.state.id})
+        fetchData("/api/categories", {id: props.location.state.id})
     }, []);
 
     if (!data) {

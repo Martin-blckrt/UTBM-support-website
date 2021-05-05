@@ -13,7 +13,7 @@ gatsby.prepare({app}, () => {
     app.use(bodyParser.json())
 
     app.use('/api/getArticlesOfCategory', getArticlesOfCategory);
-    app.use('/api/getCategory', getCategory);
+    app.use('/api/categories', getCategory);
     app.use('/api/getArticleInfo', getArticleInfo);
 });
 

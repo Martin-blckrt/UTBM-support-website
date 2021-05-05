@@ -2,6 +2,7 @@ let mysql = require('mysql');
 
 class DBManager {
     constructor() {
+        //TODO. Don't forget to change credentials!!!
         this.dbConnectionInfo = {
             host: "localhost",
             user: "alex",

@@ -11,7 +11,7 @@ export default function ArboInArticle(props) {
             const arboCategoryInfos = await axios.get(url, {params: parameters})
             setArboCategoryInfos(arboCategoryInfos.data);
         };
-        fetchCategoryData("/api/getCategory", {id: 'arbo'})
+        fetchCategoryData("/api/categories", {id: 'arbo'})
     }, [props.articleState]);
 
     let [arboArticleInfos, setArboArticleInfos] = useState(null);

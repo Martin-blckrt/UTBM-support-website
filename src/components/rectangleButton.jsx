@@ -2,10 +2,10 @@ import React from "react"
 import {css} from "@emotion/react";
 import {Link} from "gatsby";
 
-const rectangleButton = css`
+const rectangleButtonStyle = css`
   background-color: #3F8BFF;
   border : 0;
-  padding: 10px;
+  padding: 15px;
   border-radius: 10px;
   color: white;
   box-shadow: 0 0 15px rgba(63, 139, 255, 0.5);
@@ -14,13 +14,18 @@ const rectangleButton = css`
     box-shadow: 0 0 30px rgba(63, 139, 255, 0.5);
   }
 `
+const textButtonStyle = css`
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+`
 
-export default function ConnectButton(){
+export default function ConnectButton(props){
     return(
         <div>
-                <button css={rectangleButton}>
-                    <Link to={`/restricted/admin/`}>
-                        Connexion
+                <button css={rectangleButtonStyle}>
+                    <Link css={textButtonStyle} to={`/restricted/admin/`}>
+                        {props.buttonText}
                     </Link>
                 </button>
         </div>

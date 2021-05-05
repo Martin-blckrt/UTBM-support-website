@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import {css} from "@emotion/react";
 import {Link} from "gatsby";
+import {colors} from "@material-ui/core";
 
 export default function ShowArticlesinCategory(props) {
 
@@ -14,6 +15,7 @@ export default function ShowArticlesinCategory(props) {
         };
         fetchData("/api/getArticlesOfCategory", {idCategory: props.idCategory})
     }, []);
+
     if (!articlesList) {
         return (
             <div>
@@ -29,8 +31,8 @@ export default function ShowArticlesinCategory(props) {
                             <Link to={`/article/`} state={{id: article.id}}>
 
                                 <div css={articleStyle} id={'article' + index}>
-                                    <h2>{article.articleTitle}</h2>
-                                    <p>{article.tldr}</p>
+                                    <h2 css={headingStyle}>{article.articleTitle}</h2>
+                                    <p css={tldrStyle}>{article.tldr}</p>
                                 </div>
 
                             </Link>
@@ -51,7 +53,8 @@ const articleStyle = css`
   text-align: center;
   background-color: white;
   border-radius: 20px;
-  height: 200px;
+  height: 300px;
+  width: 300px;
   margin: 20px;
 `;
 
@@ -61,3 +64,10 @@ const articlesContainerStyle = css`
   flex-wrap: wrap;
 
 `;
+
+const headingStyle = css`
+  font-weight: bold;
+`
+const tldrStyle = css`
+  color: #6A6A6A;  
+`

@@ -4,7 +4,7 @@ import Header from "../../components/header";
 import {css} from "@emotion/react";
 import AdminHome from "../../components/adminHome";
 
-export default function Admin(props) {
+export default function Admin() {
     return (
         <div id="admin">
             <title>Admin</title>
