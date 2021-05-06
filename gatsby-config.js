@@ -28,6 +28,11 @@ module.exports = {
                 cssPropOptimization: true,
             },
         },
-        `gatsby-plugin-nodejs`,
+        {
+            resolve: `gatsby-plugin-nodejs`,
+            options: {
+                prefixes: ['/restricted/*']
+            },
+        },
     ],
 };

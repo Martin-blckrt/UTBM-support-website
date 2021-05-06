@@ -40,7 +40,7 @@ export default function AdminHome(props) {
             <div className="fourDivs" id="modifyArticle">
                 <h3>Un article existant</h3>
                   <RectangleButton buttonText="Modifier"/>
-                <RectangleButton buttonText="Supprimer"/>
+                  <RectangleButton buttonText="Supprimer"/>
             </div>
             <div className="title">
                 <h2>Modifier</h2>
