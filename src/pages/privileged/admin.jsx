@@ -1,9 +1,9 @@
-import "../../styles/index.css"
+import "../../styles/global.css"
 import React from "react";
 import Header from "../../components/header";
-import {css} from "@emotion/react";
+
 import AdminHome from "../../components/adminHome";
-import { getUser, isLoggedIn} from "../../services/auth";
+import {isLoggedIn} from "../../utils/auth";
 import {Link} from "@material-ui/core";
 
 export default function Admin() {

@@ -1,0 +1,26 @@
+
+h1, h2 {
+    text-align: center;
+    padding: 30px;
+}
+
+h1 {
+    font-weight: bolder;
+    font-size: xx-large;
+}
+
+h2 strong {
+    font-weight: bolder;
+}
+#home .categories-container {
+
+    background: #e4efff;
+    width: 1000px;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto;
+    border-radius: 30px;
+
+}

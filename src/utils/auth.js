@@ -12,8 +12,6 @@ export const handleLogin = ({ username, password }) => {
     if (username === `alex` && password === `alex`) {
         return setUser({
             username: `alex`,
-            name: `Alex`,
-            email: `alex@utbm.fr`,
         })
     }
 

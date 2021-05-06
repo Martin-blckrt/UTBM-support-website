@@ -1,6 +1,6 @@
 import React from "react"
 import { navigate } from "gatsby"
-import { handleLogin, isLoggedIn } from "../services/auth"
+import { handleLogin, isLoggedIn } from "../../utils/auth"
 
 class Login extends React.Component {
     state = {
@@ -21,7 +21,7 @@ class Login extends React.Component {
 
     render() {
         if (isLoggedIn()) {
-            navigate(`/restricted/admin`)
+            navigate(`/restricted/login`)
         }
 
         return (
@@ -31,7 +31,7 @@ class Login extends React.Component {
                     method="post"
                     onSubmit={event => {
                         this.handleSubmit(event)
-                        navigate(`/restricted/admin`)
+                        navigate(`/restricted/login`)
                     }}
                 >
                     <label>

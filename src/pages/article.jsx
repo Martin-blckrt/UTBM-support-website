@@ -1,4 +1,4 @@
-import "../styles/index.css"
+import "../styles/global.css"
 import React from "react";
 import Header from "../components/header";
 import ArticleContentInArticle from "../components/ArticleContentInArticle";

@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+/*-----------------  GLOBAL TWEAK --------------------*/
+body{
+    margin: 0;
+    background-image: url("../assets/background.png");
+    background-position: center;
+    background-repeat: repeat;
+    z-index: -1;
+}
+*{
+    color: #303030;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 550;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+}
+

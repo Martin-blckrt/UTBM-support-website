@@ -24,7 +24,7 @@ export default function ConnectButton(props){
     return(
         <div>
                 <button css={rectangleButtonStyle}>
-                    <Link css={textButtonStyle} to={`/privileged/admin/`}>
+                    <Link css={textButtonStyle} to={`/restricted/admin`}>
                         {props.buttonText}
                     </Link>
                 </button>

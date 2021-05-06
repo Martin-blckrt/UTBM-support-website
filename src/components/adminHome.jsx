@@ -1,5 +1,4 @@
 import React from "react";
-import '../styles/adminHome.css'
 import RectangleButton from "../components/rectangleButton";
 import TextZone from "../components/textZone";
 
