@@ -1,55 +1,82 @@
-CREATE TABLE T_admin
+create table T_admin
 (
-    id       int NOT NULL AUTO_INCREMENT,
-    username VARCHAR(20),
-    password VARCHAR(30),
-    PRIMARY KEY (id)
+    id       int auto_increment
+        primary key,
+    username varchar(20) null,
+    password varchar(30) null
 );
 
-CREATE TABLE T_people
+create table T_category
 (
-    id   int NOT NULL AUTO_INCREMENT,
-    type VARCHAR(20),
-    PRIMARY KEY (id)
+    id   int auto_increment
+        primary key,
+    name varchar(30) null
 );
 
-CREATE TABLE T_description
+create table T_article
 (
-    id         int NOT NULL AUTO_INCREMENT,
-    subtitle   VARCHAR(75),
-    subsection VARCHAR(2000),
-    PRIMARY KEY (id)
+    id           int auto_increment
+        primary key,
+    idCategory   int          not null,
+    articleTitle varchar(100) null,
+    tldr         varchar(255) null,
+    constraint T_article_ibfk_1
+        foreign key (idCategory) references T_category (id)
+            on delete cascade
 );
 
-CREATE TABLE T_category
+create index idCategory
+    on T_article (idCategory);
+
+create table T_description
 (
-    id   int NOT NULL AUTO_INCREMENT,
-    name VARCHAR(30),
-    PRIMARY KEY (id)
+    id         int auto_increment
+        primary key,
+    subtitle   varchar(75)   null,
+    subsection varchar(2000) null
 );
 
-CREATE TABLE T_article
+create table T_articles_description
 (
-    id           int NOT NULL AUTO_INCREMENT,
-    idCategory   int NOT NULL,
-    articleTitle VARCHAR(100),
-    tldr         VARCHAR(255),
-    PRIMARY KEY (id),
-    FOREIGN KEY (idCategory) REFERENCES T_category (id) ON DELETE CASCADE
+    idDescription int not null,
+    idArticle     int not null,
+    constraint T_articles_description_ibfk_1
+        foreign key (idArticle) references T_article (id)
+            on delete cascade,
+    constraint T_articles_description_ibfk_2
+        foreign key (idDescription) references T_description (id)
+            on delete cascade
 );
 
-CREATE TABLE T_articles_people
+create index idArticle
+    on T_articles_description (idArticle);
+
+create index idDescription
+    on T_articles_description (idDescription);
+
+create table T_people
 (
-    idPeople  int NOT NULL,
-    idArticle int NOT NULL,
-    FOREIGN KEY (idArticle) REFERENCES T_article (id) ON DELETE CASCADE,
-    FOREIGN KEY (idPeople) REFERENCES T_people (id) ON DELETE CASCADE
+    id   int auto_increment
+        primary key,
+    type varchar(20) null
 );
 
-CREATE TABLE T_articles_description
+create table T_articles_people
 (
-    idDescription int NOT NULL,
-    idArticle     int NOT NULL,
-    FOREIGN KEY (idArticle) REFERENCES T_article (id) ON DELETE CASCADE,
-    FOREIGN KEY (idDescription) REFERENCES T_description (id) ON DELETE CASCADE
+    idPeople  int not null,
+    idArticle int not null,
+    constraint T_articles_people_ibfk_1
+        foreign key (idArticle) references T_article (id)
+            on delete cascade,
+    constraint T_articles_people_ibfk_2
+        foreign key (idPeople) references T_people (id)
+            on delete cascade
 );
+
+create index idArticle
+    on T_articles_people (idArticle);
+
+create index idPeople
+    on T_articles_people (idPeople);
+
+
