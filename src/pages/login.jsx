@@ -21,7 +21,7 @@ class Login extends React.Component {
 
     render() {
         if (isLoggedIn()) {
-            navigate(`/restricted/admin`)
+            navigate(`/privileged/admin`)
         }
 
         return (
@@ -31,7 +31,7 @@ class Login extends React.Component {
                     method="post"
                     onSubmit={event => {
                         this.handleSubmit(event)
-                        navigate(`/restricted/admin`)
+                        navigate(`/privileged/admin`)
                     }}
                 >
                     <label>
@@ -40,11 +40,7 @@ class Login extends React.Component {
                     </label>
                     <label>
                         Password
-                        <input
-                            type="password"
-                            name="password"
-                            onChange={this.handleUpdate}
-                        />
+                        <input type="password" name="password" onChange={this.handleUpdate} />
                     </label>
                     <input type="submit" value="Log In" />
                 </form>

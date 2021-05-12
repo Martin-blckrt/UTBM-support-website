@@ -1,6 +1,7 @@
 import React from "react"
 import {css} from "@emotion/react";
-import {Link} from "gatsby";
+import {Link, navigate} from "gatsby";
+import {logout} from "../services/auth";
 
 const rectangleButtonStyle = css`
   background-color: #3F8BFF;
@@ -28,6 +29,25 @@ export default function ConnectButton(props){
                         {props.buttonText}
                     </Link>
                 </button>
+        </div>
+    )
+}
+
+export function DisconnectButton(props){
+    return(
+        <div>
+            <button css={rectangleButtonStyle}>
+                <a
+                    css={textButtonStyle}
+                    href="/"
+                    onClick={event => {
+                        event.preventDefault()
+                        logout(() => navigate(`/`))
+                    }}
+                >
+                    {props.buttonText}
+                </a>
+            </button>
         </div>
     )
 }

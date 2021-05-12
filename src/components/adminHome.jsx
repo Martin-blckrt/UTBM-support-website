@@ -2,6 +2,8 @@ import React from "react";
 import '../styles/adminHome.css'
 import RectangleButton from "../components/rectangleButton";
 import TextZone from "../components/textZone";
+import {navigate} from "gatsby";
+import {logout} from "../services/auth";
 
 export default function AdminHome(props) {
 
