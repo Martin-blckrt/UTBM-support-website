@@ -9,6 +9,8 @@ const home = require('./routes/api/home')
 const getArticleInfo = require('./routes/api/getArticleInfo')
 const treeview = require('./routes/api/treeview')
 const articles = require('./routes/api/articles')
+const deleteStuff = require('./routes/api/deleteStuff')
+const modifyCategory = require ('./routes/api/modifyCategory')
 
 const app = express();
 
@@ -23,7 +25,8 @@ gatsby.prepare({app}, () => {
     app.use('/api/categories', categories);
     app.use('/api/getArticleInfo', getArticleInfo);
     app.use('/api/articles', articles);
-
+    app.use('/api/deleteStuff', deleteStuff);
+    app.use('/api/modifyCategory', modifyCategory)
 });
 
 
