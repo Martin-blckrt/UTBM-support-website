@@ -6,7 +6,9 @@ import {isLoggedIn} from "../../services/auth";
 import {navigate} from "gatsby";
 
 export default function Admin() {
-    if (isLoggedIn()) {
+    if (isLoggedIn())
+    {
+        console.log("im logged in")
         return (
             <div id="admin">
                 <title>Admin</title>
@@ -14,14 +16,13 @@ export default function Admin() {
                 <AdminHome/>
             </div>
         )
-    } else {
+    }
+    else {
         return (
             <div>
-                <p> L'accès à cette section est réservée aux adminsitrateurs. Veuillez vous <a href="/"
-                                                                                               onClick={event => {
-                                                                                                   event.preventDefault()
-                                                                                                   navigate(`/login`)
-                                                                                               }}
+                <p> L'accès à cette section est réservée aux adminsitrateurs. Veuillez vous <a href="/" onClick={event => {event.preventDefault()
+                    navigate(`/login`)
+                }}
                 >
                     connecter
                 </a> pour y avoir accès. </p>
