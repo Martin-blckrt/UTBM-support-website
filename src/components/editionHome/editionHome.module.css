@@ -1,0 +1,14 @@
+.bigContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px;
+    background-color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    border-radius: 30px;
+    justify-content: space-around;
+}
+
+.title {
+    flex-grow: 5;
+    width: 100%;
+}

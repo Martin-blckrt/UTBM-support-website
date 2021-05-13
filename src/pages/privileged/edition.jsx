@@ -5,6 +5,7 @@ import "../../styles/index.css"
 import {isLoggedIn} from "../../services/auth";
 import {navigate} from "gatsby";
 import {css} from "@emotion/react";
+import EditionHome from "../../components/editionHome/editionHome";
 
 export default function Admin(props) {
     if (isLoggedIn()) {
@@ -13,7 +14,7 @@ export default function Admin(props) {
             <div id="edition">
                 <title>Edition</title>
                 <Header admin="yes" headerOpacity={1} boxShadowOpacity={.25}/>
-                <p>EDITION</p>
+                <EditionHome/>
             </div>
         )
     } else {

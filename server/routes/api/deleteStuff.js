@@ -13,7 +13,7 @@ router.get('/category', async (req, res) => {
                                  FROM (
                                           SELECT b.id
                                           FROM t_category as b
-                                          WHERE b.name = 'ComboBox.value') as c);`;
+                                          WHERE b.name = 'ComboBox.value') as c)`;
 
 
     await db_manager.getDataDB(query)
@@ -30,7 +30,7 @@ router.get('/article', async (req, res) => {
                                  FROM (
                                           SELECT b.id
                                           FROM t_article as b
-                                          WHERE b.articleTitle = 'ComboBox.value') as c);`;
+                                          WHERE b.articleTitle = 'ComboBox.value') as c)`;
 
 
     await db_manager.getDataDB(query)
