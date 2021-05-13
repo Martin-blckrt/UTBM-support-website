@@ -5,11 +5,10 @@ let router = express.Router();
 const db_manager = new DBmanager();
 
 
-router.get('/:id', async (req, res) => {
+router.get('/', async (req, res) => {
 
-    const query = `SELECT name
-                   FROM T_category
-                   where id = ${req.params.id}`;
+    const query = `UPDATE T_category
+                   SET `;
 
 
     await db_manager.getDataDB(query)

@@ -31,8 +31,6 @@ export default function textZone(props) {
         <CssTextField
             label={props.text}
             variant="outlined"
-            id="custom-css-outlined-input"
         />
     )
-
 }
