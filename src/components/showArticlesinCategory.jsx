@@ -13,6 +13,7 @@ export default function ShowArticlesinCategory(props) {
             const articlesList = await axios.get(url, {params: parameters})
             setArticlesList(articlesList.data);
         };
+        console.log('id category in show articles : ', props.idCategory)
         fetchData("/api/getArticlesOfCategory", {idCategory: props.idCategory})
     }, []);
 

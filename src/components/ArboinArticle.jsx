@@ -7,11 +7,11 @@ export default function ArboInArticle(props) {
     let [arboCategoryInfos, setArboCategoryInfos] = useState(null);
 
     useEffect(() => {
-        const fetchCategoryData = async (url, parameters) => {
-            const arboCategoryInfos = await axios.get(url, {params: parameters})
+        const fetchCategoryData = async (url) => {
+            const arboCategoryInfos = await axios.get(url)
             setArboCategoryInfos(arboCategoryInfos.data);
         };
-        fetchCategoryData("/api/categories", {id: 'arbo'})
+        fetchCategoryData("/api/treeview")
     }, [props.articleState]);
 
     let [arboArticleInfos, setArboArticleInfos] = useState(null);

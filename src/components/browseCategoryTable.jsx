@@ -9,11 +9,11 @@ export default function BrowseCategoryTable() {
     */
     const [data, setData] = useState(null);
     useEffect(() => {
-        const fetchData = async (url, parameters) => {
-            const data = await axios.get(url, {params: parameters})
+        const fetchData = async (url) => {
+            const data = await axios.get(url)
             setData(data.data);
         };
-        fetchData("/api/categories", {id: 'home'})
+        fetchData("/api/home")
     }, []);
 
     if (!data) {

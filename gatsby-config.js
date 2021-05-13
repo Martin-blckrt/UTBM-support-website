@@ -5,7 +5,7 @@ module.exports = {
     },
 
     proxy: {
-        prefix: "/data",
+        prefix: "/Sampledata",
         url: "http://localhost:1337",
     },
 

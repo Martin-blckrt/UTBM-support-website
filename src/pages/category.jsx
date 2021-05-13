@@ -10,12 +10,13 @@ export default function Category(props) {
     let [data, setData] = useState(null);
 
     useEffect(() => {
-        const fetchData = async (url, parameters) => {
-            const data = await axios.get(url, {params: parameters})
+        const fetchData = async (url) => {
+            const data = await axios.get(url)
             setData(data.data);
         };
 
-        fetchData("/api/categories", {id: props.location.state.id})
+        fetchData(`/api/categories/${props.location.state.id}`)
+        //parent.location.hash = 'idcateg';
     }, []);
 
     if (!data) {
