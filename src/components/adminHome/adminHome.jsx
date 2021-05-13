@@ -1,52 +1,51 @@
 import React from "react";
-import '../styles/adminHome.css'
-import RectangleButton from "../components/rectangleButton";
-import TextZone from "../components/textZone";
-import {navigate} from "gatsby";
-import {logout} from "../services/auth";
+import * as adminHomeStyle from './adminHome.module.css'
+import RectangleButton from "../rectangleButton";
+import TextZone from "../textZone";
 
-export default function AdminHome(props) {
+export default function AdminHome() {
 
     return (
-        <div id="bigContainer">
-            <div className="title">
+        <div className={adminHomeStyle.bigContainer}>
+            <div className={adminHomeStyle.title}>
                 <h2>Créer</h2>
             </div>
-            <div className="fourDivs" id="newCategory">
+            <div className={adminHomeStyle.fourDiv} id="newCategory">
                 <h3>Une nouvelle catégorie</h3>
                 <TextZone text="Nom" requis={true}/>
                 <RectangleButton buttonText="Créer"/>
             </div>
             <div className="separateBlueLine">
                 <svg width="5" height="408" viewBox="0 0 5 408" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="2.5" y1="408" x2="2.5" stroke="#3F8BFF" stroke-width="5"/>
+                    <line x1="2.5" y1="300" x2="2.5" stroke="#3F8BFF" strokeWidth="5"/>
                 </svg>
             </div>
-            <div className="fourDivs" id="newArticle">
+            <div className={adminHomeStyle.fourDiv} id="newArticle">
                 <h3>Un nouvel article</h3>
                 <p id="textCreateNewArticle">
                     Accédez à l'outil de création en cliquant sur le bouton suivant
                 </p>
                 <RectangleButton buttonText="Créer"/>
             </div>
-            <div className="fourDivs" id="modifyCategory">
+            <div className={adminHomeStyle.title}>
+                <h2>Modifier</h2>
+            </div>
+            <div className={adminHomeStyle.fourDiv} id="modifyCategory">
                 <h3>Une catégorie existante</h3>
                 <RectangleButton buttonText="Modifier"/>
                 <RectangleButton buttonText="Supprimer"/>
             </div>
             <div className="separateBlueLine">
                 <svg width="5" height="408" viewBox="0 0 5 408" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="2.5" y1="408" x2="2.5" stroke="#3F8BFF" strokeWidth="5"/>
+                    <line x1="2.5" y1="300" x2="2.5" stroke="#3F8BFF" strokeWidth="5"/>
                 </svg>
             </div>
-            <div className="fourDivs" id="modifyArticle">
+            <div className={adminHomeStyle.fourDiv} id="modifyArticle">
                 <h3>Un article existant</h3>
                   <RectangleButton buttonText="Modifier"/>
                   <RectangleButton buttonText="Supprimer"/>
             </div>
-            <div className="title">
-                <h2>Modifier</h2>
-            </div>
+
         </div>
     )
 

@@ -16,7 +16,7 @@ export default function Category(props) {
         };
 
         fetchData(`/api/categories/${props.location.state.id}`)
-        //parent.location.hash = 'idcateg';
+        console.log(parent.location)
     }, []);
 
     if (!data) {
