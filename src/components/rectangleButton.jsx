@@ -40,8 +40,8 @@ export function CreateButton(props) {
     {
         return (
             <div>
-                <button css={rectangleButtonStyle}>
-
+                <button type="submit" css={rectangleButtonStyle}>
+                    {props.buttonText}
                 </button>
             </div>
         )
@@ -50,7 +50,7 @@ export function CreateButton(props) {
     {
         return (
             <div>
-                <button css={rectangleButtonStyle}>
+                <button type='submit' css={rectangleButtonStyle}>
                     <Link css={textButtonStyle} to={`/privileged/edition/`}>
                         {props.buttonText}
                     </Link>
@@ -67,7 +67,7 @@ export function ModifyButton(props) {
         return (
             <div>
                 <button css={rectangleButtonStyle}>
-
+                    {props.buttonText}
                 </button>
             </div>
         )
@@ -91,7 +91,7 @@ export function DeleteButton(props) {
     return (
         <div>
             <button css={rectangleButtonStyle}>
-
+                {props.buttonText}
             </button>
         </div>
     )

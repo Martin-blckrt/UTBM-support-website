@@ -4,6 +4,9 @@ import RectangleButton, {CreateButton, ModifyButton, DeleteButton} from "../rect
 import TextZone from "../textZone";
 import ComboBox from "../combobox";
 import axios from "axios";
+import CreateCategoryForm from "../Forms/CreateCategoryForm"
+import ModifyCategoryForm from "../Forms/ModifyCategoryForm"
+import ModifyArticleForm from "../Forms/ModifyArticleForm"
 
 export default function AdminHome() {
     const [fetchedCategories, setFetchedCategories] = useState(null);
@@ -37,16 +40,19 @@ export default function AdminHome() {
         fetchedCategories.map((dataElement, index) => listCategories[index] = dataElement.name);
         fetchedArticles.map((dataElement, index) => listArticles[index] = dataElement.articleTitle);
 
+
+
         return (
             <div className={adminHomeStyle.bigContainer}>
                 <div className={adminHomeStyle.title}>
                     <h2>Créer</h2>
                 </div>
+
                 <div className={adminHomeStyle.fourDiv} id="newCategory">
                     <h3>Une nouvelle catégorie</h3>
-                    <TextZone text="Nom" requis={true} />
-                    <CreateButton buttonText="Créer" type="category"/>
+                    <CreateCategoryForm/>
                 </div>
+
                 <div className="separateBlueLine">
                     <svg width="5" height="408" viewBox="0 0 5 408" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <line x1="2.5" y1="300" x2="2.5" stroke="#3F8BFF" strokeWidth="5"/>
@@ -64,10 +70,7 @@ export default function AdminHome() {
                 </div>
                 <div className={adminHomeStyle.fourDiv} id="modifyCategory">
                     <h3>Une catégorie existante</h3>
-                    <ComboBox options={listCategories} text='Sélectionnez une catégorie'/>
-                    <TextZone text="Nouveau nom de la catégorie" requis={true}/>
-                    <ModifyButton buttonText="Modifier" type="category"/>
-                    <DeleteButton buttonText="Supprimer"/>
+                    <ModifyCategoryForm data = {listCategories}/>
                 </div>
                 <div className="separateBlueLine">
                     <svg width="5" height="408" viewBox="0 0 5 408" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -76,9 +79,7 @@ export default function AdminHome() {
                 </div>
                 <div className={adminHomeStyle.fourDiv} id="modifyArticle">
                     <h3>Un article existant</h3>
-                    <ComboBox options={listArticles} text='Sélectionnez un article'/>
-                    <ModifyButton buttonText="Modifier" type="article"/>
-                    <DeleteButton buttonText="Supprimer"/>
+                    <ModifyArticleForm data={listArticles}/>
                 </div>
             </div>
         )

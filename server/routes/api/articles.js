@@ -8,7 +8,7 @@ const db_manager = new DBmanager();
 router.get('/', async (req, res) => {
 
     const query = `SELECT articleTitle
-                   FROM t_article`;
+                   FROM T_article`;
 
     await db_manager.getDataDB(query)
         .then(results_db => res.send(results_db))
