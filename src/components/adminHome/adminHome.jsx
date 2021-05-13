@@ -6,17 +6,26 @@ import ComboBox from "../combobox";
 import axios from "axios";
 
 export default function AdminHome() {
-    const [fetchedData,setFetchedData ] = useState(null);
+    const [fetchedCategories, setFetchedCategories] = useState(null);
+    const [fetchedArticles, setFetchedArticles] = useState(null);
 
     useEffect(() => {
-        const fetchData = async (url) => {
-            const data = await axios.get(url)
-            setFetchedData(data.data);
+        const fetchCategories = async (url) => {
+            const categories = await axios.get(url)
+            setFetchedCategories(categories.data);
+
         };
-        fetchData("/api/home")
+        fetchCategories("/api/home")
+
+        const fetchArticles = async (url) => {
+            const articles = await axios.get(url)
+            setFetchedArticles(articles.data);
+        };
+        fetchArticles('/api/articles')
     }, []);
-    console.log(fetchedData)
-    if (!fetchedData) {
+
+
+    if (!fetchedCategories || !fetchedArticles) {
         return (
             <div>
                 Loading page
@@ -25,9 +34,10 @@ export default function AdminHome() {
     } else {
         let listCategories = [];
         let listArticles = [];
-        fetchedData.map((dataElement, index) => listCategories[index] = dataElement.name);
-        fetchedData.map((dataElement, index) => listArticles[index] = dataElement.name.split(','));
-
+        fetchedCategories.map((dataElement, index) => listCategories[index] = dataElement.name);
+        fetchedArticles.map((dataElement, index) => listArticles[index] = dataElement.articleTitle);
+        console.log(listCategories)
+        console.log(listArticles)
 
         return (
             <div className={adminHomeStyle.bigContainer}>
