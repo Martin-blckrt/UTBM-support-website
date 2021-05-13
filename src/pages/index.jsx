@@ -1,7 +1,7 @@
 import * as React from "react"
 import "../styles/index.css"
 import Header from "../components/header";
-import BrowseCategoryTable from "../components/browseCategoryTable";
+import BrowseCategoryTable from "../components/browseCategoryTable/browseCategoryTable";
 import PrivateRoute from "../components/privateRoute";
 import Admin from "./privileged/admin";
 import Login from "./login";

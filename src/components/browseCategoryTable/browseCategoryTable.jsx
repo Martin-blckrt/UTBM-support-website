@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import '../styles/browseCategoryTable.css'
+import './browseCategoryTable.css'
 import axios from "axios";
 import {Link} from "gatsby";
 

@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import {css} from "@emotion/react";
 import {Link} from "gatsby";
-import {colors} from "@material-ui/core";
 
 export default function ShowArticlesinCategory(props) {
 
