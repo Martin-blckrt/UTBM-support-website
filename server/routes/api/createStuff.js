@@ -30,7 +30,6 @@ router.post('/category', async (req, res) => {
 
 
 });
-
 router.post('/article', async (req, res) => {
 
     const query = ``;

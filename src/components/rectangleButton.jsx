@@ -64,7 +64,6 @@ export function ModifyButton(props) {
 
     if (props.type === "category")
     {
-        console.log('log in modify button : ', props.categoryName)
         return (
             <div>
                 <button css={rectangleButtonStyle}>
