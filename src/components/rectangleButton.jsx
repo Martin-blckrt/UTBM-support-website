@@ -36,8 +36,7 @@ export default function ConnectButton(props) {
 
 export function CreateButton(props) {
 
-    if (props.type === "category")
-    {
+    if (props.type === "category") {
         return (
             <div>
                 <button type="submit" css={rectangleButtonStyle}>
@@ -45,9 +44,7 @@ export function CreateButton(props) {
                 </button>
             </div>
         )
-    }
-    else
-    {
+    } else {
         return (
             <div>
                 <button type='submit' css={rectangleButtonStyle}>
@@ -62,8 +59,7 @@ export function CreateButton(props) {
 
 export function ModifyButton(props) {
 
-    if (props.type === "category")
-    {
+    if (props.type === "category") {
         return (
             <div>
                 <button css={rectangleButtonStyle}>
@@ -71,9 +67,7 @@ export function ModifyButton(props) {
                 </button>
             </div>
         )
-    }
-    else
-    {
+    } else {
         return (
             <div>
                 <button css={rectangleButtonStyle}>
@@ -90,7 +84,8 @@ export function ModifyButton(props) {
 export function DeleteButton(props) {
     return (
         <div>
-            <button css={rectangleButtonStyle}>
+            <button type='submit'
+                    css={rectangleButtonStyle}>
                 {props.buttonText}
             </button>
         </div>

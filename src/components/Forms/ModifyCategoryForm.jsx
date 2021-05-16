@@ -4,6 +4,7 @@ import React, {useState} from "react";
 import ComboBox from "../combobox";
 import axios from "axios";
 
+
 export default function CreateCategoryForm(props) {
 
     const [comboboxData, setComboboxData] = useState("")
@@ -29,6 +30,9 @@ export default function CreateCategoryForm(props) {
     }
     const handleDeleting = async event => {
         event.preventDefault()
+        const response = await axios.post('/api/deleteStuff/category', {categoryName : comboboxData});
+        console.log('response delete : ', response)
+
     }
 
     const textZoneDataRetriever = (value) => {
@@ -37,14 +41,15 @@ export default function CreateCategoryForm(props) {
 
     return (
         <div>
+            {/*TODO. refresh combobox values after modifications*/}
             <ComboBox options={props.data} parentCallback={comboBoxDataRetriever} text='Sélectionnez une catégorie'/>
             <form onSubmit={handleModifications}>
-                <h2>Choisissez un nouveau nom pour la catégorie sélectionnée : </h2>
+                <h3>Choisissez un nouveau nom pour la catégorie sélectionnée : </h3>
                 <TextZone text="Nom" parentCallback={textZoneDataRetriever} requis={true}/>
                 <ModifyButton buttonText="Modifier" type="category"/>
             </form>
             <form onSubmit={handleDeleting}>
-                <h2>Supprimer la catégorie sélectionnée : </h2>
+                <h3>Supprimer la catégorie sélectionnée : </h3>
                 <DeleteButton buttonText="Supprimer" type="category"/>
             </form>
         </div>
