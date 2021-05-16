@@ -4,6 +4,7 @@ let router = express.Router();
 
 const db_manager = new DBmanager();
 
+/*THIS ROUTE ALLOWS TO GET THE TITLE OF AN ARTICLE*/
 
 router.get('/', async (req, res) => {
 

@@ -11,10 +11,7 @@ export default function CreateCategoryForm(props) {
         event.preventDefault();
         alert('You have submitted the form.')
     }
-    const handleChange = event => {
 
-        setFormData(event.target.value);
-    }
     console.log(formData)
     return (
         <form onSubmit={handleSubmit}>

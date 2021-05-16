@@ -30,7 +30,8 @@ export default function textZone(props) {
     return (
         <CssTextField
             label={props.text}
-            onChange={()=>console.log(event.target.value)}
+            required
+            onChange={()=>props.parentCallback(event.target.value)}
             variant="outlined"
         />
 

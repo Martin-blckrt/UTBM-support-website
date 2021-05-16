@@ -8,11 +8,11 @@ const db_manager = new DBmanager();
 router.get('/category', async (req, res) => {
 
     const query = `DELETE
-                   FROM t_category as a
+                   FROM T_category as a
                    WHERE a.id = (SELECT *
                                  FROM (
                                           SELECT b.id
-                                          FROM t_category as b
+                                          FROM T_category as b
                                           WHERE b.name = 'ComboBox.value') as c);`;
 
 
@@ -25,11 +25,11 @@ router.get('/category', async (req, res) => {
 router.get('/article', async (req, res) => {
 
     const query = `DELETE
-                   FROM t_article as a
+                   FROM T_article as a
                    WHERE a.id = (SELECT *
                                  FROM (
                                           SELECT b.id
-                                          FROM t_article as b
+                                          FROM T_article as b
                                           WHERE b.articleTitle = 'ComboBox.value') as c);`;
 
 

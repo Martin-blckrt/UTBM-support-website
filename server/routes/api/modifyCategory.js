@@ -7,7 +7,7 @@ const db_manager = new DBmanager();
 
 router.get('/', async (req, res) => {
 
-    const query = `UPDATE t_category as a, (SELECT id FROM t_category WHERE name = 'ComboxBox.value') as b
+    const query = `UPDATE T_category as a, (SELECT id FROM T_category WHERE name = 'ComboxBox.value') as b
                    SET a.name = 'textZone.value'
                    WHERE a.id = b.id;`;
 
