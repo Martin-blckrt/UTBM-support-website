@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import * as editionHomeStyle from './editionHome.module.css'
-import RectangleButton, {CreateButton, ModifyButton, DeleteButton} from "../rectangleButton";
 import TextZone from "../textZone";
 import ComboBox from "../combobox";
-import axios from "axios";
+
 
 export default function EditionHome() {
 

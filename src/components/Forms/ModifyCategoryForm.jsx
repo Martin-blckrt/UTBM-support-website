@@ -1,6 +1,6 @@
 import TextZone from "../textZone";
 import {DeleteButton, ModifyButton} from "../rectangleButton";
-import React, {useState} from "react";
+import React, { useState} from "react";
 import ComboBox from "../combobox";
 import axios from "axios";
 

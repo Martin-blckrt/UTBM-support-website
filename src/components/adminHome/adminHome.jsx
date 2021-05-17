@@ -1,22 +1,24 @@
 import React, {useEffect, useState} from "react";
-import * as adminHomeStyle from './adminHome.module.css'
-import RectangleButton, {CreateButton, ModifyButton, DeleteButton} from "../rectangleButton";
-import TextZone from "../textZone";
-import ComboBox from "../combobox";
 import axios from "axios";
+
+//STYLE IMPORT
+import * as adminHomeStyle from './adminHome.module.css'
+
+//COMPONENTS IMPORT
+import {CreateButton} from "../rectangleButton";
 import CreateCategoryForm from "../Forms/CreateCategoryForm"
 import ModifyCategoryForm from "../Forms/ModifyCategoryForm"
 import ModifyArticleForm from "../Forms/ModifyArticleForm"
 
+
 export default function AdminHome() {
-    const [fetchedCategories, setFetchedCategories] = useState(null);
     const [fetchedArticles, setFetchedArticles] = useState(null);
+    const [fetchedCategories, setFetchedCategories] = useState(null);
 
     useEffect(() => {
         const fetchCategories = async (url) => {
             const categories = await axios.get(url)
             setFetchedCategories(categories.data);
-
         };
         fetchCategories("/api/home")
 
@@ -25,7 +27,7 @@ export default function AdminHome() {
             setFetchedArticles(articles.data);
         };
         fetchArticles('/api/articles')
-    }, []);
+    }, [setFetchedCategories, setFetchedArticles]);
 
 
     if (!fetchedCategories || !fetchedArticles) {
@@ -39,7 +41,6 @@ export default function AdminHome() {
         let listArticles = [];
         fetchedCategories.map((dataElement, index) => listCategories[index] = dataElement.name);
         fetchedArticles.map((dataElement, index) => listArticles[index] = dataElement.articleTitle);
-
 
 
         return (
@@ -70,7 +71,7 @@ export default function AdminHome() {
                 </div>
                 <div className={adminHomeStyle.fourDiv} id="modifyCategory">
                     <h3>Une catégorie existante</h3>
-                    <ModifyCategoryForm data = {listCategories}/>
+                    <ModifyCategoryForm data={listCategories}/>
                 </div>
                 <div className="separateBlueLine">
                     <svg width="5" height="408" viewBox="0 0 5 408" fill="none" xmlns="http://www.w3.org/2000/svg">
