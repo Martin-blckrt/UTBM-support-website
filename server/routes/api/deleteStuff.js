@@ -26,7 +26,7 @@ router.post('/category', async (req, res) => {
 
 });
 
-router.get('/article', async (req, res) => {
+router.post('/article', async (req, res) => {
 
     const query = `DELETE
                    FROM T_article as a

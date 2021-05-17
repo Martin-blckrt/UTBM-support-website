@@ -2,22 +2,33 @@ import TextZone from "../textZone";
 import {CreateButton, DeleteButton, ModifyButton} from "../rectangleButton";
 import React, {useReducer, useState} from "react";
 import ComboBox from "../combobox";
+import axios from "axios";
 
 export default function CreateCategoryForm(props) {
 
-    const [formData, setFormData] = useState(null);
+    const [comboboxData, setComboboxData] = useState("");
 
-    const handleSubmit = event => {
-        event.preventDefault();
-        alert('You have submitted the form.')
+
+    const comboBoxDataRetriever = (comboboxData) => {
+        setComboboxData(comboboxData)
     }
 
-    console.log(formData)
+    const handleDeleting = async event => {
+        event.preventDefault()
+        const response = await axios.post('/api/deleteStuff/article', {articleName: comboboxData});
+        console.log('response delete : ', response)
+
+    }
+
     return (
-        <form onSubmit={handleSubmit}>
-            <ComboBox options={props.data} text='Sélectionnez un article'/>
+        <div>
+            <ComboBox options={props.data} text='Sélectionnez un article' parentCallback={comboBoxDataRetriever}/>
             <ModifyButton buttonText="Modifier" type="article"/>
-            <DeleteButton buttonText="Supprimer"/>
-        </form>
-)
+
+            <form onSubmit={handleDeleting}>
+                <DeleteButton buttonText="Supprimer"/>
+            </form>
+
+        </div>
+    )
 }
