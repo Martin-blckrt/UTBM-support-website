@@ -10,7 +10,7 @@ export default function CreateCategoryForm() {
     const handleSubmit =  async event => {
         event.preventDefault();
 
-        const response = await axios.post('/api/createStuff/category', {categoryName : textZoneData});
+        const response = await axios.post('/api/categories', {categoryName : textZoneData});
 
         if (response.data.alreadyExist === 1 ){
             alert('Cette catégorie existe déjà!')

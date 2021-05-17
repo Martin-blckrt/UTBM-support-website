@@ -14,6 +14,7 @@ router.get('/', async (req, res) => {
         query = `SELECT articleTitle
                  FROM T_article
                  WHERE id = ${req.query.idArticle}`;
+
     } else if (req.query.id === 'arbo') {
         query = `SELECT articleTitle, idCategory
                  FROM T_article

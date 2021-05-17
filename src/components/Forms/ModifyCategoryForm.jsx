@@ -19,7 +19,7 @@ export default function CreateCategoryForm(props) {
     const handleModifications = async event => {
         event.preventDefault();
 
-        const response = await axios.post('/api/modifyCategory/', {
+        const response = await axios.put('/api/categories/', {
             categoryName: comboboxData,
             newCategoryName: textZoneData
         });
@@ -34,7 +34,7 @@ export default function CreateCategoryForm(props) {
 
     const handleDeleting = async event => {
         event.preventDefault()
-        const response = await axios.post('/api/deleteStuff/category', {categoryName: comboboxData});
+        const response = await axios.delete('/api/categories', {data: {categoryName: comboboxData}});
         console.log('response delete : ', response)
 
     }

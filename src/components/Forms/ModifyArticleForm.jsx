@@ -15,7 +15,7 @@ export default function CreateCategoryForm(props) {
 
     const handleDeleting = async event => {
         event.preventDefault()
-        const response = await axios.post('/api/deleteStuff/article', {articleName: comboboxData});
+        const response = await axios.delete('/api/articles', {data:{articleName: comboboxData}});
         console.log('response delete : ', response)
 
     }
