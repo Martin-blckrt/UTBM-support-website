@@ -42,7 +42,7 @@ export default function CreateCategoryForm(props) {
     return (
         <div>
             {/*TODO. refresh combobox values after modifications*/}
-            <ComboBox options={props.data} parentCallback={comboBoxDataRetriever} text='Sélectionnez une catégorie'/>
+            <ComboBox options={props.data} parentCallback={comboBoxDataRetriever} type='category' text='Sélectionnez une catégorie'/>
             <form onSubmit={handleModifications}>
                 <h3>Choisissez un nouveau nom pour la catégorie sélectionnée : </h3>
                 <TextZone text="Nom" parentCallback={textZoneDataRetriever} requis={true}/>

@@ -22,7 +22,10 @@ export default function CreateCategoryForm(props) {
 
     return (
         <div>
-            <ComboBox options={props.data} text='Sélectionnez un article' parentCallback={comboBoxDataRetriever}/>
+            <ComboBox options={props.data}
+                      text='Sélectionnez un article'
+                      type='article'
+                      parentCallback={comboBoxDataRetriever}/>
             <ModifyButton buttonText="Modifier" type="article"/>
 
             <form onSubmit={handleDeleting}>

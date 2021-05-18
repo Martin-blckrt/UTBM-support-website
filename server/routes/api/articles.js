@@ -40,6 +40,7 @@ router.delete('/', async (req, res) => {
 //CREATE ARTICLE
 router.post('/', async (req, res) => {
     //TODO. à remplir
+    console.log("I've received the data ! : ", req.body)
     const query = ``;
 
     await db_manager.getDataDB(query)

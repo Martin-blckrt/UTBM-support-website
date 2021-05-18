@@ -1,8 +1,14 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import * as editionHomeStyle from './editionHome.module.css'
 import TextZone from "../textZone";
 import ComboBox from "../combobox";
 import axios from "axios";
+
+// Import the Slate editor factory.
+import { createEditor } from 'slate'
+
+// Import the Slate components and React plugin.
+import { Slate, Editable, withReact } from 'slate-react'
 
 
 export default function EditionHome() {
@@ -14,7 +20,7 @@ export default function EditionHome() {
         tldr: "",
         subtitles: [],
         subsections: []
-    })
+    });
     useEffect(() => {
         const fetchCategories = async (url) => {
             const categories = await axios.get(url)
@@ -34,6 +40,11 @@ export default function EditionHome() {
         setArticleInformations({...articleInformations, name: title})
     }
 
+    const createArticle  = () => {
+        console.log()
+        axios.post('/api/articles', {articleInformations}).then((response) => console.log(response))
+    }
+
 
     if (!categories) {
         return (
@@ -43,8 +54,11 @@ export default function EditionHome() {
         )
     } else {
 
+        const editor = useMemo(() => withReact(createEditor()), [])
+        const [value, setValue] = useState([])
 
         return (
+
             <div className={editionHomeStyle.bigContainer}>
                 <div>
                     <h2> Modification d'un article </h2>
@@ -65,7 +79,7 @@ export default function EditionHome() {
                     </p>
                     <ul>
                         <li>Etudiants</li>
-                        <li>Enseignants</li>
+                          <li>Enseignants</li>
                         <li>Personnels</li>
                     </ul>
                 </div>
@@ -74,16 +88,19 @@ export default function EditionHome() {
                         Titre de l'article
                     </p>
                     <TextZone text="Article Title" requis={true} parentCallback={retrieveTitle}/>
-
                 </div>
                 <div>
-                    <p>
-                        Contenu de l'article
-                    </p>
-                    <p>
-                        C'est ici qu'on modifie tout
-                    </p>
+                    <Slate
+                        editor={editor}
+                        value={value}
+                        onChange={newValue => setValue(newValue)}
+                    >
+                        <Editable />
+                    </Slate>
                 </div>
+                <button type="submit" onClick={createArticle}>
+                    send data
+                </button>
             </div>)
     }
 

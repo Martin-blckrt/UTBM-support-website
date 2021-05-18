@@ -8,7 +8,6 @@ import {navigate} from "gatsby";
 export default function Admin() {
     if (isLoggedIn())
     {
-        console.log("im logged in")
         return (
             <div id="admin">
                 <title>Admin</title>

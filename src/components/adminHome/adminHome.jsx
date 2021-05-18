@@ -72,7 +72,7 @@ export default function AdminHome() {
                 </div>
                 <div className={adminHomeStyle.fourDiv} id="modifyCategory">
                     <h3>Une catégorie existante</h3>
-                    <ModifyCategoryForm data={listCategories}/>
+                    <ModifyCategoryForm data={fetchedCategories}/>
                 </div>
                 <div className="separateBlueLine">
                     <svg width="5" height="408" viewBox="0 0 5 408" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -81,7 +81,7 @@ export default function AdminHome() {
                 </div>
                 <div className={adminHomeStyle.fourDiv} id="modifyArticle">
                     <h3>Un article existant</h3>
-                    <ModifyArticleForm data={listArticles}/>
+                    <ModifyArticleForm data={fetchedArticles}/>
                 </div>
             </div>
         )

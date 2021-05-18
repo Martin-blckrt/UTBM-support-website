@@ -11,7 +11,17 @@ export default function ComboBox(props) {
                     props.parentCallback(value)
             }
             options={props.options}
-            getOptionLabel={(option) => option.name}
+            getOptionLabel={(option) => {
+                console.log(props.type);
+                console.log(option)
+                if (props.type === 'article' ){
+                    return option.articleTitle
+                }
+                else {
+                    return option.name
+                }
+            }
+            }
             style={{width: 300}}
             renderInput={(params) => <TextField {...params} label={props.text} variant="outlined"/>}
         />
