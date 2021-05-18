@@ -12,8 +12,7 @@ export default function ComboBox(props) {
             }
             options={props.options}
             getOptionLabel={(option) => {
-                console.log(props.type);
-                console.log(option)
+
                 if (props.type === 'article' ){
                     return option.articleTitle
                 }

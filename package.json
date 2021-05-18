@@ -19,6 +19,7 @@
     "@emotion/styled": "^11.3.0",
     "@material-ui/core": "^4.11.4",
     "@material-ui/lab": "*",
+    "draft-js": "^0.11.7",
     "express": "^4.17.1",
     "gatsby": "^3.5.0",
     "gatsby-plugin-create-client-paths": "^3.5.0",
@@ -31,12 +32,11 @@
     "mysql": "^2.18.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "sass": "^1.32.13",
-    "slate": "^0.63.0"
+    "react-draft-wysiwyg": "^1.14.7",
+    "sass": "^1.32.13"
   },
   "devDependencies": {
     "axios": "^0.21.1",
-    "jquery": "^3.6.0",
-    "slate-react": "^0.63.0"
+    "jquery": "^3.6.0"
   }
 }

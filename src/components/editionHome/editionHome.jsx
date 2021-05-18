@@ -1,18 +1,16 @@
-import React, {useEffect, useMemo, useState} from "react";
+import React, {useEffect, useState} from "react";
 import * as editionHomeStyle from './editionHome.module.css'
 import TextZone from "../textZone";
 import ComboBox from "../combobox";
 import axios from "axios";
-
-// Import the Slate editor factory.
-import { createEditor } from 'slate'
-
-// Import the Slate components and React plugin.
-import { Slate, Editable, withReact } from 'slate-react'
+import {Editor, EditorState} from 'draft-js';
+import 'draft-js/dist/Draft.css';
 
 
 export default function EditionHome() {
-
+    const [editorState, setEditorState] = React.useState(
+        () => EditorState.createEmpty(),
+    );
     let [categories, setFetchedCategories] = useState(null)
     let [articleInformations, setArticleInformations] = useState({
         name: "",
@@ -21,6 +19,8 @@ export default function EditionHome() {
         subtitles: [],
         subsections: []
     });
+
+
     useEffect(() => {
         const fetchCategories = async (url) => {
             const categories = await axios.get(url)
@@ -31,20 +31,22 @@ export default function EditionHome() {
 
     console.log(categories)
 
-    const retrieveComboboxValue = (comboboxdata) => {
+    const retrieveComboboxValue = (comboBoxData) => {
         //retrieve combobox data and update the new article informations with the id of the selected category.
-        setArticleInformations({...articleInformations, categoriesId: comboboxdata.id})
+        setArticleInformations({...articleInformations, categoriesId: comboBoxData.id})
     }
 
     const retrieveTitle = (title) => {
         setArticleInformations({...articleInformations, name: title})
     }
 
-    const createArticle  = () => {
-        console.log()
+    const createArticle = () => {
         axios.post('/api/articles', {articleInformations}).then((response) => console.log(response))
     }
 
+    const handleEditorChange = (content) => {
+        console.log(content)
+    }
 
     if (!categories) {
         return (
@@ -53,9 +55,6 @@ export default function EditionHome() {
             </div>
         )
     } else {
-
-        const editor = useMemo(() => withReact(createEditor()), [])
-        const [value, setValue] = useState([])
 
         return (
 
@@ -79,7 +78,7 @@ export default function EditionHome() {
                     </p>
                     <ul>
                         <li>Etudiants</li>
-                          <li>Enseignants</li>
+                        <li>Enseignants</li>
                         <li>Personnels</li>
                     </ul>
                 </div>
@@ -90,13 +89,10 @@ export default function EditionHome() {
                     <TextZone text="Article Title" requis={true} parentCallback={retrieveTitle}/>
                 </div>
                 <div>
-                    <Slate
-                        editor={editor}
-                        value={value}
-                        onChange={newValue => setValue(newValue)}
-                    >
-                        <Editable />
-                    </Slate>
+                    <Editor
+                        editorState={editorState}
+                        onChange={setEditorState}
+                    />
                 </div>
                 <button type="submit" onClick={createArticle}>
                     send data

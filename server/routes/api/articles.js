@@ -43,9 +43,9 @@ router.post('/', async (req, res) => {
     console.log("I've received the data ! : ", req.body)
     const query = ``;
 
-    await db_manager.getDataDB(query)
+    /*await db_manager.getDataDB(query)
         .then(results_db => res.send(results_db))
-        .catch(err => res.end('unable to create article : ', err));
+        .catch(err => res.end('unable to create article : ', err));*/
 
 });
 
