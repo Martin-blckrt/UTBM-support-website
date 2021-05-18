@@ -12,8 +12,9 @@ import ModifyArticleForm from "../Forms/ModifyArticleForm"
 
 
 export default function AdminHome() {
-    const [fetchedArticles, setFetchedArticles] = useState(null);
-    const [fetchedCategories, setFetchedCategories] = useState(null);
+
+    let [fetchedArticles, setFetchedArticles] = useState(null);
+    let [fetchedCategories, setFetchedCategories] = useState(null);
 
     useEffect(() => {
         const fetchCategories = async (url) => {

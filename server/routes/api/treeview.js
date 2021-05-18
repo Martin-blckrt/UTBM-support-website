@@ -6,7 +6,7 @@ const db_manager = new DBmanager();
 
 router.get('/', async (req, res) => {
 
-    const query = `SELECT name
+    const query = `SELECT id, name
                    FROM T_category`;
 
 

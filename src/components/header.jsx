@@ -2,8 +2,7 @@ import React from "react"
 import {Link} from "gatsby"
 import {css} from "@emotion/react";
 
-import ConnectButton, {DisconnectButton} from "./rectangleButton";
-import axios from "axios";
+import {ConnectButton, DisconnectButton} from "./rectangleButton";
 import SearchBar from "./searchBar";
 
 const icon_style = css`

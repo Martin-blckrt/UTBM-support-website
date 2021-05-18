@@ -22,7 +22,7 @@ const textButtonStyle = css`
   font-weight: bold;
 `
 
-export default function ConnectButton(props) {
+export function ConnectButton(props) {
     return (
         <div>
             <button css={rectangleButtonStyle}>
