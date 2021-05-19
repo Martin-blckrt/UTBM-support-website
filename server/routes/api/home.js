@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
                    FROM T_category c
                             INNER JOIN T_article a ON c.id = a.idCategory
                    GROUP BY c.name, c.id
-                   ORDER BY c.id DESC`;
+                   ORDER BY c.name`;
 
     await db_manager.getDataDB(query)
         .then(results_db => res.send(results_db))

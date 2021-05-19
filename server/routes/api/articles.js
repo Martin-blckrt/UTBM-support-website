@@ -7,8 +7,10 @@ const db_manager = new DBmanager();
 //GET ARTICLE TITLE
 router.get('/', async (req, res) => {
 
-    const query = `SELECT articleTitle
-                   FROM T_article`;
+    const query = `SELECT a.articleTitle, c.name
+                   FROM T_article a
+                   INNER JOIN T_category c ON a.idCategory = c.id
+                   ORDER BY c.name`;
 
     await db_manager.getDataDB(query)
         .then(results_db => res.send(results_db))
