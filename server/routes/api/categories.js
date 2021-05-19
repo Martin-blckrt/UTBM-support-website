@@ -9,7 +9,7 @@ router.get('/:id', async (req, res) => {
 
     const query = `SELECT name
                    FROM T_category
-                   where id = ${req.params.id}`;
+                   WHERE id = ${req.params.id}`;
 
 
     await db_manager.getDataDB(query)

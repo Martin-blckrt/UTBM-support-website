@@ -4,6 +4,20 @@ let router = express.Router();
 
 const db_manager = new DBmanager();
 
+//TO SHOW TREEVIEW
+router.get('/:id', async (req, res) => {
+
+    const query = `SELECT a.articleTitle, c.name
+                   FROM T_article a
+                   INNER JOIN T_category c ON a.idCategory = c.id
+                   WHERE a.id = ${req.params.id}`;
+
+    await db_manager.getDataDB(query)
+        .then(results_db => res.send(results_db))
+        .catch(err => console.error(err));
+
+});
+
 //GET ARTICLE TITLE
 router.get('/', async (req, res) => {
 
@@ -17,6 +31,7 @@ router.get('/', async (req, res) => {
         .catch(err => console.error(err));
 
 });
+
 
 //UPDATE ARTICLE
 //TODO.

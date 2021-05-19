@@ -24,7 +24,6 @@ export default function ArticleContentInArticle(props) {
             </div>
         )
     } else {
-
         return (
             articleInfos.map((dataElement, i) => (
                 <div css={articlesArticlesStyle} id="articlesArticle">

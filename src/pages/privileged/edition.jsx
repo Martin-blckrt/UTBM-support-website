@@ -11,7 +11,7 @@ export default function Admin() {
         return (
             <div id="edition">
                 <title>Edition</title>
-                <Header admin="yes" headerOpacity={1} boxShadowOpacity={.25}/>
+                <Header admin="yes" headerOpacity={1} boxShadowOpacity={.25} arbo="Edition"/>
                 <EditionHome/>
             </div>
         )

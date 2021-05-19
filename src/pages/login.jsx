@@ -1,6 +1,7 @@
 import React from "react"
 import { navigate } from "gatsby"
 import { handleLogin, isLoggedIn } from "../utils/auth"
+import Header from "../components/header";
 
 class Login extends React.Component {
     state = {
@@ -26,6 +27,7 @@ class Login extends React.Component {
 
         return (
             <>
+                <Header headerOpacity={1} boxShadowOpacity={.25} arbo="Connexion"/>
                 <h1>Log in</h1>
                 <form
                     method="post"

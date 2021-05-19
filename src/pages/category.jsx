@@ -16,7 +16,6 @@ export default function Category(props) {
         };
 
         fetchData(`/api/categories/${props.location.state.id}`)
-        console.log(parent.location)
     }, []);
 
     if (!data) {
@@ -31,8 +30,7 @@ export default function Category(props) {
         return (
             <div id="category">
                 <title>Catégorie</title>
-                <Header headerOpacity={1} boxShadowOpacity={.25}/>
-                <p>{data[0].name}</p>
+                <Header headerOpacity={1} boxShadowOpacity={.25} arbo={data[0].name}/>
                 <ShowArticlesinCategory idCategory = {props.location.state.id}/>
             </div>
         )
