@@ -28,10 +28,12 @@ export default function SearchBar() {
     const getSearchBarInfo = () => {
         searchBarInfo = []
         for (let i = 0; i < searchBarCategoryInfo.length; i++) {
-            searchBarInfo.push(searchBarCategoryInfo[i].name)
+            searchBarInfo.push(searchBarCategoryInfo[i])
+            searchBarInfo[i].type = "Catégories"
         }
         for (let i = 0; i < searchBarArticleInfo.length; i++) {
-            searchBarInfo.push(searchBarArticleInfo[i].articleTitle)
+            searchBarInfo.push(searchBarArticleInfo[i])
+            searchBarInfo[i + searchBarCategoryInfo.length].type = "Articles"
         }
         console.log(searchBarInfo)
         setSearchBarInfo(searchBarInfo)
@@ -45,7 +47,8 @@ export default function SearchBar() {
                 autoComplete
                 autoHighlight
                 options={searchBarInfo}
-                getOptionLabel={(option) => option.toString()}
+                groupBy={(option) => option.type}
+                getOptionLabel={(option) => (option.type === "Catégories") ? option.name : option.articleTitle}
                 renderInput={(params) => (
                     <TextField {...params}
                                onChange={getSearchBarInfo}
@@ -55,13 +58,14 @@ export default function SearchBar() {
                 )}
                 renderOption={(option) => (
                     <span style={{cursor: "pointer"}}>
-                        {
-                            //TODO. checker si {option} est égal à une string de mes catégories, si oui alors c'est une catégorie si non alors c'ets un article
-                            //TODO. retouver l'index de cet article/catégorie et donc l'id associé dans l'index de l'autre liste
+                        {(option.type === "Catégories")
+                            ? <Link to='/category/' state={{id:option.idCategory}}>
+                                {option.name}
+                            </Link>
+                            : <Link to='/article/' state={{id:option.idArticle}}>
+                                {option.articleTitle}
+                            </Link>
                         }
-                        <Link to='/category/' state={{id:searchBarCategoryInfo[1].idCategory}}>
-                            {option}
-                        </Link>
                     </span>
                 )}
             />
