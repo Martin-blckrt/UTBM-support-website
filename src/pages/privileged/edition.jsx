@@ -2,7 +2,7 @@ import "../../styles/index.css"
 import React from "react";
 import Header from "../../components/header";
 import "../../styles/index.css"
-import {isLoggedIn} from "../../services/auth";
+import {isLoggedIn} from "../../utils/auth";
 import {navigate} from "gatsby";
 import EditionHome from "../../components/editionHome/editionHome";
 

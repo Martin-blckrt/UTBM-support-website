@@ -39,13 +39,18 @@ router.delete('/', async (req, res) => {
 
 //CREATE ARTICLE
 router.post('/', async (req, res) => {
-    //TODO. à remplir
+    //TODO. Check if the sent data are okay to be inserted (maybe in client side it's better)
     console.log("I've received the data ! : ", req.body)
-    const query = ``;
 
-    /*await db_manager.getDataDB(query)
+    const query = `INSERT INTO T_article (articleTitle, idCategory, tldr, body)
+                   VALUES ("${req.body.articleInformations.articleName}",
+                           "${req.body.articleInformations.categoriesId}", 
+                           "${req.body.articleInformations.tldr}",
+                           "${req.body.articleInformations.body}")`;
+
+    await db_manager.getDataDB(query)
         .then(results_db => res.send(results_db))
-        .catch(err => res.end('unable to create article : ', err));*/
+        .catch(err => res.end('unable to create article : ', err));
 
 });
 

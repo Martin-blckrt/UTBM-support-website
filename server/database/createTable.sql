@@ -13,14 +13,6 @@ CREATE TABLE T_people
     PRIMARY KEY (id)
 );
 
-CREATE TABLE T_description
-(
-    id         int NOT NULL AUTO_INCREMENT,
-    subtitle   VARCHAR(75),
-    subsection VARCHAR(2000),
-    PRIMARY KEY (id)
-);
-
 CREATE TABLE T_category
 (
     id   int NOT NULL AUTO_INCREMENT,
@@ -34,6 +26,7 @@ CREATE TABLE T_article
     idCategory   int NOT NULL,
     articleTitle VARCHAR(100),
     tldr         VARCHAR(255),
+    body         VARCHAR(10000),
     PRIMARY KEY (id),
     FOREIGN KEY (idCategory) REFERENCES T_category (id) ON DELETE CASCADE
 );
@@ -46,10 +39,4 @@ CREATE TABLE T_articles_people
     FOREIGN KEY (idPeople) REFERENCES T_people (id) ON DELETE CASCADE
 );
 
-CREATE TABLE T_articles_description
-(
-    idDescription int NOT NULL,
-    idArticle     int NOT NULL,
-    FOREIGN KEY (idArticle) REFERENCES T_article (id) ON DELETE CASCADE,
-    FOREIGN KEY (idDescription) REFERENCES T_description (id) ON DELETE CASCADE
-);
+

@@ -2,7 +2,7 @@ import "../../styles/index.css"
 import React from "react";
 import Header from "../../components/header";
 import AdminHome from "../../components/adminHome/adminHome";
-import {isLoggedIn} from "../../services/auth";
+import {isLoggedIn} from "../../utils/auth";
 import {navigate} from "gatsby";
 
 export default function Admin() {

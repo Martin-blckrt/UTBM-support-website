@@ -1,7 +1,7 @@
 import React from "react"
 import {css} from "@emotion/react";
 import {Link, navigate} from "gatsby";
-import {logout} from "../services/auth";
+import {logout} from "../utils/auth";
 
 const rectangleButtonStyle = css`
   background-color: #3F8BFF;

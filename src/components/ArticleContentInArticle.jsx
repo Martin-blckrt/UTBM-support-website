@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {css} from "@emotion/react";
+import MDEditor from "@uiw/react-md-editor";
 
 export default function ArticleContentInArticle(props) {
 
@@ -23,14 +24,6 @@ export default function ArticleContentInArticle(props) {
             </div>
         )
     } else {
-        let listSubsection = [];
-        let listSubtitle = [];
-        console.log("article infos, ", articleInfos)
-        articleInfos.map((dataElement, index) => (
-            listSubtitle[index] = dataElement.subtitle.split(','),
-            listSubsection[index] = dataElement.subsection.split(',')
-            // TODO. ATTENTION CA BUG ICI POUR MON ARTICLE DANS LA CATEGORIE 6 (l'array articleInfos est null), MAIS PAS POUR LES DEUX DANS LA 3
-    ));
 
         return (
             articleInfos.map((dataElement, i) => (
@@ -40,12 +33,8 @@ export default function ArticleContentInArticle(props) {
                             <h1>{articleInfos[0].articleTitle}</h1>
                             <p>Cet article concerne : {articleInfos[0].type}.</p>
 
-                            {listSubtitle[i].map((subtitle, index) => (
-                                <div>
-                                <h2>{subtitle}</h2>
-                                <p>{listSubsection[i][index]}</p>
-                                </div>
-                            ))}
+                            {/* A UTILISER POUR AFFICHER LE CONTENU DE L'ARTICLE
+                            <MDEditor.Markdown source={MDvalue}/>*/}
                         </div>
                     }
                 </div>
