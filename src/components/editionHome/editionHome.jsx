@@ -8,19 +8,12 @@ import {TextField} from "@material-ui/core";
 
 export default function EditionHome() {
 
-    let [categories, setFetchedCategories] = useState(null)
+     let [categories, setFetchedCategories] = useState(null)
     let [articleInformations, setArticleInformations] = useState({
-        name: "",
+        articleTitle: "",
         categoriesId: "",
         tldr: "",
-        body: "## Sous titre 1\n" +
-            "\n" +
-            "Notez la description de la première sous partie de l'article ici.\n" +
-            "\n" +
-            "Cette éditeur supporte la syntax `MarkDown`.\n" +
-            "Vous pouvez utiliser la barre d'outils pour personnaliser le texte. \n" +
-            "\n" +
-            "## Sous  partie 2\n"
+        content: ""
     });
 
 
@@ -32,29 +25,35 @@ export default function EditionHome() {
         fetchCategories('/api/treeview')
     }, [])
 
+
     function retrieveComboboxValue(comboBoxData) {
         //retrieve combobox data and update the new article informations with the id of the selected category.
-        setArticleInformations({...articleInformations, categoriesId: comboBoxData.id})
-        console.log('retrieve ID ', articleInformations)
+        setArticleInformations(prevState => {
+            return { ...prevState, categoriesId: comboBoxData.id }
+        });
     }
 
-    function retrieveTitle(title){
-        setArticleInformations({...articleInformations, name: title})
-        console.log('retrieve Title ', articleInformations)
-    }
-
-    const createArticle = () => {
-        /*TODO. Fix the problem with data erased sometimes*/
-        console.log('submit with this :', articleInformations)
-        axios.post('/api/articles', {articleInformations}).then((response) => console.log(response))
+    function retrieveTitle(title) {
+        setArticleInformations(prevState => {
+            return { ...prevState, articleTitle: title }
+        });
     }
 
     const handleEditorChange = (content) => {
-        setArticleInformations({...articleInformations, body: content})
+        setArticleInformations(prevState => {
+            return { ...prevState, content: content }
+        });
     }
     const handleTLDRChange = (tldrValue) => {
-        setArticleInformations({...articleInformations, tldr: tldrValue});
-        console.log('retrieve TLDR ', articleInformations)
+        setArticleInformations(prevState => {
+            return { ...prevState, tldr: tldrValue }
+        });
+    }
+    const createArticle = () => {
+        /*TODO. Fix the problem with data erased sometimes*/
+        console.log('MDobj = ', articleInformations)
+        axios.post('/api/articles', {articleInformations}).then((response) => console.log(response))
+
     }
 
     if (!categories) {
@@ -99,7 +98,7 @@ export default function EditionHome() {
                 </div>
                 <div className="container">
                     <MDEditor
-                        value={articleInformations.body}
+                        value={articleInformations.content}
                         onChange={handleEditorChange}
                         minHeights={300}
                     />
@@ -111,7 +110,7 @@ export default function EditionHome() {
                         multiline
                         rows={4}
                         variant="outlined"
-                        onChange={(event) => handleTLDRChange(event.target.value) }
+                        onChange={(event) => handleTLDRChange(event.target.value)}
                     />
                 </div>
                 {/*TODO. ajouter un feedback de créeation + clear le tout (ou revenir à la page admin?)*/}

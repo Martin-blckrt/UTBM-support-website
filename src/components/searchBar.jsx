@@ -35,7 +35,6 @@ export default function SearchBar() {
             searchBarInfo.push(searchBarArticleInfo[i])
             searchBarInfo[i + searchBarCategoryInfo.length].type = "Articles"
         }
-        console.log(searchBarInfo)
         setSearchBarInfo(searchBarInfo)
     }
 

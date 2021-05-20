@@ -60,10 +60,10 @@ router.post('/', async (req, res) => {
     console.log("I've received the data ! : ", req.body)
 
     const query = `INSERT INTO T_article (articleTitle, idCategory, tldr, body)
-                   VALUES ("${req.body.articleInformations.articleName}",
+                   VALUES ("${req.body.articleInformations.articleTitle}",
                            "${req.body.articleInformations.categoriesId}", 
                            "${req.body.articleInformations.tldr}",
-                           "${req.body.articleInformations.body}")`;
+                           "${req.body.articleInformations.content}")`;
 
     await db_manager.getDataDB(query)
         .then(results_db => res.send(results_db))
