@@ -7,7 +7,8 @@ const db_manager = new DBmanager();
 router.get('/', async (req, res) => {
 
     const query = `SELECT id, name
-                   FROM T_category`;
+                   FROM T_category
+                   ORDER BY name`;
 
 
     await db_manager.getDataDB(query)

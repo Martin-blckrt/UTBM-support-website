@@ -17,7 +17,6 @@ export default function Article(props) {
             const data = await axios.get(url)
             setData(data.data);
         };
-
         fetchData(`/api/articles/${props.location.state.id}`)
     }, []);
 

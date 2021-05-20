@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {css} from "@emotion/react";
+import {Link} from "gatsby";
 
 export default function ArboInArticle(props) {
 
@@ -39,14 +40,18 @@ export default function ArboInArticle(props) {
             <div css={articlesArboStyle} id="categoryArbo">
                 <h1>Catégories</h1>
                 {arboCategoryInfos.map((category, i) => (
-                    <div id = "categories">
-                        <h3>{category.name}</h3>
+                    <div id="categories">
+                        <Link to='/category/' state={{id: category.id}}>
+                            <h3>{category.name}</h3>
+                        </Link>
                         {
-                            i === categoryIndex-1 &&
+                            i === categoryIndex - 1 &&
                             arboArticleInfos.map((article) => (
-                            <div id={'article' + article.articleTitle}>
-                            <h4>{article.articleTitle}</h4>
-                            </div>
+                                <div id={'article' + article.articleTitle}>
+                                    <Link to='/article/' state={{id: article.id}}>
+                                        <h4>{article.articleTitle}</h4>
+                                    </Link>
+                                </div>
                             ))
                         }
                     </div>

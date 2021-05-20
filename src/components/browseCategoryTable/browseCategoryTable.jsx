@@ -23,15 +23,22 @@ export default function BrowseCategoryTable() {
     } else {
 
         let listArticle = [];
-        data.map((dataElement, index) => listArticle[index] = dataElement.titles.split(','));
+        let idArticle = [];
+        data.map((dataElement, index) => {
+            listArticle[index] = dataElement.titles.split(',')
+            idArticle[index] = dataElement.idArticles.split(',')
+        });
+
         return (
             data.map((dataElement, index) => (
                 <ul>
                     <Link to='/category/' state={{id: dataElement.id}}>
                         <h3>{dataElement.name}</h3>
                     </Link>
-                    {listArticle[index].map(article => (
-                        <li>{article}</li>
+                    {listArticle[index].map((article, i) => (
+                        <Link to='/article/' state={{id: idArticle[index][i]}}>
+                            <li>{article}</li>
+                        </Link>
                     ))}
                 </ul>
             ))
