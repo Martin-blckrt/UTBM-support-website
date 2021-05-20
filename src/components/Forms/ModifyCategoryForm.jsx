@@ -3,6 +3,7 @@ import {DeleteButton, ModifyButton} from "../rectangleButton";
 import React, { useState} from "react";
 import ComboBox from "../combobox";
 import axios from "axios";
+import {containsBadChar} from "../../utils/verif";
 
 
 export default function CreateCategoryForm(props) {
@@ -26,10 +27,13 @@ export default function CreateCategoryForm(props) {
 
         if (response.data.alreadyExist === 1) {
             alert('Ce nom de catégorie est déjà attribué à une catégorie.')
-        } else {
+        }
+        else if (containsBadChar(textZoneData) === 1){
+            alert('Vous avez des caractères non conformes!')
+        }
+        else {
             alert("Nom de la catégorie modifiée!");
         }
-
     }
 
     const handleDeleting = async event => {

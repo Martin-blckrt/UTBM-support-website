@@ -2,6 +2,7 @@ import TextZone from "../textZone";
 import {CreateButton} from "../rectangleButton";
 import React, {useReducer, useState} from "react";
 import axios from "axios";
+import {containsBadChar} from "../../utils/verif";
 
 export default function CreateCategoryForm() {
 
@@ -15,10 +16,12 @@ export default function CreateCategoryForm() {
         if (response.data.alreadyExist === 1 ){
             alert('Cette catégorie existe déjà!')
         }
+        else if (containsBadChar(textZoneData) === 1){
+            alert('Vous avez des caractères non conformes!')
+        }
         else{
             alert("Catégorie créée!");
         }
-
     }
 
     const textZoneDataRetriever = (value) => {

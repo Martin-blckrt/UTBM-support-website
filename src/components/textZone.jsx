@@ -34,6 +34,5 @@ export default function textZone(props) {
             onChange={()=>props.parentCallback(event.target.value)}
             variant="outlined"
         />
-
     )
 }

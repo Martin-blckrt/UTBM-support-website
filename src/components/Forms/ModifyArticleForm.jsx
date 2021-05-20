@@ -7,8 +7,7 @@ import axios from "axios";
 export default function CreateCategoryForm(props) {
 
     const [comboboxData, setComboboxData] = useState("");
-
-
+    
     const comboBoxDataRetriever = (comboboxData) => {
         setComboboxData(comboboxData)
     }
@@ -31,7 +30,6 @@ export default function CreateCategoryForm(props) {
             <form onSubmit={handleDeleting}>
                 <DeleteButton buttonText="Supprimer"/>
             </form>
-
         </div>
     )
 }

@@ -4,6 +4,7 @@ import {css} from "@emotion/react";
 
 import {ConnectButton, DisconnectButton} from "./rectangleButton";
 import SearchBar from "./searchBar";
+import {isBrowser} from "../utils/auth";
 
 const icon_style = css`
   width: 50px;
@@ -21,7 +22,7 @@ const headingBackground = function (headerOpacity, boxShadowOpacity) {
 
 export default function Header(props) {
 
-    if (typeof window !== "undefined")
+    if (isBrowser())
     {
         return (
             <div css={headingBackground(props.headerOpacity, props.boxShadowOpacity)}>
