@@ -5,7 +5,9 @@ import {Link} from "gatsby";
 
 export default function ArboInArticle(props) {
 
+    console.log('props in arbo : ', props)
     let [arboCategoryInfos, setArboCategoryInfos] = useState(null);
+    let [arboArticleInfos, setArboArticleInfos] = useState(null);
 
     useEffect(() => {
         const fetchCategoryData = async (url) => {
@@ -13,17 +15,15 @@ export default function ArboInArticle(props) {
             setArboCategoryInfos(arboCategoryInfos.data);
         };
         fetchCategoryData("/api/treeview")
-    }, [props.articleState]);
-
-    let [arboArticleInfos, setArboArticleInfos] = useState(null);
+    }, []);
 
     useEffect(() => {
         const fetchArticleData = async (url, parameters) => {
             const arboArticleInfos = await axios.get(url, {params: parameters})
             setArboArticleInfos(arboArticleInfos.data);
         };
-        fetchArticleData("/api/getArticlesOfCategory", {idArticle: props.articleState.id, id: 'arbo'})
-    }, [props.articleState]);
+            fetchArticleData("/api/getArticlesOfCategory", {idArticle: props.articleState.articleId, id: 'arbo'})
+    }, []);
 
     if (!arboArticleInfos) {
         return (
@@ -38,19 +38,25 @@ export default function ArboInArticle(props) {
         ))
         return (
             <div css={articlesArboStyle} id="categoryArbo">
+
                 <h1>Catégories</h1>
+
                 {arboCategoryInfos.map((category, i) => (
                     <div id="categories">
-                        <Link to='/category/' state={{id: category.id}}>
+                        <Link to='/category/' state={{id: category.id, categoryName : category.name}}>
                             <h3>{category.name}</h3>
                         </Link>
                         {
                             i === categoryIndex - 1 &&
                             arboArticleInfos.map((article) => (
                                 <div id={'article' + article.articleTitle}>
-                                    <Link to='/article/' state={{id: article.id}}>
+
+                                    <Link to='/article/' state={{articleId: article.id, categoryName : category.name}}>
+
                                         <h4>{article.articleTitle}</h4>
+
                                     </Link>
+
                                 </div>
                             ))
                         }

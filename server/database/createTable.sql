@@ -26,7 +26,7 @@ CREATE TABLE T_article
     idCategory   int NOT NULL,
     articleTitle VARCHAR(100),
     tldr         VARCHAR(255),
-    body         VARCHAR(10000),
+    content         VARCHAR(10000),
     PRIMARY KEY (id),
     FOREIGN KEY (idCategory) REFERENCES T_category (id) ON DELETE CASCADE
 );

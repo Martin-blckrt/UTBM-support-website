@@ -6,11 +6,10 @@ const db_manager = new DBmanager();
 
 //TO SHOW TREEVIEW
 router.get('/:id', async (req, res) => {
-
-    const query = `SELECT a.articleTitle, c.name
-                   FROM T_article a
-                   INNER JOIN T_category c ON a.idCategory = c.id
-                   WHERE a.id = ${req.params.id}`;
+   const query = `SELECT idCategory, articleTitle, tldr, content
+                   FROM T_article
+                            INNER JOIN T_category c ON T_article.idCategory = c.id
+                   WHERE T_article.id = ${req.params.id}`;
 
     await db_manager.getDataDB(query)
         .then(results_db => res.send(results_db))
@@ -23,7 +22,7 @@ router.get('/', async (req, res) => {
 
     const query = `SELECT a.articleTitle, c.name
                    FROM T_article a
-                   INNER JOIN T_category c ON a.idCategory = c.id
+                            INNER JOIN T_category c ON a.idCategory = c.id
                    ORDER BY c.name`;
 
     await db_manager.getDataDB(query)
@@ -57,9 +56,9 @@ router.delete('/', async (req, res) => {
 router.post('/', async (req, res) => {
     //TODO. Check if the sent data are okay to be inserted (maybe in client side it's better)
 
-    const query = `INSERT INTO T_article (articleTitle, idCategory, tldr, body)
+    const query = `INSERT INTO T_article (articleTitle, idCategory, tldr, content)
                    VALUES ("${req.body.articleInformations.articleTitle}",
-                           "${req.body.articleInformations.categoriesId}", 
+                           "${req.body.articleInformations.categoriesId}",
                            "${req.body.articleInformations.tldr}",
                            "${req.body.articleInformations.content}")`;
 

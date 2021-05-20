@@ -27,8 +27,7 @@ export default function ShowArticlesinCategory(props) {
             <div css={articlesContainerStyle} id="articlesContainer">
                 {
                     articlesList.map((article, index) => (
-                            <Link to={`/article/`} state={{id: article.id}}>
-
+                            <Link to={`/article/`} state={{articleId: article.id, categoryName : props.categoryName}}>
                                 <div css={articleStyle} id={'article' + index}>
                                     <h2 css={headingStyle}>{article.articleTitle}</h2>
                                     <p css={tldrStyle}>{article.tldr}</p>

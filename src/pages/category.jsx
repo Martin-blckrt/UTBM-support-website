@@ -30,8 +30,8 @@ export default function Category(props) {
         return (
             <div id="category">
                 <title>Catégorie</title>
-                <Header headerOpacity={1} boxShadowOpacity={.25} arbo={data[0].name}/>
-                <ShowArticlesinCategory idCategory = {props.location.state.id}/>
+                <Header headerOpacity={1} boxShadowOpacity={.25} arbo={props.location.state.categoryName}/>
+                <ShowArticlesinCategory idCategory = {props.location.state.id} categoryName = {props.location.state.categoryName}/>
             </div>
         )
     }

@@ -9,6 +9,8 @@ const db_manager = new DBmanager();
 * */
 
 router.get('/', async (req, res) => {
+
+
     let query;
     if (req.query.id === 'article') {
         query = `SELECT articleTitle

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import './browseCategoryTable.css'
+import './browseCategoryTable.module.css'
 import axios from "axios";
 import {Link} from "gatsby";
 
@@ -32,11 +32,11 @@ export default function BrowseCategoryTable() {
         return (
             data.map((dataElement, index) => (
                 <ul>
-                    <Link to='/category/' state={{id: dataElement.id}}>
+                    <Link to='/category/' state={{id: dataElement.id, categoryName : dataElement.name}}>
                         <h3>{dataElement.name}</h3>
                     </Link>
                     {listArticle[index].map((article, i) => (
-                        <Link to='/article/' state={{id: idArticle[index][i]}}>
+                        <Link to='/article/' state={{articleId: idArticle[index][i], categoryName : dataElement.name}}>
                             <li>{article}</li>
                         </Link>
                     ))}

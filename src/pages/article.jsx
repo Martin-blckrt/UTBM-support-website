@@ -1,33 +1,31 @@
 import "../styles/index.css"
 import React, {useEffect, useState} from "react";
 import Header from "../components/header";
-import ArticleContentInArticle from "../components/ArticleContentInArticle";
-import ArboInArticle from "../components/ArboinArticle";
-import {css} from "@emotion/react";
+import ArticleContent from "../components/ArticleContent";
 import axios from "axios";
+import ArboInArticle from "../components/ArboinArticle";
 
 export default function Article(props) {
     /*
     * Article view that show article content and tree view of the db.
     */
-    let [data, setData] = useState(null);
-
+    console.log('props location article : ', props.location)
+    let [articleData, setArticleData] = useState(null);
     useEffect(() => {
-        const fetchData = async (url) => {
-            const data = await axios.get(url)
-            setData(data.data);
+        const fetchData = async (url, parameters) => {
+            const articleData = await axios.get(url, {params: parameters})
+            setArticleData(articleData.data);
         };
-        fetchData(`/api/articles/${props.location.state.id}`)
+        fetchData(`/api/articles/${props.location.state.articleId}`)
     }, []);
 
-    if (!data)
+    if (!articleData)
     {
         return (
             <div id="article">
                 <title>Article</title>
                 <Header headerOpacity={1} boxShadowOpacity={.25}/>
-                <ArticleContentInArticle articleState = {props.location.state}/>
-                <ArboInArticle articleState = {props.location.state}/>
+                <p>loading article</p>
             </div>
         )
     }
@@ -36,8 +34,8 @@ export default function Article(props) {
         return (
             <div id="article">
                 <title>Article</title>
-                <Header headerOpacity={1} boxShadowOpacity={.25} arbo={`${data[0].name}-->${data[0].articleTitle}`}/>
-                <ArticleContentInArticle articleState = {props.location.state}/>
+                <Header headerOpacity={1} boxShadowOpacity={.25} arbo={`${props.location.state.categoryName}-->${articleData[0].articleTitle}`}/>
+                <ArticleContent articleState = {articleData[0]}/>
                 <ArboInArticle articleState = {props.location.state}/>
             </div>
         )
