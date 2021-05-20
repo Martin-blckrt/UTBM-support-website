@@ -14,7 +14,6 @@ export default function ArticleContentInArticle(props) {
         };
 
         fetchData("/api/getArticleInfo", {idArticle: props.articleState.id})
-        console.log("res : ",articleInfos)
     }, [props.articleState]);
 
     if (!articleInfos) {

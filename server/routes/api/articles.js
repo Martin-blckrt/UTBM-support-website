@@ -34,7 +34,6 @@ router.get('/', async (req, res) => {
 
 
 //UPDATE ARTICLE
-//TODO.
 
 //DELETE ARTICLE
 router.delete('/', async (req, res) => {
@@ -57,7 +56,6 @@ router.delete('/', async (req, res) => {
 //CREATE ARTICLE
 router.post('/', async (req, res) => {
     //TODO. Check if the sent data are okay to be inserted (maybe in client side it's better)
-    console.log("I've received the data ! : ", req.body)
 
     const query = `INSERT INTO T_article (articleTitle, idCategory, tldr, body)
                    VALUES ("${req.body.articleInformations.articleTitle}",

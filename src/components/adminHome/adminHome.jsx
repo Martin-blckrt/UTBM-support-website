@@ -38,8 +38,7 @@ export default function AdminHome() {
             </div>
         )
     } else {
-        console.log(fetchedCategories)
-        console.log(fetchedArticles)
+
         return (
             <div className={adminHomeStyle.bigContainer}>
                 <div className={adminHomeStyle.title}>
