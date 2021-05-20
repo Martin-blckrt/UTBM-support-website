@@ -6,6 +6,7 @@ import PrivateRoute from "../components/privateRoute";
 import Admin from "./privileged/admin";
 import Login from "./login";
 import {Router} from "@reach/router";
+import SearchBar from "../components/searchBar";
 
 
 const IndexPage = () => {
@@ -23,7 +24,7 @@ const IndexPage = () => {
             <title>Home Page</title>
             <Header headerOpacity={0} boxShadowOpacity={0}/>
             <h1>Rechercher un tutoriel</h1>
-
+            <SearchBar/>
             <h2><strong>Parcourir</strong> les catégories</h2>
 
             <div id={'category-list-container'}>

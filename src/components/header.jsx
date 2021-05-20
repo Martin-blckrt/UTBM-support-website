@@ -38,7 +38,7 @@ export default function Header(props) {
                             fill="#585E6A"/>
                     </svg>
                 </Link>
-                <SearchBar/>
+                {window.location.pathname !== "/" && <SearchBar/>}
                 {window.location.pathname !== "/" && <p>{props.arbo}</p>}
                 <p>
                     {props.admin === "yes" ? (
@@ -79,7 +79,6 @@ export default function Header(props) {
             </div>
         )
     }
-
 }
 
 

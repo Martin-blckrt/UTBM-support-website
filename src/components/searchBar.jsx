@@ -58,10 +58,10 @@ export default function SearchBar() {
                 renderOption={(option) => (
                     <span style={{cursor: "pointer"}}>
                         {(option.type === "Catégories")
-                            ? <Link to='/category/' state={{id:option.idCategory}}>
+                            ? <Link to='/category/' state={{id:option.idCategory, categoryName: option.name}}>
                                 {option.name}
                             </Link>
-                            : <Link to='/article/' state={{id:option.idArticle}}>
+                            : <Link to='/article/' state={{idArticle :option.idArticle, categoryName:option.name}}>
                                 {option.articleTitle}
                             </Link>
                         }
