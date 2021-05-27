@@ -18,7 +18,7 @@ router.get('/category', async (req, res) => {
 
 router.get('/article', async (req, res) => {
 
-        const query = `SELECT a.id as idArticle, a.articleTitle
+        const query = `SELECT a.id as articleId, a.articleTitle
                        FROM T_article a`;
 
     await db_manager.getDataDB(query)

@@ -6,13 +6,13 @@ import {isLoggedIn} from "../../utils/auth";
 import {navigate} from "gatsby";
 import EditionHome from "../../components/editionHome/editionHome";
 
-export default function Admin() {
+export default function Edition(props) {
     if (isLoggedIn()) {
         return (
             <div id="edition">
                 <title>Edition</title>
                 <Header admin="yes" headerOpacity={1} boxShadowOpacity={.25} arbo="Edition"/>
-                <EditionHome/>
+                <EditionHome articleExistingInfo={props.location.state.articleExistingInfo}/>
             </div>
         )
     } else {

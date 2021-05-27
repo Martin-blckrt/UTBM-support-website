@@ -6,7 +6,8 @@ const db_manager = new DBmanager();
 
 //TO SHOW TREEVIEW
 router.get('/:id', async (req, res) => {
-   const query = `SELECT idCategory, articleTitle, tldr, content
+    console.log(req.params)
+    const query = `SELECT idCategory, articleTitle, tldr, content
                    FROM T_article
                             INNER JOIN T_category c ON T_article.idCategory = c.id
                    WHERE T_article.id = ${req.params.id}`;
@@ -20,7 +21,7 @@ router.get('/:id', async (req, res) => {
 //GET ARTICLE TITLE
 router.get('/', async (req, res) => {
 
-    const query = `SELECT a.articleTitle, c.name
+    const query = `SELECT a.articleTitle, a.id, c.name
                    FROM T_article a
                             INNER JOIN T_category c ON a.idCategory = c.id
                    ORDER BY c.name`;
@@ -33,6 +34,13 @@ router.get('/', async (req, res) => {
 
 
 //UPDATE ARTICLE
+router.put('/:id', (req, res) => {
+
+    const query = `
+                
+                    
+    `
+})
 
 //DELETE ARTICLE
 router.delete('/', async (req, res) => {

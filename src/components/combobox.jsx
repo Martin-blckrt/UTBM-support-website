@@ -10,6 +10,7 @@ export default function ComboBox(props) {
                 (event, value) =>
                     props.parentCallback(value)
             }
+            defaultValue={{id : props.defaultValueId , name : props.defaultValue}}
             groupBy={(option) => (props.type === "article") ? option.name : ""}
             options={props.options}
             getOptionLabel={(option) => (props.type === "article") ? option.articleTitle : option.name}

@@ -71,7 +71,7 @@ export function ModifyButton(props) {
         return (
             <div>
                 <button css={rectangleButtonStyle}>
-                    <Link css={textButtonStyle} to={`/privileged/edition/`}>
+                    <Link css={textButtonStyle} to={`/privileged/edition/`} state={{articleExistingInfo : props.articleExistingInfo}}>
                         {props.buttonText}
                     </Link>
                 </button>

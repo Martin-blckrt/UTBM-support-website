@@ -61,7 +61,7 @@ export default function SearchBar() {
                             ? <Link to='/category/' state={{id:option.idCategory, categoryName: option.name}}>
                                 {option.name}
                             </Link>
-                            : <Link to='/article/' state={{idArticle :option.idArticle, categoryName:option.name}}>
+                            : <Link to='/article/' state={{articleId :option.articleId, categoryName:option.name}}>
                                 {option.articleTitle}
                             </Link>
                         }

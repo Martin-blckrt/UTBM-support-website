@@ -3,6 +3,7 @@ let mysql = require('mysql');
 class DBManager {
     constructor() {
         //TODO. Don't forget to change credentials!!!
+        //if problems with priviliges : ALTER USER 'alex'@'localhost' IDENTIFIED WITH mysql_native_password BY 'C@rs6791'
         this.dbConnectionInfo = {
             host: "localhost",
             user: "alex",
