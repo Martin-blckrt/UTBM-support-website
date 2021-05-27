@@ -33,13 +33,22 @@ router.get('/', async (req, res) => {
 });
 
 
-//UPDATE ARTICLE
-router.put('/:id', (req, res) => {
+//UPDATE ARTICLEMoodle
+router.put('/', (req, res) => {
+    console.log('req data : ', req.body)
+    const query = `UPDATE T_article as a, (SELECT id FROM T_article WHERE id = '${req.body.articleId}') as b
+                   SET a.articleTitle = '${req.body.articleInformation.articleTitle}', 
+                        a.idCategory = ${req.body.articleInformation.categoriesId},
+                        a.tldr = '${req.body.articleInformation.tldr}',
+                        a.content = '${req.body.articleInformation.content}'
+                   WHERE a.id = b.id`;
 
-    const query = `
-                
-                    
-    `
+    const modifyDB = async () => {
+        await db_manager.getDataDB(query)
+            .catch(err => console.error(err));
+    }
+    modifyDB()
+    res.end('Article informations modified')
 })
 
 //DELETE ARTICLE
