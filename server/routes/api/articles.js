@@ -74,10 +74,10 @@ router.post('/', async (req, res) => {
     //TODO. Check if the sent data are okay to be inserted (maybe in client side it's better)
 
     const query = `INSERT INTO T_article (articleTitle, idCategory, tldr, content)
-                   VALUES ("${req.body.articleInformations.articleTitle}",
-                           "${req.body.articleInformations.categoriesId}",
-                           "${req.body.articleInformations.tldr}",
-                           "${req.body.articleInformations.content}")`;
+                   VALUES ('${req.body.articleInformation.articleTitle}',
+                           '${req.body.articleInformation.categoriesId}',
+                           '${req.body.articleInformation.tldr}',
+                           '${req.body.articleInformation.content}')`;
 
     await db_manager.getDataDB(query)
         .then(results_db => res.send(results_db))

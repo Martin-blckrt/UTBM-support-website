@@ -69,13 +69,13 @@ export default function ArticleCreatorLab() {
     } else {
         return (
             <div className={editionHomeStyle.bigContainer}>
-                <div>
+                <div className={editionHomeStyle.littleContainer}>
                     <h2> Création d'un article </h2>
                 </div>
-                <div>
+                <div className={editionHomeStyle.littleContainer}>
                     <h3> Article Name </h3>
                 </div>
-                <div>
+                <div className={editionHomeStyle.littleContainer}>
                     <p>
                         Sélectionnez la catégorie à laquelle appartient l’article
                     </p>
@@ -83,22 +83,21 @@ export default function ArticleCreatorLab() {
                               parentCallback={retrieveComboboxValue}/>
                 </div>
 
-                <div>
+                <div className={editionHomeStyle.littleContainer}>
                     <p>
                         Titre de l'article
                     </p>
                     <TextZone text="Article Title" requis={true} parentCallback={retrieveTitle}/>
                 </div>
-                <div className="container">
+                <div  className={editionHomeStyle.littleContainer}>
                     <MDEditor
                         value={articleInformation.content}
                         onChange={handleEditorChange}
                         minHeights={300}
                     />
                 </div>
-                <div className={editionHomeStyle.tldrContainer}>
+                <div  className={editionHomeStyle.littleContainer}>
                     <TextField
-
                         id="outlined-multiline-static"
                         label="Résumé"
                         multiline

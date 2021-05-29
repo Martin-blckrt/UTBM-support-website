@@ -3,9 +3,6 @@
 /*-----------------  GLOBAL TWEAK --------------------*/
 body{
     margin: 0;
-    background-image: url("../assets/background.png");
-    background-position: center;
-    background-repeat: repeat;
     z-index: -1;
 }
 *{

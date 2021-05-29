@@ -1,0 +1,42 @@
+.articlesContainerStyle {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+
+    /*Manage horizontal scroll*/
+    height: 100vw;
+    width: 800px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transform-origin: right top;
+    transform: rotate(
+            -90deg
+    ) translateY(-300px);
+
+
+
+}
+
+.articleStyle {
+    box-shadow: 0 0 50px rgba(63, 139, 255, .20);
+    padding: 15px;
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    margin: 20px;
+}
+.articlesContainerStyle > a{
+    height: 300px;
+    width: 300px;
+    transform: rotate(90deg);
+    transform-origin: right top;
+}
+
+.headingStyle {
+    font-weight: bold;
+}
+
+.tldrStyle {
+    color: #6A6A6A;
+}

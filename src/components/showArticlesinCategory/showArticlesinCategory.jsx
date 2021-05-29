@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
-import {css} from "@emotion/react";
 import {Link} from "gatsby";
+import * as showArticles from './showArticlesinCategory.module.css'
 
 export default function ShowArticlesinCategory(props) {
 
@@ -24,15 +24,14 @@ export default function ShowArticlesinCategory(props) {
     } else {
 
         return (
-            <div css={articlesContainerStyle} id="articlesContainer">
+            <div className={showArticles.articlesContainerStyle}>
                 {
                     articlesList.map((article, index) => (
                             <Link to={`/article/`} state={{articleId: article.id, categoryName : props.categoryName}}>
-                                <div css={articleStyle} id={'article' + index}>
-                                    <h2 css={headingStyle}>{article.articleTitle}</h2>
-                                    <p css={tldrStyle}>{article.tldr}</p>
+                                <div className={showArticles.articleStyle} id={'article' + index}>
+                                    <h2 className={showArticles.headingStyle}>{article.articleTitle}</h2>
+                                    <p className={showArticles.tldrStyle}>{article.tldr}</p>
                                 </div>
-
                             </Link>
                         )
                     )
@@ -43,29 +42,7 @@ export default function ShowArticlesinCategory(props) {
     }
 }
 
-/*Style*/
 
-const articleStyle = css`
-  box-shadow: 0 0 50px rgba(63, 139, 255, .20);
-  padding: 15px;
-  text-align: center;
-  background-color: white;
-  border-radius: 20px;
-  height: 300px;
-  width: 300px;
-  margin: 20px;
-`;
 
-const articlesContainerStyle = css`
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
 
-`;
 
-const headingStyle = css`
-  font-weight: bold;
-`
-const tldrStyle = css`
-  color: #6A6A6A;  
-`

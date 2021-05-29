@@ -6,12 +6,18 @@
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
     border-radius: 30px;
     justify-content: space-around;
+    flex-direction: column;
+}
+
+.littleContainer {
+    margin-left: 50px;
 }
 
 .title {
     flex-grow: 5;
     width: 100%;
 }
-.tldrContainer{
+
+.tldrContainer {
     height: 300px;
 }
