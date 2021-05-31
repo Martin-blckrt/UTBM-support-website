@@ -30,7 +30,8 @@ export default function ArticleCreatorLab() {
     function retrieveComboboxValue(comboBoxData) {
         //retrieve combobox data and update the new article informations with the id of the selected category.
         setArticleInformation(prevState => {
-            return {...prevState, categoriesId: comboBoxData.id}
+            if (comboBoxData)
+                return {...prevState, categoriesId: comboBoxData.id}
         });
     }
 
@@ -91,7 +92,11 @@ export default function ArticleCreatorLab() {
                 </div>
                 <div  className={editionHomeStyle.littleContainer}>
                     <MDEditor
-                        value={articleInformation.content}
+                        value={(articleInformation ? articleInformation.content : "## Rédiger\n" +
+                            " Le corps de l'article sera le rendu que vous voyez à droite.\n" +
+                            "\n" +
+                            " Vous pouvez éditer le corps de l'article dans la partie gauche de l'éditeur  ✌️\n" +
+                            " PS : L'éditeur de gauche supporte le `Mardown` !! ")}
                         onChange={handleEditorChange}
                         minHeights={300}
                     />

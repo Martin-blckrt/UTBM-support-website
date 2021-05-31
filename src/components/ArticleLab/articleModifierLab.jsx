@@ -35,7 +35,8 @@ export default function ArticleCreatorLab(props) {
     function retrieveComboboxValue(comboBoxData) {
         //retrieve combobox data and update the new article informations with the id of the selected category.
         setArticleInformation(prevState => {
-            return {...prevState, categoriesId: comboBoxData.id}
+            if (comboBoxData)
+                return {...prevState, categoriesId: comboBoxData.id}
         });
     }
 
@@ -93,10 +94,11 @@ export default function ArticleCreatorLab(props) {
         let categoryName = '';
 
         for (let i = 0; i < categories.length; i++) {
-
-            if (categories[i].id === articleInformation.categoriesId) {
-                categoryName = categories[i].name
-                break
+            if (articleInformation) {
+                if (categories[i].id === articleInformation.categoriesId) {
+                    categoryName = categories[i].name
+                    break
+                }
             }
         }
         return (
@@ -114,7 +116,7 @@ export default function ArticleCreatorLab(props) {
                     <ComboBox options={categories}
                               text='Sélectionnez une catégorie'
                               defaultValue={categoryName}
-                              defaultValueId={articleInformation.categoriesId}
+                              defaultValueId={(articleInformation ? articleInformation.categoriesId : "")}
                               parentCallback={retrieveComboboxValue}/>
                 </div>
 
@@ -122,19 +124,19 @@ export default function ArticleCreatorLab(props) {
                     <p>
                         Titre de l'article
                     </p>
-                    <TextZone text="Article Title" defaultValue={articleInformation.articleTitle} requis={true}
+                    <TextZone text="Article Title" defaultValue={(articleInformation ? articleInformation.articleTitle : "")} requis={true}
                               parentCallback={retrieveTitle}/>
                 </div>
                 <div className="container">
                     <MDEditor
-                        value={articleInformation.content}
+                        value={(articleInformation ? articleInformation.content : "")}
                         onChange={handleEditorChange}
                         minHeights={300}
                     />
                 </div>
                 <div className={editionHomeStyle.tldrContainer}>
                     <TextField
-                        defaultValue={articleInformation.tldr}
+                        defaultValue={(articleInformation ? articleInformation.tldr : "")}
                         id="outlined-multiline-static"
                         label="Résumé"
                         multiline
