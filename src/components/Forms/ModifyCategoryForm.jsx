@@ -6,7 +6,7 @@ import axios from "axios";
 import {containsBadChar} from "../../utils/verif";
 
 
-export default function CreateCategoryForm(props) {
+export default function ModifyCategoryForm(props) {
 
     const [comboboxData, setComboboxData] = useState("")
     const [textZoneData, setTextZoneData] = useState("")
@@ -19,11 +19,19 @@ export default function CreateCategoryForm(props) {
     }
     const handleModifications = async event => {
         event.preventDefault();
+        let response = null;
 
-        const response = await axios.put('/api/categories/', {
-            categoryName: comboboxData,
-            newCategoryName: textZoneData
-        });
+        if (comboboxData === "")
+        {
+            alert("Veuillez sélectionner une valeur.")
+        }
+        else
+        {
+            response = await axios.put('/api/categories/', {
+                categoryName: comboboxData,
+                newCategoryName: textZoneData
+            });
+        }
 
         if (response.data.alreadyExist === 1) {
             alert('Ce nom de catégorie est déjà attribué à une catégorie.')
@@ -37,16 +45,26 @@ export default function CreateCategoryForm(props) {
     }
 
     const handleDeleting = async event => {
-        event.preventDefault()
-        const response = await axios.delete('/api/categories', {data: {categoryName: comboboxData}});
-        console.log('response delete : ', response)
+        event.preventDefault();
+        let response_del = null;
 
+        if (comboboxData === "")
+        {
+            alert("Veuillez sélectionner une valeur.")
+        }
+        else
+        {
+            response_del = await axios.delete('/api/categories', {data: {categoryName: comboboxData}});
+        }
     }
 
     return (
         <div>
             {/*TODO. refresh combobox values after modifications*/}
-            <ComboBox options={props.data} parentCallback={comboBoxDataRetriever} type='category' text='Sélectionnez une catégorie'/>
+            <ComboBox options={props.data}
+                      parentCallback={comboBoxDataRetriever}
+                      type='category'
+                      text='Sélectionnez une catégorie'/>
             <form onSubmit={handleModifications}>
                 <h3>Choisissez un nouveau nom pour la catégorie sélectionnée : </h3>
                 <TextZone text="Nom" parentCallback={textZoneDataRetriever} requis={true}/>

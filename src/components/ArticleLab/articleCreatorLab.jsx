@@ -5,7 +5,7 @@ import ComboBox from "../combobox";
 import axios from "axios";
 import MDEditor from '@uiw/react-md-editor';
 import {TextField} from "@material-ui/core";
-import {containsBadChar} from "../../utils/verif";
+import {containsBadChar, replaceBadChar} from "../../utils/verif";
 
 export default function ArticleCreatorLab() {
 
@@ -52,13 +52,10 @@ export default function ArticleCreatorLab() {
         });
     }
     const createArticle = async () => {
-        if (containsBadChar(articleInformation.content) === 1) {
-            //TODO. Modifier le containsBadChar pour checker tous les elements d'une liste
-            alert('vous ne pouvez pas utiliser de guillemets " " dans les zones de texte')
-        } else {
-            await axios.post('/api/articles', {articleInformation}).then((response) => console.log(response))
-        }
-
+        articleInformation.articleTitle = replaceBadChar(articleInformation.articleTitle)
+        articleInformation.tldr = replaceBadChar(articleInformation.tldr)
+        articleInformation.content = replaceBadChar(articleInformation.content)
+        await axios.post('/api/articles', {articleInformation}).then((response) => console.log(response))
     }
 
     if (!categories) {

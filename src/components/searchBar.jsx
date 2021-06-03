@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {TextField} from "@material-ui/core";
 import axios from "axios";
 import {Link} from "gatsby";
+import {Autocomplete} from "@material-ui/lab";
 
 
 export default function SearchBar() {
@@ -39,7 +40,7 @@ export default function SearchBar() {
 
     return (
         <div>
-            <StyledSearchBar
+            <Autocomplete
                 style={{width: 500}}
                 freeSolo
                 autoComplete

@@ -78,7 +78,6 @@ export function ModifyButton(props) {
             </div>
         )
     }
-
 }
 
 export function DeleteButton(props) {

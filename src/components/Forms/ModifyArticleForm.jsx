@@ -3,20 +3,26 @@ import React, {useState} from "react";
 import ComboBox from "../combobox";
 import axios from "axios";
 
-export default function CreateCategoryForm(props) {
+export default function ModifyArticleForm(props) {
 
     const [comboboxData, setComboboxData] = useState("");
     
     const comboBoxDataRetriever = (comboboxData) => {
         setComboboxData(comboboxData)
-        console.log(props.data)
     }
 
     const handleDeleting = async event => {
-        event.preventDefault()
-        const response = await axios.delete('/api/articles', {data:{articleName: comboboxData}});
-        console.log('response delete : ', response)
+        event.preventDefault();
+        let response_del = null;
 
+        if (comboboxData === "")
+        {
+            alert("Veuillez sélectionner une valeur.")
+        }
+        else
+        {
+            response_del = await axios.delete('/api/articles', {data:{articleName: comboboxData}});
+        }
     }
 
     return (

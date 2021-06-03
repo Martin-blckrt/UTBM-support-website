@@ -1,4 +1,5 @@
-export const validTextZone = new RegExp('^[^\"]+$');
+export const validTextZone = new RegExp('^[^\']+$');
+export const replaceTextZone = new RegExp(`^[^\']+$`);
 
 export const containsBadChar = (data) => {
     if (!validTextZone.test(data)) {
@@ -6,4 +7,9 @@ export const containsBadChar = (data) => {
     } else {
         return 0
     }
+}
+
+export const replaceBadChar = (data) => {
+    const regex = /'/g;
+    return data.replace(regex, "\\'");
 }
