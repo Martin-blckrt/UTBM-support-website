@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import {Autocomplete} from "@material-ui/lab";
 import {TextField} from "@material-ui/core";
 import axios from "axios";
 import {Link} from "gatsby";
@@ -40,7 +39,7 @@ export default function SearchBar() {
 
     return (
         <div>
-            <Autocomplete
+            <StyledSearchBar
                 style={{width: 500}}
                 freeSolo
                 autoComplete
@@ -52,16 +51,16 @@ export default function SearchBar() {
                     <TextField {...params}
                                onChange={getSearchBarInfo}
                                variant="outlined"
-                               label="Recherchez ce que vous cherchez ici"
+                               label="Recherchez un article ou une catégorie ici"
                     />
                 )}
                 renderOption={(option) => (
                     <span style={{cursor: "pointer"}}>
                         {(option.type === "Catégories")
-                            ? <Link to='/category/' state={{id:option.idCategory, categoryName: option.name}}>
+                            ? <Link to='/category/' state={{id: option.idCategory, categoryName: option.name}}>
                                 {option.name}
                             </Link>
-                            : <Link to='/article/' state={{articleId :option.articleId, categoryName:option.name}}>
+                            : <Link to='/article/' state={{articleId: option.articleId, categoryName: option.name}}>
                                 {option.articleTitle}
                             </Link>
                         }
@@ -70,11 +69,4 @@ export default function SearchBar() {
             />
         </div>
     );
-}
-
-function uniq(a) {
-    let seen = {};
-    return a.filter(function (item) {
-        return seen.hasOwnProperty(item) ? false : (seen[item] = true);
-    });
 }
