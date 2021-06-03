@@ -18,8 +18,8 @@ export default function Edition(props) {
             console.log('on est dans l\'article creator : ', props.location.state.articleExistingInfo)
             return (
                 <div id="edition">
-                    <title>Edition</title>
-                    <Header admin="yes" headerOpacity={1} boxShadowOpacity={.25} arbo="Edition"/>
+                    <title>Création d'un article</title>
+                    <Header admin="yes" headerOpacity={1} boxShadowOpacity={.25} arbo="Création"/>
                     <ArticleCreatorLab/>
                 </div>
             )
@@ -27,7 +27,7 @@ export default function Edition(props) {
             console.log('on est dans l\'edition : ', props.location.state.articleExistingInfo)
             return (
                 <div id="edition">
-                    <title>Edition</title>
+                    <title>Modification d'un article</title>
                     <Header admin="yes" headerOpacity={1} boxShadowOpacity={.25} arbo="Edition"/>
                     <ArticleModifierLab articleExistingInfo={props.location.state.articleExistingInfo}/>
                 </div>

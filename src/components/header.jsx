@@ -12,11 +12,15 @@ const icon_style = css`
 const headingBackground = function (headerOpacity, boxShadowOpacity) {
     return css`
       box-shadow: 0 0 20px rgba(0, 0, 0, ${boxShadowOpacity});
-      padding: 30px 30px;
+      padding: 15px;
+      position: sticky;
+      position: -webkit-sticky;
+      top: 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
       background-color: rgba(255, 255, 255, ${headerOpacity});
+      transition: 0.5s;
     `
 }
 

@@ -32,11 +32,11 @@ export default function BrowseCategoryTable() {
         return (
             data.map((dataElement, index) => (
                 <ul>
-                    <Link to='/category/' state={{id: dataElement.id, categoryName : dataElement.name}}>
+                    <Link to={'/category/'} state={{id: dataElement.id, categoryName : dataElement.name}}>
                         <h3>{dataElement.name}</h3>
                     </Link>
-                    {listArticle[index].map((article, i) => (
-                        <Link to='/article/' state={{articleId: idArticle[index][i], categoryName : dataElement.name}}>
+                    {listArticle[index].slice(0,3).map((article, i) => (
+                        <Link to='/article/'  hash={idArticle[index][i]} state={{articleId: idArticle[index][i], categoryName : dataElement.name}}>
                             <li>{article}</li>
                         </Link>
                     ))}

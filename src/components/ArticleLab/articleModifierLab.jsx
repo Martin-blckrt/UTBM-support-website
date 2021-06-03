@@ -103,13 +103,10 @@ export default function ArticleCreatorLab(props) {
         }
         return (
             <div className={editionHomeStyle.bigContainer}>
-                <div>
+                <div className={editionHomeStyle.littleContainer}>
                     <h2> Modification d'un article </h2>
                 </div>
-                <div>
-                    <h3> Article Name </h3>
-                </div>
-                <div>
+                <div className={editionHomeStyle.littleContainer}>
                     <p>
                         Sélectionnez la catégorie à laquelle appartient l’article
                     </p>
@@ -120,14 +117,14 @@ export default function ArticleCreatorLab(props) {
                               parentCallback={retrieveComboboxValue}/>
                 </div>
 
-                <div>
+                <div className={editionHomeStyle.littleContainer}>
                     <p>
                         Titre de l'article
                     </p>
                     <TextZone text="Article Title" defaultValue={(articleInformation ? articleInformation.articleTitle : "")} requis={true}
                               parentCallback={retrieveTitle}/>
                 </div>
-                <div className="container">
+                <div className={editionHomeStyle.littleContainer}>
                     <MDEditor
                         value={(articleInformation ? articleInformation.content : "")}
                         onChange={handleEditorChange}

@@ -1,21 +1,14 @@
 .articlesContainerStyle {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row-reverse;
     justify-content: space-around;
-
-    /*Manage horizontal scroll*/
-    height: 100vw;
-    width: 800px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    transform-origin: right top;
-    transform: rotate(
-            -90deg
-    ) translateY(-300px);
-
-
-
+    /* overflow-x: hidden; */
+    /* overflow-y: auto; */
+    width: 80vw;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .articleStyle {
@@ -25,12 +18,8 @@
     background-color: white;
     border-radius: 20px;
     margin: 20px;
-}
-.articlesContainerStyle > a{
     height: 300px;
     width: 300px;
-    transform: rotate(90deg);
-    transform-origin: right top;
 }
 
 .headingStyle {

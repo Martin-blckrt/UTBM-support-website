@@ -71,9 +71,6 @@ export default function ArticleCreatorLab() {
                     <h2> Création d'un article </h2>
                 </div>
                 <div className={editionHomeStyle.littleContainer}>
-                    <h3> Article Name </h3>
-                </div>
-                <div className={editionHomeStyle.littleContainer}>
                     <p>
                         Sélectionnez la catégorie à laquelle appartient l’article
                     </p>
@@ -98,7 +95,7 @@ export default function ArticleCreatorLab() {
                         minHeights={300}
                     />
                 </div>
-                <div  className={editionHomeStyle.littleContainer}>
+                <div  className={editionHomeStyle.tldrContainer}>
                     <TextField
                         id="outlined-multiline-static"
                         label="Résumé"
