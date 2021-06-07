@@ -16,6 +16,7 @@ const headingBackground = function (headerOpacity, boxShadowOpacity) {
       position: sticky;
       position: -webkit-sticky;
       top: 0;
+      z-index: 5;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -26,8 +27,7 @@ const headingBackground = function (headerOpacity, boxShadowOpacity) {
 
 export default function Header(props) {
 
-    if (isBrowser())
-    {
+    if (isBrowser()) {
         return (
             <div css={headingBackground(props.headerOpacity, props.boxShadowOpacity)}>
                 <Link to={"/"}>
@@ -43,20 +43,16 @@ export default function Header(props) {
                     </svg>
                 </Link>
                 {window.location.pathname !== "/" && <SearchBar/>}
+                {props.admin === "yes" ? (
+                    <DisconnectButton buttonText={'Déconnexion'}/>
+                ) : (
+                    <ConnectButton buttonText={'Administration'}/>
+                )}
                 {window.location.pathname !== "/" && <p>{props.arbo}</p>}
-                <p>
-                    {props.admin === "yes" ? (
-                        <DisconnectButton buttonText={'Déconnexion'}/>
-                    ) : (
-                        <ConnectButton buttonText={'Administration'}/>
-                    )}
-                </p>
 
             </div>
         )
-    }
-    else
-    {
+    } else {
         return (
             <div css={headingBackground(props.headerOpacity, props.boxShadowOpacity)}>
                 <Link to={"/"}>
@@ -72,13 +68,12 @@ export default function Header(props) {
                     </svg>
                 </Link>
                 <SearchBar/>
-                <p>
-                    {props.admin === "yes" ? (
-                        <DisconnectButton buttonText={'Déconnexion'}/>
-                    ) : (
-                        <ConnectButton buttonText={'Administration'}/>
-                    )}
-                </p>
+
+                {props.admin === "yes" ? (
+                    <DisconnectButton buttonText={'Déconnexion'}/>
+                ) : (
+                    <ConnectButton buttonText={'Administration'}/>
+                )}
 
             </div>
         )

@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import Header from "../components/header";
 import ArticleContent from "../components/ArticleContent/ArticleContent";
 import axios from "axios";
-import ArboInArticle from "../components/ArbiinArticle/ArboinArticle";
+import ArboInArticle from "../components/ArboinArticle/ArboinArticle";
 
 export default function Article(props) {
     /*

@@ -24,7 +24,6 @@ export default function Edition(props) {
                 </div>
             )
         } else {
-            console.log('on est dans l\'edition : ', props.location.state.articleExistingInfo)
             return (
                 <div id="edition">
                     <title>Modification d'un article</title>

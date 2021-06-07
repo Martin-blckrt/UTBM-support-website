@@ -1,8 +1,15 @@
-.ArticleContent{
-    padding: 20px;
+.ArticleContent {
+    padding: 30px 80px;
     width: 78%;
     min-height: 600px;
     box-shadow: 0 0 50px rgba(63, 139, 255, .2);
     border-radius: 15px;
     margin: 0 30px;
+}
+
+.articleTitle {
+    color: #3f8bff;
+    font-size: xxx-large;
+    font-weight: bolder;
+    margin: 40px 0;
 }

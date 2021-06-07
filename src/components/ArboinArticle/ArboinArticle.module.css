@@ -5,7 +5,11 @@
     display: flex;
     flex-wrap: nowrap;
     /* margin: 20px; */
-    padding: 10px 50px;
+    padding: 10px 30px;
     width: 20%;
     flex-direction: column;
+}
+
+.categories{
+    margin-left: 20px;
 }

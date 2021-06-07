@@ -5,7 +5,7 @@ import ComboBox from "../combobox";
 import axios from "axios";
 import MDEditor from '@uiw/react-md-editor';
 import {TextField} from "@material-ui/core";
-import {containsBadChar} from "../../utils/verif";
+import {replaceBadChar} from "../../utils/verif";
 
 export default function ArticleCreatorLab(props) {
 
@@ -68,17 +68,15 @@ export default function ArticleCreatorLab(props) {
     }, [])
 
     const modifyArticle = async () => {
-        if (containsBadChar(articleInformation.content) === 1) {
-            //TODO. Modifier le containsBadChar pour checker tous les elements d'une liste
-            alert('vous ne pouvez pas utiliser de guillemets " " dans les zones de texte')
-        } else {
+        articleInformation.articleTitle = replaceBadChar(articleInformation.articleTitle)
+        articleInformation.tldr = replaceBadChar(articleInformation.tldr)
+        articleInformation.content = replaceBadChar(articleInformation.content)
 
-            await axios.put('/api/articles', {
-                articleInformation: articleInformation,
-                articleId: props.articleExistingInfo.id
-            }).then((res) => console.log(res))
+        await axios.put('/api/articles', {
+            articleInformation: articleInformation,
+            articleId: props.articleExistingInfo.id
+        }).then((res) => console.log(res))
 
-        }
 
     }
 
@@ -121,17 +119,18 @@ export default function ArticleCreatorLab(props) {
                     <p>
                         Titre de l'article
                     </p>
-                    <TextZone text="Article Title" defaultValue={(articleInformation ? articleInformation.articleTitle : "")} requis={true}
+                    <TextZone text="Article Title"
+                              defaultValue={(articleInformation ? articleInformation.articleTitle : "")} requis={true}
                               parentCallback={retrieveTitle}/>
                 </div>
                 <div className={editionHomeStyle.littleContainer}>
                     <MDEditor
                         value={(articleInformation ? articleInformation.content : "")}
                         onChange={handleEditorChange}
-                        minHeights={300}
+                        minHeights={500}
                     />
                 </div>
-                <div className={editionHomeStyle.tldrContainer}>
+                <div className={editionHomeStyle.littleContainer}>
                     <TextField
                         defaultValue={(articleInformation ? articleInformation.tldr : "")}
                         id="outlined-multiline-static"

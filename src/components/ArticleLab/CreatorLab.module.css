@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     margin: 50px;
+    padding: 20px;
     background-color: white;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
     border-radius: 30px;
@@ -10,14 +11,10 @@
 }
 
 .littleContainer {
-    margin-left: 50px;
+    margin: 10px 50px;
 }
 
 .title {
     flex-grow: 5;
     width: 100%;
-}
-
-.tldrContainer {
-    height: 300px;
 }

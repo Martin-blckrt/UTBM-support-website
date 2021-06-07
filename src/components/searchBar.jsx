@@ -41,7 +41,7 @@ export default function SearchBar() {
     return (
         <div className={"searchContainer"}>
             <Autocomplete
-                style={{width: 500}}
+                style={{width: 800}}
                 freeSolo
                 autoComplete
                 autoHighlight
@@ -59,7 +59,7 @@ export default function SearchBar() {
                     <span style={{cursor: "pointer"}}>
                         {(option.type === "Catégories")
                             ? <Link to='/category/' state={{id: option.idCategory, categoryName: option.name}}>
-                                {option.name}
+                                {option.name} - {option.idCategory}
                             </Link>
                             : <Link to='/article/' state={{articleId: option.articleId, categoryName: option.name}}>
                                 {option.articleTitle}

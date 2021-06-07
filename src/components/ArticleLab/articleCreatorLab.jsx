@@ -92,10 +92,10 @@ export default function ArticleCreatorLab() {
                             " Vous pouvez éditer le corps de l'article dans la partie gauche de l'éditeur  ✌️\n" +
                             " PS : L'éditeur de gauche supporte le `Mardown` !! ")}
                         onChange={handleEditorChange}
-                        minHeights={300}
+                        minHeights={500}
                     />
                 </div>
-                <div  className={editionHomeStyle.tldrContainer}>
+                <div  className={editionHomeStyle.littleContainer}>
                     <TextField
                         id="outlined-multiline-static"
                         label="Résumé"
