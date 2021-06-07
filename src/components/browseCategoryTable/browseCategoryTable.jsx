@@ -30,7 +30,7 @@ export default function BrowseCategoryTable() {
         });
 
         return (
-            data.map((dataElement, index) => (
+            data.slice(0,4).map((dataElement, index) => (
                 <ul>
                     <Link to={'/category/'} state={{id: dataElement.id, categoryName : dataElement.name}}>
                         <h3>{dataElement.name}</h3>

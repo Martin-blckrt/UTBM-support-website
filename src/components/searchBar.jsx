@@ -39,7 +39,7 @@ export default function SearchBar() {
     }
 
     return (
-        <div>
+        <div className={"searchContainer"}>
             <Autocomplete
                 style={{width: 500}}
                 freeSolo

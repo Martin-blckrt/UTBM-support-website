@@ -1,12 +1,12 @@
 li{
     list-style: none;
-    font-size: large;
+    font-size: medium;
 }
 td{
     padding: 10px 40px;
 }
 
 h3{
-    font-weight: bold;
-    font-size: x-large;
+    font-weight: 700;
+    font-size: larger;
 }
