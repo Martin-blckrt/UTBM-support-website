@@ -13,7 +13,6 @@ export default function ModifyArticleForm(props) {
 
     const handleDeleting = async event => {
         event.preventDefault();
-        let response_del = null;
 
         if (comboboxData === "")
         {
@@ -21,7 +20,7 @@ export default function ModifyArticleForm(props) {
         }
         else
         {
-            response_del = await axios.delete('/api/articles', {data:{articleName: comboboxData}});
+            await axios.delete('/api/articles', {data:{articleName: comboboxData}}).then((response_del) => console.log(response_del));
         }
     }
 

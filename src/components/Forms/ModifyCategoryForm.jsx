@@ -54,7 +54,7 @@ export default function ModifyCategoryForm(props) {
         }
         else
         {
-            response_del = await axios.delete('/api/categories', {data: {categoryName: comboboxData}});
+            await axios.delete('/api/categories', {data: {categoryName: comboboxData}}).then((response_del) => console.log(response_del) );
         }
     }
 

@@ -5,10 +5,11 @@ import ComboBox from "../combobox";
 import axios from "axios";
 import MDEditor from '@uiw/react-md-editor';
 import {TextField} from "@material-ui/core";
-import {containsBadChar, replaceBadChar} from "../../utils/verif";
+import {replaceBadChar} from "../../utils/verif";
 
 export default function ArticleCreatorLab() {
 
+    let [feedbackDivShow, setFeedbackDivShow] = useState(false)
     let [categories, setFetchedCategories] = useState(null)
     let [articleInformation, setArticleInformation] = useState({
         articleTitle: "",
@@ -27,7 +28,7 @@ export default function ArticleCreatorLab() {
     }, [])
 
 
-    function retrieveComboboxValue(comboBoxData) {
+    const retrieveComboboxValue = (comboBoxData) => {
         //retrieve combobox data and update the new article informations with the id of the selected category.
         setArticleInformation(prevState => {
             if (comboBoxData)
@@ -35,7 +36,7 @@ export default function ArticleCreatorLab() {
         });
     }
 
-    function retrieveTitle(title) {
+    const retrieveTitle = (title) => {
         setArticleInformation(prevState => {
             return {...prevState, articleTitle: title}
         });
@@ -55,7 +56,16 @@ export default function ArticleCreatorLab() {
         articleInformation.articleTitle = replaceBadChar(articleInformation.articleTitle)
         articleInformation.tldr = replaceBadChar(articleInformation.tldr)
         articleInformation.content = replaceBadChar(articleInformation.content)
-        await axios.post('/api/articles', {articleInformation}).then((response) => console.log(response))
+        await axios.post('/api/articles', {articleInformation}).then((response) => {
+            if (response.status === 200) {
+                console.log('status : 200')
+                setFeedbackDivShow(true);
+
+            } else {
+                console.log(response.status)
+
+            }
+        })
     }
 
     if (!categories) {
@@ -84,7 +94,7 @@ export default function ArticleCreatorLab() {
                     </p>
                     <TextZone text="Article Title" requis={true} parentCallback={retrieveTitle}/>
                 </div>
-                <div  className={editionHomeStyle.littleContainer}>
+                <div className={editionHomeStyle.littleContainer}>
                     <MDEditor
                         value={(articleInformation ? articleInformation.content : "## Rédiger\n" +
                             " Le corps de l'article sera le rendu que vous voyez à droite.\n" +
@@ -95,7 +105,7 @@ export default function ArticleCreatorLab() {
                         minHeights={500}
                     />
                 </div>
-                <div  className={editionHomeStyle.littleContainer}>
+                <div className={editionHomeStyle.littleContainer}>
                     <TextField
                         id="outlined-multiline-static"
                         label="Résumé"
@@ -105,10 +115,16 @@ export default function ArticleCreatorLab() {
                         onChange={(event) => handleTLDRChange(event.target.value)}
                     />
                 </div>
-                {/*TODO. ajouter un feedback de créeation + clear le tout (ou revenir à la page admin?)*/}
                 <button type="submit" onClick={createArticle}>
                     send data
                 </button>
+                {feedbackDivShow
+                    ? <div className={editionHomeStyle.feedbackDiv}>
+                        <p>Article créé!</p>
+                    </div>
+                    : null
+                }
+
             </div>)
     }
 

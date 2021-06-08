@@ -17,8 +17,9 @@ export default function ArticleCreatorLab(props) {
         content: "## Rédiger\n Le corps de l'article sera le rendu que vous voyez à droite.\n\n Vous pouvez éditer le corps de l'article dans la partie gauche de l'éditeur  ✌️\n PS : L'éditeur de gauche supporte le `Mardown` !! "
     });
 
-    if (props.articleExistingInfo) {
-        useEffect(() => {
+
+    useEffect(() => {
+        if (props.articleExistingInfo) {
             const fetchedDetailedExistingInfo = async (url) => {
                 const existingData = await axios.get(url)
                 setArticleInformation({
@@ -29,10 +30,11 @@ export default function ArticleCreatorLab(props) {
                 });
             };
             fetchedDetailedExistingInfo(`/api/articles/${props.articleExistingInfo.id}`)
-        }, [])
-    }
+        }
+    }, [])
 
-    function retrieveComboboxValue(comboBoxData) {
+
+    const retrieveComboboxValue = (comboBoxData) => {
         //retrieve combobox data and update the new article informations with the id of the selected category.
         setArticleInformation(prevState => {
             if (comboBoxData)
@@ -40,7 +42,7 @@ export default function ArticleCreatorLab(props) {
         });
     }
 
-    function retrieveTitle(title) {
+    const retrieveTitle = (title) => {
         setArticleInformation(prevState => {
             return {...prevState, articleTitle: title}
         });
@@ -71,7 +73,7 @@ export default function ArticleCreatorLab(props) {
         articleInformation.articleTitle = replaceBadChar(articleInformation.articleTitle)
         articleInformation.tldr = replaceBadChar(articleInformation.tldr)
         articleInformation.content = replaceBadChar(articleInformation.content)
-
+        console.log(articleInformation)
         await axios.put('/api/articles', {
             articleInformation: articleInformation,
             articleId: props.articleExistingInfo.id
@@ -137,14 +139,18 @@ export default function ArticleCreatorLab(props) {
                         label="Résumé"
                         multiline
                         rows={4}
+                        required
                         variant="outlined"
                         onChange={(event) => handleTLDRChange(event.target.value)}
                     />
                 </div>
                 {/*TODO. ajouter un feedback de créeation + clear le tout (ou revenir à la page admin?)*/}
-                <button type="submit" onClick={modifyArticle}>
+                <button className={editionHomeStyle.SubmitButton} onClick={modifyArticle}>
                     send data
                 </button>
+                <div className={editionHomeStyle.feedbackDiv}>
+
+                </div>
             </div>)
 
 

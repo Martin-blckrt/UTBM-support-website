@@ -37,10 +37,10 @@ router.get('/', async (req, res) => {
 router.put('/', (req, res) => {
     console.log('req data : ', req.body)
     const query = `UPDATE T_article as a, (SELECT id FROM T_article WHERE id = '${req.body.articleId}') as b
-                   SET a.articleTitle = '${req.body.articleInformation.articleTitle}', 
-                        a.idCategory = ${req.body.articleInformation.categoriesId},
-                        a.tldr = '${req.body.articleInformation.tldr}',
-                        a.content = '${req.body.articleInformation.content}'
+                   SET a.articleTitle = '${req.body.articleInformation.articleTitle}',
+                       a.idCategory = ${req.body.articleInformation.categoriesId},
+                       a.tldr = '${req.body.articleInformation.tldr}',
+                       a.content = '${req.body.articleInformation.content}'
                    WHERE a.id = b.id`;
 
     const modifyDB = async () => {
@@ -71,17 +71,20 @@ router.delete('/', async (req, res) => {
 
 //CREATE ARTICLE
 router.post('/', async (req, res) => {
-    //TODO. Check if the sent data are okay to be inserted (maybe in client side it's better)
 
     const query = `INSERT INTO T_article (articleTitle, idCategory, tldr, content)
                    VALUES ('${req.body.articleInformation.articleTitle}',
                            '${req.body.articleInformation.categoriesId}',
                            '${req.body.articleInformation.tldr}',
-                           '${req.body.articleInformation.content}')`;
+                           '${req.body.articleInformation.content}');`;
 
     await db_manager.getDataDB(query)
-        .then(results_db => res.send(results_db))
-        .catch(err => res.end('unable to create article : ', err));
+        .catch(err => res.end('unable to create article : ', err))
+        .then(results_db => {
+            console.log(results_db)
+            res.send(results_db)
+        });
+
 
 });
 
