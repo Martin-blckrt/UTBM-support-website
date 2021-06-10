@@ -6,18 +6,36 @@ import {ConnectButton, DisconnectButton} from "./rectangleButton";
 import SearchBar from "./searchBar";
 import {isBrowser} from "../utils/auth";
 
+const button_style = css`
+  grid-column: 3;`
+
+const searchbar_style = css`
+  grid-column: 2;`
+
 const icon_style = css`
   width: 50px;
+  grid-column: 1;
 `
+const arbo_style = css`
+  grid-row-start: 2;
+  align-self: end;
+  font-weight: bold;
+`
+
 const headingBackground = function (headerOpacity, boxShadowOpacity) {
     return css`
       box-shadow: 0 0 20px rgba(0, 0, 0, ${boxShadowOpacity});
-      padding: 15px;
+      padding: 15px 15px 0 15px;
       position: sticky;
       position: -webkit-sticky;
       top: 0;
       z-index: 5;
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(3, 1 fr [col]);
+      grid-template-rows: [line1] 1fr [line2] 1fr;
+      grid-template-areas: 
+              "logo sb btn"
+              "arbo . .";
       justify-content: space-between;
       align-items: center;
       background-color: rgba(255, 255, 255, ${headerOpacity});
@@ -42,13 +60,14 @@ export default function Header(props) {
                             fill="#585E6A"/>
                     </svg>
                 </Link>
-                {window.location.pathname !== "/" && <SearchBar/>}
+                {window.location.pathname !== "/" && <SearchBar css={searchbar_style}/>}
+                {window.location.pathname === "/" && <div/>}
                 {props.admin === "yes" ? (
-                    <DisconnectButton buttonText={'Déconnexion'}/>
+                    <DisconnectButton buttonText={'Déconnexion'} css={button_style}/>
                 ) : (
-                    <ConnectButton buttonText={'Administration'}/>
+                    <ConnectButton buttonText={'Administration'} css={button_style}/>
                 )}
-                {window.location.pathname !== "/" && <p>{props.arbo}</p>}
+                {window.location.pathname !== "/" && <p css={arbo_style}>{props.arbo}</p>}
 
             </div>
         )
@@ -67,12 +86,12 @@ export default function Header(props) {
                             fill="#585E6A"/>
                     </svg>
                 </Link>
-                <SearchBar/>
+                <SearchBar css={searchbar_style}/>
 
                 {props.admin === "yes" ? (
-                    <DisconnectButton buttonText={'Déconnexion'}/>
+                    <DisconnectButton buttonText={'Déconnexion'} css={button_style}/>
                 ) : (
-                    <ConnectButton buttonText={'Administration'}/>
+                    <ConnectButton buttonText={'Administration'} css={button_style}/>
                 )}
 
             </div>
