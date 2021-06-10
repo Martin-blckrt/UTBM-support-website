@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import Header from "../components/header";
+import Header from "../components/header/header";
 import axios from "axios";
 import ShowArticlesinCategory from "../components/showArticlesinCategory/showArticlesinCategory";
 

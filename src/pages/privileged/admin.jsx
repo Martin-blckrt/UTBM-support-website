@@ -1,6 +1,6 @@
 import "../../styles/index.css"
 import React from "react";
-import Header from "../../components/header";
+import Header from "../../components/header/header";
 import AdminHome from "../../components/adminHome/adminHome";
 import {isLoggedIn} from "../../utils/auth";
 import {navigate} from "gatsby";

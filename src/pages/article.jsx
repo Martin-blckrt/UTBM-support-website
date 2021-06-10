@@ -1,6 +1,6 @@
 import "../styles/index.css"
 import React, {useEffect, useState} from "react";
-import Header from "../components/header";
+import Header from "../components/header/header";
 import ArticleContent from "../components/ArticleContent/ArticleContent";
 import axios from "axios";
 import ArboInArticle from "../components/ArboinArticle/ArboinArticle";

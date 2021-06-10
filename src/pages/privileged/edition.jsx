@@ -5,7 +5,7 @@ import {navigate} from "gatsby";
 import {isLoggedIn} from "../../utils/auth";
 
 //Import Components
-import Header from "../../components/header";
+import Header from "../../components/header/header";
 import ArticleCreatorLab from "../../components/ArticleLab/articleCreatorLab";
 import ArticleModifierLab from "../../components/ArticleLab/articleModifierLab";
 

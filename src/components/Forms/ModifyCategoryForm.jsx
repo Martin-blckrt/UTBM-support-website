@@ -10,9 +10,9 @@ export default function ModifyCategoryForm() {
 
     const [comboboxData, setComboboxData] = useState("")
     const [textZoneData, setTextZoneData] = useState("")
-    const [fetchedCategories, setFetchedCategories] =useState(null)
+    const [fetchedCategories, setFetchedCategories] = useState(null)
 
-    useEffect(() =>{
+    useEffect(() => {
         const fetchCategories = async (url) => {
             const categories = await axios.get(url)
             setFetchedCategories(categories.data);
@@ -40,7 +40,7 @@ export default function ModifyCategoryForm() {
         }
 
         if (response.data.alreadyExist === 1) {
-            {//TODO. Semblerait qu'il ne fasse pas attention à la case, il faudrait je pense}
+            //TODO. Semblerait qu'il ne fasse pas attention à la case, il faudrait je pense
             alert('Ce nom de catégorie est déjà attribué à une catégorie.')
         } else if (containsBadChar(textZoneData) === 1) {
             alert('Vous avez des caractères non conformes!')
@@ -88,4 +88,5 @@ export default function ModifyCategoryForm() {
 
         </div>
     )
+
 }

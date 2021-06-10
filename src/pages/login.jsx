@@ -1,7 +1,7 @@
 import React from "react"
 import { navigate } from "gatsby"
 import { handleLogin, isLoggedIn } from "../utils/auth"
-import Header from "../components/header";
+import Header from "../components/header/header";
 import * as loginStyle from '../components/login/login.module.css'
 
 class Login extends React.Component {
