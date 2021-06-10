@@ -18,3 +18,27 @@ form {
     align-items: center;
     flex-wrap: nowrap;
 }
+
+.titleStyle{
+    margin-left: 20px;
+}
+
+.formContainer{
+    background: #e4efff;
+    border-radius: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-evenly;
+    margin: 30px auto 10px auto;
+    padding: 0 10px 10px 20px;
+    width: 600px;
+    min-height: 200px;
+}
+.labels{
+    margin: 10px 20px
+}
+.inputs{
+    margin-bottom: 20px;
+}

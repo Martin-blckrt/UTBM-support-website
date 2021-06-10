@@ -2,25 +2,16 @@ import React from "react"
 import {Link} from "gatsby"
 import {css} from "@emotion/react";
 
+//IMPORT components
 import {ConnectButton, DisconnectButton} from "../rectangleButton";
 import SearchBar from "../searchBar";
 import {isBrowser} from "../../utils/auth";
+
+//IMPORT Style
 import * as headerStyle from './header.module.css'
 
-const first_div_style = css`
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;`
 
-const second_div_style = css`
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  flex-wrap: wrap;
-  align-items: center;`
-
+//Define emotion style
 const headingBackground = function (headerOpacity, boxShadowOpacity) {
     return css`
       box-shadow: 0 0 20px rgba(0, 0, 0, ${boxShadowOpacity});
