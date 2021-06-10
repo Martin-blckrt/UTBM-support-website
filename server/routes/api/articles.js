@@ -6,7 +6,7 @@ const db_manager = new DBmanager();
 
 //TO SHOW TREEVIEW
 router.get('/:id', async (req, res) => {
-    console.log(req.params)
+
     const query = `SELECT idCategory, articleTitle, tldr, content
                    FROM T_article
                             INNER JOIN T_category c ON T_article.idCategory = c.id
@@ -35,7 +35,7 @@ router.get('/', async (req, res) => {
 
 //UPDATE ARTICLEMoodle
 router.put('/', (req, res) => {
-    console.log('req data : ', req.body)
+
     const query = `UPDATE T_article as a, (SELECT id FROM T_article WHERE id = '${req.body.articleId}') as b
                    SET a.articleTitle = '${req.body.articleInformation.articleTitle}',
                        a.idCategory = ${req.body.articleInformation.categoriesId},
