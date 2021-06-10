@@ -34,7 +34,7 @@ export default function Article(props) {
         return (
             <div id="article">
                 <title>Article</title>
-                <Header headerOpacity={1} boxShadowOpacity={.25} arbo={`${props.location.state.categoryName}-->${articleData[0].articleTitle}`}/>
+                <Header headerOpacity={1} boxShadowOpacity={.25} arbo={`${props.location.state.categoryName}`} arboArticle={`${articleData[0].articleTitle}`}/>
                 <div className='articleContentContainer'>
                     <ArticleContent articleState = {articleData[0]}/>
                     <ArboInArticle articleState = {props.location.state}/>

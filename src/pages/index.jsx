@@ -25,7 +25,7 @@ const IndexPage = () => {
             <Header headerOpacity={0} boxShadowOpacity={0}/>
             <h1 className={"titleIndex"}>Rechercher un tutoriel</h1>
             <SearchBar/>
-            <h2 className={'subtitleIndex'}><strong>Parcourir</strong> les catégories</h2>
+            <h2 className={'subtitleIndex'}><strong>Parcourir</strong> les catégories et <strong>découvrez</strong> plus d'articles</h2>
 
             <div id={'category-list-container'}>
                 <BrowseCategoryTable/>
