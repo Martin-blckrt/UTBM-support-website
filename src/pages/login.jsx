@@ -2,7 +2,34 @@ import React from "react"
 import { navigate } from "gatsby"
 import { handleLogin, isLoggedIn } from "../utils/auth"
 import Header from "../components/header";
+import {css} from "@emotion/react";
 import * as loginStyle from '../components/login/login.module.css'
+
+const connexion_style = css `
+  margin-left: 20px;`
+
+const label_style = css `
+  
+  `
+
+const input_style = css `
+  `
+
+const big_div_style = css `
+  background: #e4efff;
+  border-radius: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-evenly;
+  margin: 30px auto 10px auto;
+  padding: 0px 10px 10px 20px;
+  max-width: 1200px;
+  min-height: 200px;
+}
+  `
+
 
 class Login extends React.Component {
     state = {
@@ -29,8 +56,8 @@ class Login extends React.Component {
         return (
             <>
                 <Header headerOpacity={1} boxShadowOpacity={.25} arbo="Connexion"/>
-                <div className={loginStyle.container}>
-                    <h1>Connexion</h1>
+                <h1 css={connexion_style}>Connexion</h1>
+                <div css={big_div_style}>
                     <form
                         method="post"
                         onSubmit={event => {
@@ -38,12 +65,12 @@ class Login extends React.Component {
                             navigate(`/privileged/admin`)
                         }}
                     >
-                        <label>
-                            Username
-                            <input type="text" name="username" onChange={this.handleUpdate} />
+                        <label css={label_style}>
+                            Utilisateur
+                            <input css={input_style} type="text" name="username" onChange={this.handleUpdate} />
                         </label>
                         <label>
-                            Password
+                            Mot de passe
                             <input type="password" name="password" onChange={this.handleUpdate} />
                         </label>
                         <input type="submit" value="Log In" />
