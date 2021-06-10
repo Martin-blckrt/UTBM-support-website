@@ -9,7 +9,6 @@ import {replaceBadChar} from "../../utils/verif";
 
 export default function ArticleCreatorLab() {
 
-    let [feedbackDivShow, setFeedbackDivShow] = useState(false)
     let [categories, setFetchedCategories] = useState(null)
     let [articleInformation, setArticleInformation] = useState({
         articleTitle: "",
@@ -56,14 +55,13 @@ export default function ArticleCreatorLab() {
         articleInformation.articleTitle = replaceBadChar(articleInformation.articleTitle)
         articleInformation.tldr = replaceBadChar(articleInformation.tldr)
         articleInformation.content = replaceBadChar(articleInformation.content)
+
         await axios.post('/api/articles', {articleInformation}).then((response) => {
             if (response.status === 200) {
-                console.log('status : 200')
-                setFeedbackDivShow(true);
-
+                alert("Article créé !")
             } else {
+                alert('Impossible de créer l\'article')
                 console.log(response.status)
-
             }
         })
     }
@@ -118,12 +116,6 @@ export default function ArticleCreatorLab() {
                 <button type="submit" onClick={createArticle}>
                     send data
                 </button>
-                {feedbackDivShow
-                    ? <div className={editionHomeStyle.feedbackDiv}>
-                        <p>Article créé!</p>
-                    </div>
-                    : null
-                }
 
             </div>)
     }

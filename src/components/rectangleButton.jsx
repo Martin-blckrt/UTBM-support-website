@@ -7,6 +7,7 @@ const rectangleButtonStyle = css`
   background-color: #3F8BFF;
   border: 0;
   padding: 15px;
+  min-width: 100px;
   border-radius: 10px;
   color: white;
   box-shadow: 0 0 15px rgba(63, 139, 255, 0.5);

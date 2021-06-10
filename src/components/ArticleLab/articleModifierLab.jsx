@@ -70,14 +70,22 @@ export default function ArticleCreatorLab(props) {
     }, [])
 
     const modifyArticle = async () => {
+
         articleInformation.articleTitle = replaceBadChar(articleInformation.articleTitle)
         articleInformation.tldr = replaceBadChar(articleInformation.tldr)
         articleInformation.content = replaceBadChar(articleInformation.content)
-        console.log(articleInformation)
+
         await axios.put('/api/articles', {
             articleInformation: articleInformation,
             articleId: props.articleExistingInfo.id
-        }).then((res) => console.log(res))
+        }).then((res) => {
+            if (res.status === 200){
+                alert('Article modifié !')
+            }
+            else{
+                alert('Problème avec la modification de l\'article')
+            }
+        })
 
 
     }
@@ -144,13 +152,9 @@ export default function ArticleCreatorLab(props) {
                         onChange={(event) => handleTLDRChange(event.target.value)}
                     />
                 </div>
-                {/*TODO. ajouter un feedback de créeation + clear le tout (ou revenir à la page admin?)*/}
                 <button className={editionHomeStyle.SubmitButton} onClick={modifyArticle}>
                     send data
                 </button>
-                <div className={editionHomeStyle.feedbackDiv}>
-
-                </div>
             </div>)
 
 

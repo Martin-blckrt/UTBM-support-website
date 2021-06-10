@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 /*-----------------  GLOBAL TWEAK --------------------*/
 body {
@@ -14,21 +14,25 @@ body {
     -moz-osx-font-smoothing: auto;
 }
 
+main {
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+}
+
 /*-----------------  TWEAK index.jsx --------------------*/
 
-.MuiAutocomplete-root .MuiAutocomplete-hasClearIcon{
+.MuiAutocomplete-root .MuiAutocomplete-hasClearIcon {
     width: 800px;
 }
+
 .MuiAutocomplete-hasPopupIcon .MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"], .MuiAutocomplete-hasClearIcon .MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"] {
     padding-right: 39px;
     border-radius: 10px;
-    color: #3F8BFF;
 }
-.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-    border-color: #3f8bff;
-    border-width: 2px;
-}
-
 
 .titleIndex, .subtitleIndex {
     text-align: center;
@@ -36,16 +40,20 @@ body {
 
 .subtitleIndex {
     padding: 15px;
+    font-weight: 200;
+
 }
 
 .titleIndex {
     font-weight: bold;
     padding-bottom: 15px;
     font-size: xxx-large;
+    margin-top: 0;
+    margin-bottom: 10px;
 }
 
 .subtitleIndex strong {
-    font-weight: bolder;
+    font-weight: 800;
 }
 
 .searchContainer {
@@ -60,19 +68,30 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    margin: auto;
-    padding: 40px 20px;
+    margin: 10px 50px;
+    padding: 20px;
     flex-direction: row;
-    /* width: 70%; */
-    max-width: 1000px;
-    height: 400px;
-    /* overflow-y: scroll; */
+    max-width: 1200px;
 }
 
 #category-list-container ul {
     margin: 20px;
     padding: 0;
-    width: 300px;
+    width: 350px;
+    overflow: hidden;
+}
+
+.categoryTitle {
+    font-weight: bold;
+}
+
+.articleLink {
+    font-weight: 300;
+    list-style: none;
+    font-size: large;
+    margin-bottom: 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     overflow: hidden;
 }
 

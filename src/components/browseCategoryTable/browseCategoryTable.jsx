@@ -30,14 +30,14 @@ export default function BrowseCategoryTable() {
         });
 
         return (
-            data.slice(0,4).map((dataElement, index) => (
+            data.slice(0,9).map((dataElement, index) => (
                 <ul>
                     <Link to={'/category/'} state={{id: dataElement.id, categoryName : dataElement.name}}>
-                        <h3>{dataElement.name}</h3>
+                        <h3 className={'categoryLink'}>{dataElement.name}</h3>
                     </Link>
                     {listArticle[index].slice(0,3).map((article, i) => (
                         <Link to='/article/'  hash={idArticle[index][i]} state={{articleId: idArticle[index][i], categoryName : dataElement.name}}>
-                            <li>{article}</li>
+                            <li className={'articleLink'}>{article}</li>
                         </Link>
                     ))}
                 </ul>
