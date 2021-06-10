@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from "react";
-import axios from "axios";
+import React from "react";
 
 //STYLE IMPORT
 import * as adminHomeStyle from './adminHome.module.css'
@@ -18,7 +17,6 @@ export default function AdminHome() {
             <div className={adminHomeStyle.title}>
                 <h2>Créer</h2>
             </div>
-            console.log(req.params)
 
             <div className={adminHomeStyle.fourDiv} id="newCategory">
                 <h3>Une nouvelle catégorie</h3>
