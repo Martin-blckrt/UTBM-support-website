@@ -13,7 +13,10 @@ router.get('/', async (req, res) => {
                    ORDER BY c.name`;
 
     await db_manager.getDataDB(query)
-        .then(results_db => res.send(results_db))
+        .then(results_db => {
+            console.log(results_db);
+            res.send(results_db);
+        })
         .catch(err => console.error(err));
 });
 

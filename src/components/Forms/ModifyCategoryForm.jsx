@@ -1,15 +1,24 @@
 import TextZone from "../textZone";
 import {DeleteButton, ModifyButton} from "../rectangleButton";
-import React, { useState} from "react";
+import React, {useEffect, useState} from "react";
 import ComboBox from "../combobox";
 import axios from "axios";
 import {containsBadChar} from "../../utils/verif";
 
 
-export default function ModifyCategoryForm(props) {
+export default function ModifyCategoryForm() {
 
     const [comboboxData, setComboboxData] = useState("")
     const [textZoneData, setTextZoneData] = useState("")
+    const [fetchedCategories, setFetchedCategories] =useState(null)
+
+    useEffect(() =>{
+        const fetchCategories = async (url) => {
+            const categories = await axios.get(url)
+            setFetchedCategories(categories.data);
+        };
+        fetchCategories("/api/categories")
+    }, [])
 
     const comboBoxDataRetriever = (comboboxData) => {
         setComboboxData(comboboxData)
@@ -21,12 +30,9 @@ export default function ModifyCategoryForm(props) {
         event.preventDefault();
         let response = null;
 
-        if (comboboxData === "")
-        {
+        if (comboboxData === "") {
             alert("Veuillez sélectionner une valeur.")
-        }
-        else
-        {
+        } else {
             response = await axios.put('/api/categories/', {
                 categoryName: comboboxData,
                 newCategoryName: textZoneData
@@ -34,46 +40,52 @@ export default function ModifyCategoryForm(props) {
         }
 
         if (response.data.alreadyExist === 1) {
+            {//TODO. Semblerait qu'il ne fasse pas attention à la case, il faudrait je pense}
             alert('Ce nom de catégorie est déjà attribué à une catégorie.')
-        }
-        else if (containsBadChar(textZoneData) === 1){
+        } else if (containsBadChar(textZoneData) === 1) {
             alert('Vous avez des caractères non conformes!')
-        }
-        else {
+        } else {
             alert("Nom de la catégorie modifiée!");
         }
     }
 
     const handleDeleting = async event => {
         event.preventDefault();
-        let response_del = null;
 
-        if (comboboxData === "")
-        {
+        if (comboboxData === "") {
             alert("Veuillez sélectionner une valeur.")
-        }
-        else
-        {
-            await axios.delete('/api/categories', {data: {categoryName: comboboxData}}).then((response_del) => console.log(response_del) );
+        } else {
+            await axios.delete('/api/categories', {data: {categoryName: comboboxData}}).then((response_del) => console.log(response_del));
         }
     }
 
     return (
         <div>
             {/*TODO. refresh combobox values after modifications*/}
-            <ComboBox options={props.data}
-                      parentCallback={comboBoxDataRetriever}
-                      type='category'
-                      text='Sélectionnez une catégorie'/>
+
+            {
+                (!fetchedCategories)
+                    ? <ComboBox options={'Loading data'}
+                                parentCallback={comboBoxDataRetriever}
+                                type='category'
+                                text='Sélectionnez une catégorie'/>
+                    : <ComboBox options={fetchedCategories}
+                                parentCallback={comboBoxDataRetriever}
+                                type='category'
+                                text='Sélectionnez une catégorie'/>
+            }
+
             <form onSubmit={handleModifications}>
                 <h3>Choisissez un nouveau nom pour la catégorie sélectionnée : </h3>
                 <TextZone text="Nom" parentCallback={textZoneDataRetriever} requis={true}/>
                 <ModifyButton buttonText="Modifier" type="category"/>
             </form>
+
             <form onSubmit={handleDeleting}>
                 <h3>Supprimer la catégorie sélectionnée : </h3>
                 <DeleteButton buttonText="Supprimer" type="category"/>
             </form>
+
         </div>
     )
 }

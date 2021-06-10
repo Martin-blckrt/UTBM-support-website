@@ -18,6 +18,17 @@ router.get('/:id', async (req, res) => {
 
 });
 
+router.get('/', async (req, res) => {
+
+    const query = `SELECT id, name
+                   FROM T_category;`
+
+    await db_manager.getDataDB(query)
+        .then(results_db => res.send(results_db))
+        .catch(err => console.error(err));
+
+});
+
 //UPDATE CATEGORY
 router.put('/', async (req, res) => {
 
