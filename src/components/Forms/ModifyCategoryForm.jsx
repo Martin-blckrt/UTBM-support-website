@@ -1,9 +1,13 @@
+import React, {useEffect, useState} from "react";
+import axios from "axios";
+
 import TextZone from "../textZone";
 import {DeleteButton, ModifyButton} from "../rectangleButton";
-import React, {useEffect, useState} from "react";
 import ComboBox from "../combobox";
-import axios from "axios";
 import {containsBadChar} from "../../utils/verif";
+
+import * as formStyle from "./formStyle.module.css";
+import * as adminHomeStyle from "../adminHome/adminHome.module.css";
 
 
 export default function ModifyCategoryForm() {
@@ -60,9 +64,8 @@ export default function ModifyCategoryForm() {
     }
 
     return (
-        <div>
+        <>
             {/*TODO. refresh combobox values after modifications*/}
-
             {
                 (!fetchedCategories)
                     ? <ComboBox options={'Loading data'}
@@ -75,18 +78,18 @@ export default function ModifyCategoryForm() {
                                 text='Sélectionnez une catégorie'/>
             }
 
-            <form onSubmit={handleModifications}>
-                <h3>Choisissez un nouveau nom pour la catégorie sélectionnée : </h3>
+            <form className={formStyle.formStyle}  onSubmit={handleModifications}>
+                <p className={adminHomeStyle.infoText}>Choisissez un nouveau nom pour la catégorie sélectionnée : </p>
                 <TextZone text="Nom" parentCallback={textZoneDataRetriever} requis={true}/>
                 <ModifyButton buttonText="Modifier" type="category"/>
             </form>
 
-            <form onSubmit={handleDeleting}>
-                <h3>Supprimer la catégorie sélectionnée : </h3>
+            <form className={formStyle.formStyle} onSubmit={handleDeleting}>
+                <p className={adminHomeStyle.infoText}>Supprimer la catégorie sélectionnée : </p>
                 <DeleteButton buttonText="Supprimer" type="category"/>
             </form>
 
-        </div>
+        </>
     )
 
 }

@@ -26,7 +26,7 @@ export default function AdminHome() {
 
                 <div className={adminHomeStyle.createArticle}>
                     <h3>Un nouvel article</h3>
-                    <p className={adminHomeStyle.textCreateNewArticle}>
+                    <p className={adminHomeStyle.infoText}>
                         Accédez à l'outil de création en cliquant sur le bouton suivant
                     </p>
                     <CreateButton buttonText="Créer" type="article"/>
@@ -38,6 +38,8 @@ export default function AdminHome() {
                 </div>
                 <div className={adminHomeStyle.modifyArticle}>
                     <h3>Un article existant</h3>
+                    <p className={adminHomeStyle.infoText}>Sélectionnez un article et accédez à l'outil d'édition des articles ou supprimez l'article
+                        sélectionné</p>
                     <ModifyArticleForm/>
                 </div>
                 <div className={adminHomeStyle.modifyCategory}>
@@ -48,6 +50,6 @@ export default function AdminHome() {
         </div>
 
 
-)
+    )
 
 }

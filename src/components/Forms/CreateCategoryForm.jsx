@@ -1,8 +1,10 @@
 import TextZone from "../textZone";
 import {CreateButton} from "../rectangleButton";
-import React, {useReducer, useState} from "react";
+import React, {useState} from "react";
 import axios from "axios";
 import {containsBadChar} from "../../utils/verif";
+
+import * as formStyle from './formStyle.module.css'
 
 export default function CreateCategoryForm() {
 
@@ -29,7 +31,7 @@ export default function CreateCategoryForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className={formStyle.formStyle} onSubmit={handleSubmit}>
             <TextZone text="Nom" parentCallback={textZoneDataRetriever} requis={true}/>
             <CreateButton buttonText="Créer" type="category"/>
         </form>

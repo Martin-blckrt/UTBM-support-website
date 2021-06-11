@@ -35,17 +35,19 @@
     align-items: center;
     flex-wrap: nowrap;
 }
-.createCategory{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-around;
-}
-.textCreateNewArticle{
-    color: #6a6a6a;
+.infoText{
+    color: #828282;
+    text-align: center;
 }
 
+
+.createCategory, .modifyArticle, .modifyCategory{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
 
 .titleContainer {
     width: 100%;

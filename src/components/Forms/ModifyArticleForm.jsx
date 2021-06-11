@@ -1,10 +1,12 @@
-import {DeleteButton, ModifyButton} from "../rectangleButton";
 import React, {useEffect, useState} from "react";
-import ComboBox from "../combobox";
 import axios from "axios";
 
+import {DeleteButton, ModifyButton} from "../rectangleButton";
+import ComboBox from "../combobox";
 
-export default function ModifyArticleForm(props) {
+import * as formStyle from './formStyle.module.css'
+
+export default function ModifyArticleForm() {
 
     const [comboboxData, setComboboxData] = useState("");
 
@@ -48,7 +50,7 @@ export default function ModifyArticleForm(props) {
 
 
 
-            <form onSubmit={handleDeleting}>
+            <form className={formStyle.formStyle} onSubmit={handleDeleting}>
                 <ModifyButton buttonText="Modifier" type="article" articleExistingInfo={comboboxData}/>
                 <DeleteButton buttonText="Supprimer"/>
             </form>
