@@ -1,7 +1,10 @@
 .adminHomeContainer {
     display: flex;
-    justify-content: space-around;
-    margin-top: 60px;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
 }
 
 .modifyContainer, .createContainer {
@@ -13,25 +16,44 @@
     background-color: white;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
     border-radius: 30px;
-    width: 40vw;
     min-height: 70vh;
+    width: 500px;
+    margin: 20px;
 }
 
-.fourDiv {
+.createArticle, .createCategory , .modifyArticle, .modifyCategory {
     border: 1px solid #898989;
     border-radius: 10px;
-    height: 200px;
+    min-height: 200px;
     margin: 30px;
     padding: 10px;
     width: 400px;
+}
+.createArticle{
     display: flex;
-    align-content: space-around;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+}
+.createCategory{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+.textCreateNewArticle{
+    color: #6a6a6a;
 }
 
-.title {
+
+.titleContainer {
     width: 100%;
     text-align: center;
 }
+
+.title{
+    color: #3F8BFF;
+    font-size: x-large;
+}
+

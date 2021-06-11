@@ -100,3 +100,8 @@ main {
     padding: 50px;
     display: flex;
 }
+
+/*----------------- TWEAK texteZone ---------------------*/
+.MuiFormControl-root.MuiTextField-root.jss5 {
+    margin: 20px;
+}

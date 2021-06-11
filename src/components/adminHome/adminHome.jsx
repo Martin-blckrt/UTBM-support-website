@@ -15,33 +15,32 @@ export default function AdminHome() {
     return (
         <div className={adminHomeStyle.adminHomeContainer}>
             <div className={adminHomeStyle.createContainer}>
-                <div className={adminHomeStyle.title}>
-                    <h2>Créer</h2>
+                <div className={adminHomeStyle.titleContainer}>
+                    <h2 className={adminHomeStyle.title}>Créer</h2>
                 </div>
 
-                <div className={adminHomeStyle.fourDiv} id="newCategory">
+                <div className={adminHomeStyle.createCategory}>
                     <h3>Une nouvelle catégorie</h3>
                     <CreateCategoryForm/>
                 </div>
 
-                <div className={adminHomeStyle.fourDiv} id="newArticle">
+                <div className={adminHomeStyle.createArticle}>
                     <h3>Un nouvel article</h3>
-                    <p id="textCreateNewArticle">
+                    <p className={adminHomeStyle.textCreateNewArticle}>
                         Accédez à l'outil de création en cliquant sur le bouton suivant
                     </p>
                     <CreateButton buttonText="Créer" type="article"/>
                 </div>
             </div>
             <div className={adminHomeStyle.modifyContainer}>
-                <div className={adminHomeStyle.fourDiv} id="modifyArticle">
+                <div className={adminHomeStyle.titleContainer}>
+                    <h2 className={adminHomeStyle.title}>Modifier</h2>
+                </div>
+                <div className={adminHomeStyle.modifyArticle}>
                     <h3>Un article existant</h3>
                     <ModifyArticleForm/>
                 </div>
-
-                <div className={adminHomeStyle.title}>
-                    <h2>Modifier</h2>
-                </div>
-                <div className={adminHomeStyle.fourDiv} id="modifyCategory">
+                <div className={adminHomeStyle.modifyCategory}>
                     <h3>Une catégorie existante</h3>
                     <ModifyCategoryForm/>
                 </div>

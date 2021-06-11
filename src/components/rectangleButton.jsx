@@ -10,6 +10,7 @@ const rectangleButtonStyle = css`
   min-width: 100px;
   border-radius: 10px;
   color: white;
+  font-size: 15px;
   box-shadow: 0 0 15px rgba(63, 139, 255, 0.5);
   transition: box-shadow 200ms;
 

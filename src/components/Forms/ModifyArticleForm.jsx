@@ -3,6 +3,7 @@ import React, {useEffect, useState} from "react";
 import ComboBox from "../combobox";
 import axios from "axios";
 
+
 export default function ModifyArticleForm(props) {
 
     const [comboboxData, setComboboxData] = useState("");
@@ -31,7 +32,7 @@ export default function ModifyArticleForm(props) {
     }
 
     return (
-        <div>
+        <>
             {
                 (!fetchedArticles)
                     ? <ComboBox options={'loading data'}
@@ -45,11 +46,12 @@ export default function ModifyArticleForm(props) {
                                 parentCallback={comboBoxDataRetriever}/>
             }
 
-            <ModifyButton buttonText="Modifier" type="article" articleExistingInfo={comboboxData}/>
+
 
             <form onSubmit={handleDeleting}>
+                <ModifyButton buttonText="Modifier" type="article" articleExistingInfo={comboboxData}/>
                 <DeleteButton buttonText="Supprimer"/>
             </form>
-        </div>
+        </>
     )
 }
