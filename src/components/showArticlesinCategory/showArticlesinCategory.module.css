@@ -1,25 +1,28 @@
-.articlesContainerStyle {
+.articlesBigContainer {
     display: flex;
     justify-content: space-around;
-    /* overflow-x: hidden; */
-    /* overflow-y: auto; */
     width: 80vw;
     align-items: flex-start;
     flex-wrap: wrap;
     margin-top: 60px;
     margin-left: auto;
     margin-right: auto;
+    transition: .3s;
 }
 
-.articleStyle {
-    box-shadow: 0 0 50px rgba(63, 139, 255, .20);
+.articleContainer {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(63, 139, 255, .2);
+    height: 300px;
     padding: 15px;
     text-align: center;
-    background-color: white;
-    border-radius: 20px;
-    margin: 20px;
-    height: 300px;
     width: 300px;
+    margin: 50px;
+    transition: box-shadow .3s;
+}
+.articleContainer:hover{
+    box-shadow: 0 0 50px rgba(63, 139, 255, .4);
 }
 
 .headingStyle {

@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     align-items: flex-start;
+    transition: .3s ;
 }
 
 .modifyContainer, .createContainer {

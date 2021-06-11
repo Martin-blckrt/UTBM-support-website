@@ -20,6 +20,7 @@ export default function ArticleCreatorLab(props) {
 
     useEffect(() => {
         if (props.articleExistingInfo) {
+            console.log('existing info in article modifier : ', props.articleExistingInfo)
             const fetchedDetailedExistingInfo = async (url) => {
                 const existingData = await axios.get(url)
                 setArticleInformation({
@@ -31,16 +32,16 @@ export default function ArticleCreatorLab(props) {
             };
             fetchedDetailedExistingInfo(`/api/articles/${props.articleExistingInfo.id}`)
         }
+        const fetchCategories = async (url) => {
+            const categories = await axios.get(url)
+            setFetchedCategories(categories.data);
+        };
+        fetchCategories('/api/treeview')
     }, [])
+    useEffect(() => {
 
 
-    const retrieveComboboxValue = (comboBoxData) => {
-        //retrieve combobox data and update the new article informations with the id of the selected category.
-        setArticleInformation(prevState => {
-            if (comboBoxData)
-                return {...prevState, categoriesId: comboBoxData.id}
-        });
-    }
+    }, [])
 
     const retrieveTitle = (title) => {
         setArticleInformation(prevState => {
@@ -59,15 +60,6 @@ export default function ArticleCreatorLab(props) {
         });
     }
 
-
-    useEffect(() => {
-        const fetchCategories = async (url) => {
-            const categories = await axios.get(url)
-            setFetchedCategories(categories.data);
-        };
-        fetchCategories('/api/treeview')
-
-    }, [])
 
     const modifyArticle = async () => {
 
@@ -90,7 +82,6 @@ export default function ArticleCreatorLab(props) {
 
     }
 
-
     if (!categories) {
         return (
             <div>
@@ -109,6 +100,7 @@ export default function ArticleCreatorLab(props) {
                 }
             }
         }
+        console.log('article info in else : ', articleInformation)
         return (
             <div className={editionHomeStyle.bigContainer}>
                 <div className={editionHomeStyle.littleContainer}>

@@ -8,7 +8,6 @@ body {
 * {
     color: #303030;
     font-family: 'Rubik', sans-serif;
-    font-weight: 550;
     text-decoration: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: auto;
@@ -72,6 +71,7 @@ main {
     padding: 20px;
     flex-direction: row;
     max-width: 1200px;
+    transition: width .3s, height .3s;
 }
 
 #category-list-container ul {

@@ -33,7 +33,7 @@ router.get('/', async (req, res) => {
 });
 
 
-//UPDATE ARTICLEMoodle
+//UPDATE ARTICLE
 router.put('/', (req, res) => {
 
     const query = `UPDATE T_article as a, (SELECT id FROM T_article WHERE id = '${req.body.articleId}') as b
@@ -81,7 +81,6 @@ router.post('/', async (req, res) => {
     await db_manager.getDataDB(query)
         .catch(err => res.end('unable to create article : ', err))
         .then(results_db => {
-            console.log(results_db)
             res.send(results_db)
         });
 

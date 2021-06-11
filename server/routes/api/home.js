@@ -14,7 +14,6 @@ router.get('/', async (req, res) => {
 
     await db_manager.getDataDB(query)
         .then(results_db => {
-            console.log(results_db);
             res.send(results_db);
         })
         .catch(err => console.error(err));

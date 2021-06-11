@@ -24,15 +24,17 @@ export default function ShowArticlesinCategory(props) {
     } else {
 
         return (
-            <div className={showArticles.articlesContainerStyle}>
+            <div className={showArticles.articlesBigContainer}>
                 {
                     articlesList.map((article, index) => (
-                            <Link to={`/article/`} state={{articleId: article.id, categoryName : props.categoryName}}>
-                                <div className={showArticles.articleStyle} id={'article' + index}>
+                                <Link to={`/article/`}
+                                      state={{articleId: article.id, categoryName: props.categoryName}}
+                                      className={showArticles.articleContainer}>
+
                                     <h2 className={showArticles.headingStyle}>{article.articleTitle}</h2>
                                     <p className={showArticles.tldrStyle}>{article.tldr}</p>
-                                </div>
-                            </Link>
+                                </Link>
+
                         )
                     )
                 }
