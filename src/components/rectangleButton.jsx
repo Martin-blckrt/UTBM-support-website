@@ -6,10 +6,10 @@ import {logout} from "../utils/auth";
 const rectangleButtonStyle = css`
   background-color: #3F8BFF;
   border: 0;
-  padding: 15px;
   min-width: 100px;
-  border-radius: 10px;
+  padding: 15px;
   margin: 5px;
+  border-radius: 10px;
   color: white;
   font-size: 15px;
   box-shadow: 0 0 15px rgba(63, 139, 255, 0.5);
@@ -19,21 +19,16 @@ const rectangleButtonStyle = css`
     box-shadow: 0 0 30px rgba(63, 139, 255, 0.7);
   }
 `
-const textButtonStyle = css`
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-`
 
 export function ConnectButton(props) {
     return (
-        <div>
-            <button css={rectangleButtonStyle}>
-                <Link css={textButtonStyle} to={`/privileged/admin/`}>
-                    {props.buttonText}
-                </Link>
-            </button>
-        </div>
+
+        <button css={rectangleButtonStyle}>
+            <Link to={`/privileged/admin/`} style={{color: 'white'}}>
+                {props.buttonText}
+            </Link>
+        </button>
+
     )
 }
 
@@ -51,7 +46,7 @@ export function CreateButton(props) {
         return (
 
             <button type='submit' css={rectangleButtonStyle}>
-                <Link css={textButtonStyle} to={`/privileged/edition/`}>
+                <Link style={{color: 'white'}} to={`/privileged/edition/`}>
                     {props.buttonText}
                 </Link>
             </button>
@@ -73,8 +68,9 @@ export function ModifyButton(props) {
     } else {
         return (
             <button css={rectangleButtonStyle}>
-                <Link css={textButtonStyle} to={`/privileged/edition/`}
-                      state={{articleExistingInfo: props.articleExistingInfo}}>
+                <Link to={`/privileged/edition/`}
+                      state={{articleExistingInfo: props.articleExistingInfo}}
+                      style={{color: 'white'}}>
                     {props.buttonText}
                 </Link>
             </button>
@@ -82,11 +78,11 @@ export function ModifyButton(props) {
     }
 }
 
-export function DeleteButton(props) {
+export function DeleteButton() {
     return (
         <button type='submit'
                 css={rectangleButtonStyle}>
-            {props.buttonText}
+            Supprimer
         </button>
     )
 }
@@ -96,8 +92,8 @@ export function DisconnectButton(props) {
 
         <button css={rectangleButtonStyle}>
             <a
-                css={textButtonStyle}
                 href="/"
+                style={{color: 'white'}}
                 onClick={event => {
                     event.preventDefault()
                     logout(() => navigate(`/`))

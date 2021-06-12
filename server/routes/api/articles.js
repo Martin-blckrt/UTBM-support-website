@@ -60,11 +60,14 @@ router.delete('/', async (req, res) => {
                                  FROM (
                                           SELECT b.id
                                           FROM T_article as b
-                                          WHERE b.articleTitle = "${req.body.articleName}") as c);`;
+                                          WHERE b.articleTitle = "${req.body.articleName.articleTitle}") as c);`;
 
 
     await db_manager.getDataDB(query)
-        .then(results_db => res.send(results_db))
+        .then(results_db => {
+            res.send(results_db)
+            }
+        )
         .catch(err => console.error(err));
 
 });

@@ -43,6 +43,13 @@ export default function ArticleCreatorLab(props) {
 
     }, [])
 
+    const retrieveComboboxValue = (comboBoxData) => {
+        //retrieve combobox data and update the new article informations with the id of the selected category.
+        setArticleInformation(prevState => {
+            if (comboBoxData)
+                return {...prevState, categoriesId: comboBoxData.id}
+        });
+    }
     const retrieveTitle = (title) => {
         setArticleInformation(prevState => {
             return {...prevState, articleTitle: title}
@@ -122,7 +129,7 @@ export default function ArticleCreatorLab(props) {
                         Titre de l'article
                     </p>
                     <TextZone text="Article Title"
-                              defaultValue={(articleInformation ? articleInformation.articleTitle : "")} requis={true}
+                              defaultValue={(articleInformation ? articleInformation.articleTitle : null)} requis={true}
                               parentCallback={retrieveTitle}/>
                 </div>
                 <div className={editionHomeStyle.littleContainer}>

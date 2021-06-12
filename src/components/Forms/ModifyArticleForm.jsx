@@ -9,8 +9,8 @@ import * as formStyle from './formStyle.module.css'
 export default function ModifyArticleForm() {
 
     const [comboboxData, setComboboxData] = useState("");
+    const [fetchedArticles, setFetchedArticles] = useState(null);
 
-    let [fetchedArticles, setFetchedArticles] = useState(null);
     useEffect(() => {
         const fetchArticles = async (url) => {
             const articles = await axios.get(url)
@@ -18,6 +18,7 @@ export default function ModifyArticleForm() {
         };
         fetchArticles('/api/articles')
     }, [setFetchedArticles]);
+
 
     const comboBoxDataRetriever = (comboboxData) => {
         setComboboxData(comboboxData)
@@ -29,7 +30,15 @@ export default function ModifyArticleForm() {
         if (comboboxData === "") {
             alert("Veuillez sélectionner une valeur.")
         } else {
-            await axios.delete('/api/articles', {data: {articleName: comboboxData}}).then((response_del) => console.log(response_del));
+            await axios.delete('/api/articles', {data: {articleName: comboboxData}})
+                .then((response_del) => {
+                    console.log(response_del)
+                    if (response_del.status === 200 && response_del.data.affectedRows >= 1) {
+                        alert("L'article " + comboboxData.articleTitle + " a bien été supprimé.")
+                    } else {
+                        error("L'article n'a pas pu être supprimé...")
+                    }
+                });
         }
     }
 
@@ -48,10 +57,8 @@ export default function ModifyArticleForm() {
                                 parentCallback={comboBoxDataRetriever}/>
             }
 
-
-
+            <ModifyButton buttonText="Modifier" type="article" articleExistingInfo={comboboxData}/>
             <form className={formStyle.formStyle} onSubmit={handleDeleting}>
-                <ModifyButton buttonText="Modifier" type="article" articleExistingInfo={comboboxData}/>
                 <DeleteButton buttonText="Supprimer"/>
             </form>
         </>
