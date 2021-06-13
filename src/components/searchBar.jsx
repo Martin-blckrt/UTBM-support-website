@@ -1,12 +1,42 @@
 import React, {useEffect, useState} from "react";
-import {TextField} from "@material-ui/core";
+import {makeStyles, TextField} from "@material-ui/core";
 import axios from "axios";
 import {Link} from "gatsby";
 import {Autocomplete} from "@material-ui/lab";
 
+/*search bar style tweak*/
+const useStyles = makeStyles({
+    inputRoot: {
+        backgroundColor: "white",
+        borderRadius: '10px',
+        width: '800px',
+        "& .MuiOutlinedInput-notchedOutline": {
+            borderWidth: '2px',
+            transition: '.3s',
+            borderRadius: '10px'
+        },
+        "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderWidth: "2px",
+            borderColor: "#3F8BFF",
+            transition: '.3s'
+        },
+        "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+            borderWidth: "2px",
+            borderColor: "#3F8BFF"
+        }
+    },
+    options: {
+        // Hover options
+        '&[data-focus="true"]': {
+            backgroundColor: 'rgba(63,139,255,0.15)',
+            borderColor: 'transparent',
+            transition: '.3s'
+        },
+    },
+});
 
 export default function SearchBar() {
-
+    const classes = useStyles();
     let [searchBarInfo, setSearchBarInfo] = useState([])
     let [searchBarCategoryInfo, setSearchBarCategoryInfo] = useState([])
     let [searchBarArticleInfo, setSearchBarArticleInfo] = useState([])
@@ -38,6 +68,7 @@ export default function SearchBar() {
         setSearchBarInfo(searchBarInfo)
     }
 
+
     return (
         <div className={"searchContainer"}>
             <Autocomplete
@@ -45,6 +76,10 @@ export default function SearchBar() {
                 freeSolo
                 autoComplete
                 autoHighlight
+                classes={{
+                    root: classes.inputRoot,
+                    option: classes.options
+                }}
                 options={searchBarInfo}
                 groupBy={(option) => option.type}
                 getOptionLabel={(option) => (option.type === "Catégories") ? option.name : option.articleTitle}

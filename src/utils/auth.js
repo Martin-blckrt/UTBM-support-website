@@ -1,4 +1,4 @@
-export const isBrowser = () => typeof window !== "undefined"
+    export const isBrowser = () => typeof window !== "undefined"
 
 export const getUser = () =>
     isBrowser() && window.localStorage.getItem("gatsbyUser")

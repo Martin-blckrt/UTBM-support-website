@@ -15,7 +15,8 @@ import * as headerStyle from './header.module.css'
 const headingBackground = function (headerOpacity, boxShadowOpacity) {
     return css`
       box-shadow: 0 0 20px rgba(0, 0, 0, ${boxShadowOpacity});
-      background-color: rgba(255, 255, 255, ${headerOpacity});`
+      background-color: rgba(255, 255, 255, ${headerOpacity});
+      transition: background-color .3s, box-shadow .3s`
 }
 
 export default function Header(props) {

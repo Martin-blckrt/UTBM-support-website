@@ -2,12 +2,13 @@
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 0 50px rgba(63, 139, 255, .2);
+    position: sticky;
+    top: 170px;
     display: flex;
+    flex-direction: column;
     flex-wrap: nowrap;
-    /* margin: 20px; */
     padding: 10px 30px;
     width: 20%;
-    flex-direction: column;
 }
 
 .arboTitle {
@@ -21,7 +22,7 @@
     font-weight: 400;
 }
 
-.categories{
+.categories {
     margin-left: 5px;
     display: inline-flex;
     align-items: center;

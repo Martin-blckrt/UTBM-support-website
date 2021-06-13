@@ -1,10 +1,12 @@
 .ArticleContent {
-    padding: 30px 80px;
-    width: 78%;
+
     min-height: 600px;
     box-shadow: 0 0 50px rgba(63, 139, 255, .2);
     border-radius: 15px;
     margin: 0 30px;
+    background-color: white;
+    padding: 30px 80px;
+    width: 60%;
 }
 
 .articleTitle {
