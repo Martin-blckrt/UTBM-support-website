@@ -1,34 +1,35 @@
-import React from "react"
 import {navigate} from "gatsby"
+import React, {useState} from "react";
 
 import {handleLogin, isLoggedIn} from "../utils/auth"
 import Header from "../components/header/header";
 
-import * as loginStyle from '../components/login/login.module.css'
+import * as loginStyle from './login/login.module.css'
 
 
-export default class Login extends React.Component {
-    state = {
-        username: ``,
-        password: ``,
-    }
+export default function Login() {
 
-    handleUpdate = event => {
-        this.setState({
-            [event.target.name]: event.target.value,
+    const [credentials, setCredentials] = useState({
+        username: '',
+        password: ''
+    })
+
+
+    const handleUpdate = event => {
+        setCredentials(prevState => {
+            return {...prevState, [event.target.name]: event.target.value}
         })
     }
 
-    handleSubmit = event => {
+    const handleSubmit = event => {
         event.preventDefault()
-        handleLogin(this.state)
+        handleLogin(credentials)
     }
 
-    render() {
-        if (isLoggedIn()) {
-            navigate(`/privileged/admin`)
-        }
 
+    if (isLoggedIn()) {
+        navigate(`/privileged/admin`)
+    } else {
         return (
             <>
                 <Header headerOpacity={1} boxShadowOpacity={.25} arbo="Connexion"/>
@@ -37,14 +38,14 @@ export default class Login extends React.Component {
                     <form
                         method="post"
                         onSubmit={event => {
-                            this.handleSubmit(event)
+                            handleSubmit(event)
                             navigate(`/privileged/admin`)
                         }}
                     >
                         <label className={loginStyle.labels}>Utilisateur</label>
-                        <input className={loginStyle.inputs} type="text" name="username" onChange={this.handleUpdate}/>
+                        <input className={loginStyle.inputs} type="text" name="username" onChange={handleUpdate}/>
                         <label className={loginStyle.labels}>Mot de passe</label>
-                        <input className={loginStyle.inputs} type="password" name="password" onChange={this.handleUpdate}/>
+                        <input className={loginStyle.inputs} type="password" name="password" onChange={handleUpdate}/>
 
                         <input type="submit" value="Log In"/>
                     </form>
