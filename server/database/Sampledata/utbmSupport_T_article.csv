@@ -1,7 +1,90 @@
 1,1,Se connecter à l'ENT,"","Se connecter à l'ENT
 "
-2,2,Acceder à des informations dans l'ENT,Acceder à des informations dans l'ENT,LE TLDR de la page d'acced aux infos
+2,4,Acceder à des informations dans lENT,Acceder à des informations dans lENT,LE TLDR de la page d'acced aux infos
 3,3,A quoi sert Moodle? ,A quoi sert Moodle? ,Comprenez l'intérêt de Moodle.
 4,4,Comment ajouter un cours sur Moodle,Comment ajouter un cours sur Moodle,Apprenez à créer un cours sur la plateforme
-5,5,Supprimer un cours sur Moodle,Supprimer un cours sur Moodle,Suppression d'un cours sur Moodle.
-6,6,Acceder à la documentation Microsoft Teams,Acceder à la documentation Microsoft Teams,
+11,4,Test 1,Test 1 resume,"## Rédiger
+"
+12,4,Test 2,Test 2 resumeda dad,"## Rédiger
+"
+14,4,Test 4,Bonjour Encore un article attention,Encore un!!    
+15,4,Test 5,Ca va etre long a tout checker ,Encore un!!    
+16,4,Test 6,Voicoi le test  6,Encore un!!    
+17,4,Test 7,dzdazdzbdajk zdhka zd,Encore un!!    
+18,4,Test 8,"Lorem ipsum, je parle pas latin moi",Encore un!!    
+21,4,Test 11,"Lorem ipsum, je parle pas latin moi",Encore un!!    
+22,4,Test 12,"Lorem ipsum, je parle pas latin moi",Encore un!!    
+23,4,Test 13,"Lorem ipsum, je parle pas latin moi",Encore un!!    
+24,7,À quoi sert l'UBFC ?,Voici le plus gros article de la DB. Pleins d'informations sur l'UBFC.,"# Qu'est ce que l'UBFC ?
+
+Université Bourgogne Franche-Comté (UBFC) est une communauté d'universités et établissements (Comue) associant des établissements d’enseignement supérieur et de recherche de la région Bourgogne-Franche-Comté.
+
+# Historique
+
+Le rapprochement de l'Université de Bourgogne et de l'Université de Franche-Comté a commencé en mai 2007 par la signature d'une convention de partenariat. En 2010, deux structures sont créées : l’« Université fédérale Bourgogne Franche-Comté », sous la forme juridique d’une association, et le pôle de recherche et d'enseignement supérieur « PRES Bourgogne Franche-Comté », sous la forme juridique d’une fondation de coopération scientifique et dont le siège est situé à Dijon. Cette formule est préférée à la création d’un Établissement public de coopération scientifique1,2.
+
+En juillet 2013, les deux universités de Dijon et de Besançon annoncent leur volonté de créer une communauté d’universités et établissements (ComUE), sans les écoles d’ingénieurs, et avant même la promulgation de la loi ESR qui instaure ce statut. Il est décidé que le siège de la communauté sera à Besançon. La fondation doit être conservée pour des appels à financement3,4.
+
+Au 1er avril 2015, la ComUE est créée, avec le nom d’« Université Bourgogne Franche-Comté » et la forme d’un établissement public à caractère scientifique, culturel et professionnel5.
+
+## L'histoire de l'historique 
+
+- dwdawd 
+- dwadaw
+- dwad
+
+`ici j'ecris un bout de code`
+
+
+
+----------
+
+La c'est une séparation pour voir > <
+
+## Le futur 
+Le rapprochement de l'Université de Bourgogne et de l'Université de Franche-Comté a commencé en mai 2007 par la signature d'une convention de partenariat. En 2010, deux structures sont créées : l’« Université fédérale Bourgogne Franche-Comté », sous la forme juridique d’une association, et le pôle de recherche et d'enseignement supérieur « PRES Bourgogne Franche-Comté », sous la forme juridique d’une fondation de coopération scientifique et dont le siège est situé à Dijon. Cette formule est préférée à la création d’un Établissement public de coopération scientifique1,2.
+
+En juillet 2013, les deux universités de Dijon et de Besançon annoncent leur volonté de créer une communauté d’universités et établissements (ComUE), sans les écoles d’ingénieurs, et avant même la promulgation de la loi ESR qui instaure ce statut. Il est décidé que le siège de la communauté sera à Besançon. La fondation doit être conservée pour des appels à financement3,4.
+
+Au 1er avril 2015, la ComUE est créée, avec le nom d’« Université Bourgogne Franche-Comté » et la forme d’un établissement public à caractère scientifique, culturel et professionnel5.
+
+#### Le bon h4 
+
+"
+25,1,Accèder à son EDT,"Voici un article important.
+Il ne faut pas l'oublier","## Accès à l'emploi du temps
+
+L'EDT est important  
+Je modifier l'article
+Voici un exemple intéressant. "
+27,8,Acheter un smartphone,acheter un smartphone,"# Acheter un téléphone   
+Grace au widget et à `bonjour`, vous pouvez achter un smartphone cognitiviste."
+28,8,Le test 1,TLDR du test 1 ,"## Rédiger
+ Le corps de l'article sera le rendu que vous voyez à droite.
+
+ Vous pouvez éditer le corps de l'article dans la partie gauche de l'éditeur  ✌️
+ PS : L'éditeur de gauche supporte le `Mardown` !! 
+d
+ada
+"
+29,8,TITLE2,TLDR ,"## d'éditeur  ✌️
+ PS : L'éditeur de gauche supporte le `Mardown` !! "
+31,7,UBFC 2 ,Dazda,"## Rédiger
+ Le corps de l'article sera le rendu que vous voyez à droite.
+
+ Vous pouvez éditer le corps de l'article dans la partie gauche de l'éditeur  ✌️
+ PS : L'éditeur de gauche supporte le `Mardown` !! 
+
+da"
+32,1,Voir son GPA,Comprenez comment accéder au GPA dans l'ENT,"## Qu'est ce que le GPA ?
+ le gpa c'est e Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
+
+## Voir son GPA sur l'ENT 
+e Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
+"
+33,2,Test 4,Test quatre,"## Qu\'est ce que le GPA ?
+ le gpa c\'est e Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l\'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n\'a pas fait que survivre cinq siècles, mais s\'est aussi adapté à la bureautique informatique, sans que son contenu n\'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
+
+## Voir son GPA sur l\'ENT 
+e Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l\'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n\'a pas fait que survivre cinq siècles, mais s\'est aussi adapté à la bureautique informatique, sans que son contenu n\'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
+"

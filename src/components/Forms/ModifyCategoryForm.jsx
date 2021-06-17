@@ -65,7 +65,7 @@ export default function ModifyCategoryForm() {
 
     return (
         <>
-            {/*TODO. refresh combobox values after modifications*/}
+
             {
                 (!fetchedCategories)
                     ? <ComboBox options={'Loading data'}
