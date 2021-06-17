@@ -31,15 +31,11 @@ router.get('/', async (req, res) => {
 
 //UPDATE CATEGORY
 router.put('/', async (req, res) => {
-
-        console.log('req in router put cartegory ', req.body)
-
         const query = `UPDATE T_category as a, (SELECT id FROM T_category WHERE name = '${req.body.categoryName.name}') as b
                        SET a.name = '${req.body.newCategoryName}'
                        WHERE a.id = b.id;`;
         await db_manager.getDataDB(query)
             .then(results_db => {
-                console.log(results_db)
                 res.send(results_db)
             })
             .catch(err => {
@@ -62,7 +58,7 @@ router.delete('/', async (req, res) => {
                                  FROM (
                                           SELECT b.id
                                           FROM T_category as b
-                                          WHERE b.name = '${req.body.categoryName}') as c);`;
+                                          WHERE b.name = '${req.body.categoryName.name}') as c);`;
 
 
     await db_manager.getDataDB(query)
