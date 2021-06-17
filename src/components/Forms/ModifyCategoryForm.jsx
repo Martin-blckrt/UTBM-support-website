@@ -41,16 +41,16 @@ export default function ModifyCategoryForm() {
                 categoryName: comboboxData,
                 newCategoryName: textZoneData
             });
+            if (response.data.alreadyExist === 1) {
+                alert('Ce nom de catégorie est déjà attribué à une catégorie.')
+            } else if (containsBadChar(textZoneData) === 1) {
+                alert('Vous avez des caractères non conformes!')
+            } else {
+                alert("Nom de la catégorie modifiée!");
+            }
         }
 
-        if (response.data.alreadyExist === 1) {
-            //TODO. Semblerait qu'il ne fasse pas attention à la case, il faudrait je pense
-            alert('Ce nom de catégorie est déjà attribué à une catégorie.')
-        } else if (containsBadChar(textZoneData) === 1) {
-            alert('Vous avez des caractères non conformes!')
-        } else {
-            alert("Nom de la catégorie modifiée!");
-        }
+
     }
 
     const handleDeleting = async event => {
@@ -59,9 +59,19 @@ export default function ModifyCategoryForm() {
         if (comboboxData === "") {
             alert("Veuillez sélectionner une valeur.")
         } else {
-            await axios.delete('/api/categories', {data: {categoryName: comboboxData}}).then((response_del) => console.log(response_del));
+            await axios.delete('/api/categories', {data: {categoryName: comboboxData}})
+                .then((response_del) => {
+                    console.log(response_del)
+                    if (response_del.data.affectedRows >= 1) {
+                        alert("Catégorie supprimée!");
+                    } else {
+                        alert('Problème avec la suppression. Voir le serveur pour plus d\'information')
+                    }
+                });
+
         }
     }
+
 
     return (
         <>
@@ -78,7 +88,7 @@ export default function ModifyCategoryForm() {
                                 text='Sélectionnez une catégorie'/>
             }
 
-            <form className={formStyle.formStyle}  onSubmit={handleModifications}>
+            <form className={formStyle.formStyle} onSubmit={handleModifications}>
                 <p className={adminHomeStyle.infoText}>Choisissez un nouveau nom pour la catégorie sélectionnée : </p>
                 <TextZone text="Nom" parentCallback={textZoneDataRetriever} requis={true}/>
                 <ModifyButton buttonText="Modifier" type="category"/>

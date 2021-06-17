@@ -18,8 +18,10 @@ router.get('/category', async (req, res) => {
 
 router.get('/article', async (req, res) => {
 
-        const query = `SELECT a.id as articleId, a.articleTitle
-                       FROM T_article a`;
+    const query = `SELECT a.id as articleId, a.articleTitle, c.name
+                   FROM T_article a
+                            INNER JOIN T_category c
+                   WHERE a.idCategory = c.id;`;
 
     await db_manager.getDataDB(query)
         .then(results_db => res.send(results_db))

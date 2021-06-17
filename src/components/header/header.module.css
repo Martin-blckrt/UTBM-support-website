@@ -8,6 +8,7 @@
 
 .bottomContainer {
     padding-left: 20px;
+    transition: .2s;
 }
 
 .logo {

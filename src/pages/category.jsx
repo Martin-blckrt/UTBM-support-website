@@ -23,7 +23,7 @@ export default function Category(props) {
             <div>
                 <title>Catégorie - Chargement</title>
                 <Header headerOpacity={1} boxShadowOpacity={.25}/>
-                <p>Loading data</p>
+                <p style={{fontSize: "50px", width:"100vw", textAlign:'center'}}>Chargement des articles</p>
             </div>
         )
     } else {

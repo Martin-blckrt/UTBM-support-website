@@ -4,7 +4,7 @@ import React, {useState} from "react";
 import {handleLogin, isLoggedIn} from "../utils/auth"
 import Header from "../components/header/header";
 
-import * as loginStyle from './login/login.module.css'
+import * as loginStyle from '../styles/login.module.css'
 
 
 export default function Login() {

@@ -16,9 +16,17 @@ export default function ShowArticlesinCategory(props) {
     }, []);
 
     if (!articlesList) {
+        const loadingList = [1, 2, 3, 4, 5, 6]
         return (
-            <div>
-                <p>Loading Articles</p>
+            <div className={showArticles.articlesBigContainer}>
+                {
+                    loadingList.map(() => (
+                        <a>
+                            <h2 className={showArticles.headingStyle}>Chargement...</h2>
+                            <p className={showArticles.tldrStyle}>chargement...</p>
+                        </a>
+                    ))
+                }
             </div>
         )
     } else {
@@ -26,14 +34,14 @@ export default function ShowArticlesinCategory(props) {
         return (
             <div className={showArticles.articlesBigContainer}>
                 {
-                    articlesList.map((article, index) => (
-                                <Link to={`/article/`}
-                                      state={{articleId: article.id, categoryName: props.categoryName}}
-                                      className={showArticles.articleContainer}>
+                    articlesList.map((article) => (
+                            <Link to={`/article/`}
+                                  state={{articleId: article.id, categoryName: props.categoryName}}
+                                  className={showArticles.articleContainer}>
 
-                                    <h2 className={showArticles.headingStyle}>{article.articleTitle}</h2>
-                                    <p className={showArticles.tldrStyle}>{article.tldr}</p>
-                                </Link>
+                                <h2 className={showArticles.headingStyle}>{article.articleTitle}</h2>
+                                <p className={showArticles.tldrStyle}>{article.tldr}</p>
+                            </Link>
 
                         )
                     )
