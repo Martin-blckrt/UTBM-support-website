@@ -6,6 +6,7 @@ import axios from "axios";
 import MDEditor from '@uiw/react-md-editor';
 import {TextField} from "@material-ui/core";
 import {replaceBadChar} from "../../utils/verif";
+import {navigate} from "gatsby";
 
 export default function ArticleCreatorLab(props) {
 
@@ -85,7 +86,7 @@ export default function ArticleCreatorLab(props) {
                 alert('Problème avec la modification de l\'article')
             }
         })
-
+        navigate("/privileged/admin")
 
     }
 
@@ -152,7 +153,7 @@ export default function ArticleCreatorLab(props) {
                     />
                 </div>
                 <button className={editionHomeStyle.SubmitButton} onClick={modifyArticle}>
-                    send data
+                    Modifier l'article
                 </button>
             </div>)
 

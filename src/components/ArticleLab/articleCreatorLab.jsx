@@ -6,6 +6,7 @@ import axios from "axios";
 import MDEditor from '@uiw/react-md-editor';
 import {TextField} from "@material-ui/core";
 import {replaceBadChar} from "../../utils/verif";
+import { navigate } from "gatsby"
 
 export default function ArticleCreatorLab() {
 
@@ -64,6 +65,7 @@ export default function ArticleCreatorLab() {
                 console.log(response.status)
             }
         })
+        navigate("/privileged/admin")
     }
 
     if (!categories) {
@@ -114,7 +116,7 @@ export default function ArticleCreatorLab() {
                     />
                 </div>
                 <button type="submit" onClick={createArticle}>
-                    send data
+                    Créer l'article
                 </button>
 
             </div>)
